@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+ <button id="btn">点我 点我</button>
+<script>
+  // 事件：一种浏览器页面行为 比如 点击某个元素 鼠标滑过某个元素
+
+  // 获取操作元素
+  var btn = document.querySelector('#btn');
+  // 页面中html标签 在JS中 是以对象形式存在的 {内置属性} 元素对象或者DOM对象
+  console.log(typeof btn); // "object"
+  console.dir(btn); // 查看元素的内置属性和方法
+
+  // 监听按钮点击事件
+  btn.onclick = function () { // 当点击时 就会执行这个函数
+    // 当元素被点击时 执行代码 就放在函数体里
+    alert('警告你 不要点我')
+  }
+</script>
+</body>
+</html>

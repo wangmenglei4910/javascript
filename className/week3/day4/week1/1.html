@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>变量提升</title>
+</head>
+<body>
+
+<script>
+  // 1. 定义：在js代码执行之前，作用域开辟之后，浏览器会对【当前】作用域中带var和带function的进行提前处理（声明或定义），其中对带var的只声明不定义，带function的声明+定义。
+  // 2. 变量提升（预解释）细节问题
+  //  2.1 if 条件中的不管条件成立与否都会进行变量提升
+  //  2.2 return 右边的（return指定的返回值）不会进行变量提升，return下面下面的代码虽然不会被执行，但是仍然会有变量提升。
+  // 2.3 自执行函数不会在全局作用域中进行变量提升。
+
+  function fn() {
+    return function fun() {
+      console.log('fun');
+    }
+    var a = 11;
+  }
+  fn();
+
+  (function () {
+    var a = 12;
+  })();
+
+  // 3. 带var和不带var的区别:
+  // 3.1 带var的会进行变量提升，不带var的不会进行变量提升
+  // 3.2 带var如果在全局作用域中声明，相当于给window添加了一个同名属性。如果是不带var，如果是赋值操作，就等效于给window添加一个同名属性，如果是取值，就会报错。Uncaught ReferenceError: b is not defined (未能捕获的引用错误：b 尚未定义；报错原因：引用了一个尚未声明的变量)
+  
+  // // b = 13;
+  //
+  // function g() {
+  //   // b = 14;
+  //   console.log(b);
+  // }
+  // g();
+
+  // 4. let const & var
+  // 4.1 let ES6新增关键字 用于声明变量
+  // 4.2 const ES6新增关键字 用于声明常量
+  let item = '4';
+  item = 5;
+  const each = 'abc'
+  // each = 1234; // const声明的变量如果是存储的基本数据类型的值不能被修改
+
+  // const ary = []; // xxxfff000
+  // ary.push('1');
+  // ary = []; // 用const 声明引用数据类型值，常量存储的是引用类型的地址。我们操作这个地址代表的引用数据（push/pop/）没有问题，但是如果我们修改这个地址，就会报错（Uncaught TypeError: Assignment to constant variable.：你在修改一个常量）。
+  // 4.3 let/const 和var的区别
+  // 4.3.1 let、const声明的变量不会进行变量提升
+  // 4.3.2 let、const声明的变量不可以重复声明；
+  // 4.3.3 const声明必须赋值
+  // 4.3.4 let/const 会把声明时所在的代码块变成块级作用域
+  // 4.3.5 let/const 在全局作用域下声明的变量不会向window上增加同名属性。
+  // 4.3.6 暂时性死区问题得以解决
+
+  // let aInn, bInn; // let可以只声明不赋值，const不行。
+
+  // 5. 堆内存、栈内存
+  // 堆内存（heap）：用来存储引用数据类型值的
+  // 栈内存（stack）：存储基本数据类型值；提供js代码执行的环境；
+  // 可以搜索解决问题的方案
+  // www.stackoverflow.com
+  // www.segmentfault.com
+  // 堆内存释放：将引用这块堆内存的变量（或其他，如对象属性名）指向null，待浏览器空闲时就会回收这块堆内存（chromium内核如此回收垃圾，IE采用引用计数法）。
+  // 栈内存释放：除了不释放的情况（函数执行时作用域中有一部分被函数外部占用，作用域不能被销毁），函数执行完栈内存随即释放。
+
+  var obj = {
+    num: 2,
+  };
+  obj.fn = (function () {
+    // 因为obj的fn属性占用着这个自执行函数的返回值，所以自执行函数的作用域不销毁（这块栈内存不能被释放）
+    var num = 3;
+    return function () {
+      num--;
+      this.num++;
+      console.log(num);
+    }
+  })();
+  function fum() {
+    // fum 函数执行完作用域随即被销毁，栈内存释放
+    console.log(1);
+  }
+  fum();
+
+  // 6. 作用域、作用域链
+  // 作用域：js代码执行的栈内存空间；
+  // 作用域链：变量查找机制。当我们在某一作用域中访问一个变量时，首先在当前作用域中查找，如果当前作用域中声明过该变量，就直接使用当前作用域中的，如果没有，就向当前作用的上级作用域查找，如果有就使用上级作用域中的，并停止查找，如果还没有就继续向上查找，一直找到window，如果还没有就报错 xxx is not defined；
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

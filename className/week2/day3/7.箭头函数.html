@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // ES6 特性 箭头函数
+    // function fe() {
+
+    // }
+
+    // const add = (a, b) => {
+    //   return a + b
+    // }
+
+    // 1.函数体里只有一行代码的情况下 可以省略 return 和 花括号
+    // const add2 = (a, b) => a + b
+    // console.log(add2(10, 20))
+
+    // 2.只有一个形参的时候，可以省略形参的小括号
+    // const say = msg => console.log(msg)
+
+    // 3.箭头函数中 没有arguments 实参集合
+    // args接收所有实参 是以数组形式
+    // const add = (...args) => {
+    //   console.log(args instanceof Array)
+    //   console.log(args)
+    // }
+    // add(1, 2, 3)
+
+    // ES6 剩余参数 ...变量名
+
+    // const add = (a, b, ...args) => {
+    //   console.log(a) // 1
+    //   console.log(b) // 2
+    //   console.log(args) // [3, 4, 5, 6]
+    // }
+    // add(1, 2, 3, 4, 5, 6)
+
+    // const add = (...args) => {
+    //   console.log(args)
+    // }
+    // add()
+
+    var obj = {
+      id: 1
+    }
+    const add = () => {
+      console.log(this)
+    }
+    // add.call(obj)
+    // add.call(obj)
+    // var fe = add.bind(obj)
+    // console.log(fe)
+
+    function fe() {
+      const add = () => {
+        console.log(this)
+      }
+    }
+
+    
+    // 箭头函数原理
+
+    // function fe() {
+    // var _this = this;
+
+    // var add = function add() {
+    // console.log(_this);
+    // };
+    // }
+  </script>
+</body>
+
+</html>

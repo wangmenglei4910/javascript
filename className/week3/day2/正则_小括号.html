@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 小括号分组捕获
+  // 改变优先级
+  // 分组引用
+  // let reg = /^1(\d)\1\1$/
+  // console.log(reg.test('1222')) // true
+  // console.log(reg.test('1333')) // true
+
+  // 匹配的十位和个位 相同的两位数
+  // let reg1 = /^(\d)\1$/
+  // console.log(reg1.test('11')) // true
+  // console.log(reg1.test('22')) // true
+  // console.log(reg1.test('23')) // false
+
+  // aabb bbcc
+  // let reg1 = /^([a-z])\1([a-z])\2$/
+  // console.log(reg1.test('aabb')) // true
+  // console.log(reg1.test('bbcc')) // true
+  // console.log(reg1.test('abac')) // false
+
+  // abba
+  // let reg2 = /^([a-z])([a-z])\2\1$/
+  // console.log(reg2.test('abba')) // true
+  // console.log(reg2.test('baba')) // false
+</script>
+</body>
+</html>

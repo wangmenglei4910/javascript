@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+
+
+  // ajax请求实例
+  let xhr = new XMLHttpRequest()
+
+  // 猫眼接口：https://box.maoyan.com/promovie/api/box/second.json
+  // 自己的接口：https://www.easy-mock.com/mock/5b1e1a71d4a14a3247a6cdb9/moveList
+
+  const url = 'https://www.easy-mock.com/mock/5b1e1a71d4a14a3247a6cdb9/moveList'
+
+  xhr.open('GET', url, false)
+  let data = {}
+  // 监听请求响应
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      data = JSON.parse(xhr.responseText)
+    }
+  }
+
+  xhr.send()
+
+  console.log(data)
+  console.log('hello')
+
+  // 参考页面
+  // https://piaofang.maoyan.com/?ver=normal
+  // https://piaofang.maoyan.com/dashboard
+
+  // 接口：https://www.easy-mock.com/mock/5b1e1a71d4a14a3247a6cdb9/moveList
+  // 请求方式 Get
+
+  // 接口返回形式
+  let res = {
+    success: true,
+    data: {
+      list: []
+    }
+  }
+
+  // 接口字段
+  // avgSeatView: "1.7%" // 上座率
+  // avgShowView: "2" // 场均人次
+  // boxInfo: "534.26" // 综合票房（万）
+  // boxRate: "36.0%" // 票房占比
+  // movieId: 1211727 // 电影Id
+  // movieName: "反贪风暴4" // 电影名
+  // releaseInfo: "上映5天" // 上映天数
+  // showInfo: "102932" // 排片场次
+  // showRate: "33.0%" // 拍片占比
+  // sumBoxInfo: "3.56亿" // 总票房
+</script>
+</body>
+</html>

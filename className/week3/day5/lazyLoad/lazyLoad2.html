@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>延时加载标准版</title>
+	<style>
+		p {
+			height: 1500px;
+			border: 2px solid black;
+		}
+		.box {
+			width: 236px;
+			height: 420px;
+			background-color: #ccc;
+		}
+		.box img {
+			opacity: 0; /*在图片尚未加载时设置透明度为0*/
+			/*display: none;*/ /*使用display: none; 会导致img.offsetTop为0*/
+		}
+		.box img.show {
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+<div id="box">
+	<p>这个p标签就是为了让页面有滚动条</p>
+	<div class="box" title="这里有一张图片">
+		<img data-src="./img/1.jpg"
+				 title="我是张图片"
+				 id="img">
+	</div>
+</div>
+
+<script src="js/lazy2.js"></script>
+</body>
+</html>

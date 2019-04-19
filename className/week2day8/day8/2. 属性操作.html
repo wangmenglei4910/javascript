@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>属性操作</title>
+</head>
+<body>
+<div id="box" class="box" conf="zhufeng">
+  我是一段文本
+  <p></p>
+</div>
+
+<script>
+  // 属性操作：
+  // 1. 获取属性
+  // 元素.getAttribute('属性名')
+  var box = document.querySelector('#box');
+  var conf = box.getAttribute('conf')
+  console.log(conf);
+
+  // 2. 设置属性
+  // 元素.setAttribute(属性名, 属性值);
+  box.setAttribute('handsome', 'zhangzheng');
+
+  box.setAttribute('ugly', 'mabin')
+  // 3. 删除属性
+  // 元素.removeAttribute('属性名')
+  box.removeAttribute('ugly')
+
+
+  // 节点用途示例
+  var box = document.getElementById('box')
+  box.firstElementChild.innerHTML = '你用节点关系找到我了啊';
+  box.firstElementChild.onclick = function () {
+    alert('下雨了')
+  }
+
+</script>
+</body>
+</html>

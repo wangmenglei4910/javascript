@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 函数定义
+  // fe函数名
+  // a 形参变量 接收传递进来的实参
+  function fe(a, b) {
+    // 要执行的代码
+    console.log(a)
+    a = 500
+    // arguments 每个函数都一个内置对象 实参集合
+    console.log(arguments) // [100, 400]
+
+  }
+
+  // 函数的执行 函数名()
+  // fe(100, 400); // a = 100 实参：函数执行时候传递的参数
+  // fe(200, 300); // a = 200
+
+  function fe(a) { // a = 100
+    return a // return 100
+  }
+
+  // fe(100) 让函数执行 并传递一个实参100
+  // var res1 接收函数执行后的返回结果
+  // var res1 = fe(100) // a = 100
+  // console.log(res1) // 100
+  //
+  // var res2 = fe(200) // a = 200
+  // console.log(res2) // 200
+  // console.log(typeof fe)
+</script>
+</body>
+</html>

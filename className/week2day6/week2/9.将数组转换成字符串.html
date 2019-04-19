@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // toString()
+      // join()
+      // 将数组转换成字符串
+
+      // toString()
+      // 返回值：转换后的字符串 不会影响到原数组
+      // var a = [1, 2, 3]
+
+      // var str = a.toString()
+      // console.log('返回值', str) // "1,2,3"
+
+      // join(连接符)
+      // 通过指定连接符（分隔符）将数组中每项连接成一个字符串
+
+      // var a = [1, 2, 3]
+      // console.log(a.join()) // "1,2,3" 等价于toString()
+      // console.log(a.join('+')) // "1+2+3"
+      // console.log(a.join('*')) // "1*2*3"
+
+      console.log(1 + 2 + 3); // JS让这个表达式进行运算
+      // console.log("1+2+3")
+
+      var a = [1, 2, 3, 4, 5];
+      // 对数组进行求和
+      var str = a.join("+"); // "1+2+3+4+5"
+      console.log(eval(str)); // eval("1+2+3+4+5") => 15
+
+      // eval("1*2*3*4*5")
+      console.log(eval(a.join("*"))); // 120
+
+      // eval() 相当于小型JS解释器
+      // 将字符串当做JS表达式来运行
+      // console.log(eval('1+2+3'))
+      // eval('var num = 2019')
+      // console.log('num', num) // 2019
+
+      // toString()  [1, 2].toString() => "1,2"
+      // join(分隔符) [1, 2].join('+') => "1+2"
+    </script>
+  </body>
+</html>

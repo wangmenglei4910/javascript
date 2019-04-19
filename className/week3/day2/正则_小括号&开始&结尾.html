@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 匹配的字符串 要么就是以a为开头 或者 以b为结尾
+      let reg2 = /^a|b$/ // 以a为开头 或 以b为结尾
+      console.log(reg2.test('acc')) // true
+      console.log(reg2.test('ccb')) // true
+      console.log(reg2.test('ccc')) // false
+
+      // 匹配的字符 只能是一个a或者一个b 正则当中 小括号（改变优先级）
+      let reg3 = /^(a|b)$/ // /^a$/ /^b$/
+      console.log(reg3.test('a')) // true
+      console.log(reg3.test('b')) // true
+      console.log(reg3.test('ab')) // false
+    </script>
+  </body>
+</html>

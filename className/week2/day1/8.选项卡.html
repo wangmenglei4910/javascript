@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  * {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  #box {
+    width: 600px;
+    margin: 30px auto;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    width: 50px;
+    height: 30px;
+    border: 1px solid saddlebrown;
+  }
+
+  #div {}
+
+  #div div {
+    width: 500px;
+    height: 500px;
+    border: 1px solid teal;
+    display: none;
+  }
+
+  #div div.lert {
+    display: block;
+  }
+</style>
+
+<body>
+  <div id="box">
+    <ul id="ul">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <div id="div">
+      <div class="lert">1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+  </div>
+  <script>
+    var box = document.getElementById('box')
+    var ul = document.getElementById('ul'),
+      list = ul.getElementsByTagName('li')
+    var div = document.getElementById('div'),
+      divlist = div.getElementsByTagName('div')
+
+    // 自定属性（推荐） 不会形成不销毁的栈内存
+    // 闭包或let 会形成不销毁的栈内存
+    
+    for (let i = 0; i < list.length; i++) {
+      list[i].onmouseover = function () {
+        for (var o = 0; o < divlist.length; o++) {
+          divlist[o].className = ''
+        }
+        divlist[i].className = 'lert'
+      }
+    }
+
+    // for(var i = 0 ; i < list.length ; i++){
+    //     list[i].on = i
+    //     list[i].onmouseover = function(){
+    //         for(var o = 0 ; o < divlist.length ; o++){
+    //             divlist[o].className = ''
+    //         }
+    //         divlist[this.on].className = 'lert'
+    //     }
+    // }
+  </script>
+</body>
+
+</html>

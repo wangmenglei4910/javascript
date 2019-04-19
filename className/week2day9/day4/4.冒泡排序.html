@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 当前项和后一项进行比较
+      // 如果当前项大于后一项 就交换位置
+      var arr = [29, 37, 10, 14, 4];
+
+      // 需要比较 arr.length - 1 轮
+
+      // 最初的情况 应该比较 ary.length - 1次
+      // 每一轮的时候 ary.length - 1 - 已经比较过的轮数i
+      // i = 0 第一轮比较 arr.length - 1 - 0 次 第一大 37
+
+      // i = 1 第二轮比较 arr.length - 1 - 1 次 第二大 29
+
+      // i = 2 第三轮比较 arr.length - 1 - 2 次 第三大 14
+
+      // i = 3 第四轮比较 arr.length - 1 - 3次 第四大 10
+
+      // 每一轮比较完都会得到一个最大值
+      // 比较两轮 那么在数组里 就已经有两个最大的 下一轮比较时 没必要再和这两值进行比较
+      function bubbleSort(ary) {
+          
+         // 外层循环控制比较轮数  i的值标记几轮
+         for (var i = 0; i < ary.length - 1; i++) {
+           
+           // 内层循环控制比较次数
+           for (var j = 0; j < ary.length - 1 - i; j++) {
+             // 如果当前项大于后一项交换位置
+             if (arr[j] > arr[j + 1]) {
+               // 进行交换
+                var temp = arr[j]
+                arr[j] = arr[j + 1]
+                arr[j + 1] = temp
+             }
+           }
+         }
+         return ary
+      }
+      console.log(bubbleSort(arr))
+
+      // var a = [1, 2] // => [2, 1]
+      
+      // // 临时找到的容器
+      // var temp = a[0] // 1
+      // a[0] = arr[1] // a[0] = 2
+      // arr[1] = temp // a[1] = 1
+    </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    function unique(ary) {
+      var newArr = []
+      for (var i = 0; i < ary.length; i++) {
+        var cur = ary[i]
+
+        // 如果newArr 中不存在 cur === -1 true
+        if (newArr.indexOf(cur) === -1) {
+          // 再往newArr里添加
+          newArr.push(cur)
+        }
+      }
+      return newArr
+    }
+
+    // 想给谁去重 就把谁 传递进来
+    var arr1 = [1, 1, 2, 2, 3, 3]
+    console.log(unique(arr1)) // [1, 2, 3]
+
+    var arr2 = [5, 5, 5, 8, 8, 6, 6]
+    console.log(unique(arr2)) // [5, 8, 6]
+
+  </script>
+</body>
+</html>

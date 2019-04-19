@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // JS中作用域
+    // 全局作用域
+    // 函数作用域
+    // 块级作用域
+
+    // 作用域链 变量查找机制：
+    // 当在作用域中查找一个变量的时候，
+    // 先看当前作用域中是否声明过这个变量，
+    // 如果当前作用域中没有声明过，就去上级作用域查找
+    // 一直找到window上为止（顶级作用域），
+    // 如果window上也没有就报错：xxx is not defined
+
+    // 只能向上查找
+
+    // function fe() {
+    //   var n = 100
+    // }
+    // fe()
+
+    // 在全局中查找一个叫做 n的变量
+    // console.log(n) // n is not defined
+
+
+    // function fe() {
+    //   var n = 200
+    //   return function f() {
+    //     console.log(n) // 200
+    //   }
+    // }
+    // var fn = fe()
+    // fn()
+
+    // 如何查找上级作用域
+    // 就看这个函数是在哪定义的
+
+    // var num = 100
+
+    // // fe 是在全局中定义的 所以fe上级作用域就是window
+    // function fe() { // fe 上级作用域 就是window
+    //   // var num = 200
+    //   console.log(num)
+    // }
+    // fe()
+
+    // console.log(a) // Uncaught ReferenceError: a is not defined
+
+    // function fe() {
+    //   return function f(n) { // 形参 也是 函数中的变量
+    //     console.log(n) // 100
+    //   }
+    // }
+    
+    // // 将fe执行后的返回值 赋值给fn
+    // var fn = fe()
+    // fn(100)
+
+    // 1.什么是作用域链
+    // 2.如何确定谁是上级作用域
+
+    // console.log(a) // undefined
+    // console.log(b) // undefined
+    // // var a = 100, b = 200; 声明变量简写写法
+    // var a = 100;
+    // var b = 200;
+
+
+
+
+    // console.log(a) // undefined 参加了变量提升
+    // console.log(b) // b is not defined 不参加变量提升
+    // var a = b = 200★★★★★★★  相当于var =200；b=200；b未声明；
+    // // console.log(a, b) // 200 200
+
+    // console.log(b)
+    // b = 200;
+    // var a = b;
+    
+    var n = 300
+    var obj = {
+      n: 200,
+      // fn这个属性 接收的是 自执行函数的返回值
+      fn: (function fe() { // 自执行函数自己执行
+        return function ff() {
+          console.log('n', n) // 300
+          console.log('obj.n', obj.n) // 200
+        }
+      })()
+    }
+
+    // console.log(obj.fn)
+    // obj.fn()
+    // // ff() => fe() => window
+    
+    // console.log(a) // function a() {log(2)}
+
+    // var a = function() {
+    //   console.log(1)
+    // }
+
+    // function a() {
+    //   console.log(2)
+    // }
+
+    // a() // 1
+  </script>
+</body>
+</html>

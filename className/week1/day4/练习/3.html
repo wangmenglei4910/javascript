@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  function foo() {
+    var num = 0;
+
+    function f() {
+      console.log(num += 5)
+    }
+
+    return f;
+  }
+
+  var fo1 = foo()
+  fo1();
+  fo1();
+  var fo2 = foo();
+  fo2();
+  fo1 = fo2;
+  fo1();
+</script>
+</body>
+</html>

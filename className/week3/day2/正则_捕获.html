@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 正则捕获：将匹配到的内容，捕获出来 作为返回值给我们
+    // RegExp.prototype.exec('字符内容')
+
+    // let reg = /\d/
+    // console.log(reg.test('abc2')) // true
+    // console.log(reg.exec('abc23'))
+
+    // ["2", index: 3, input: "abc23", groups: undefined]
+    // 0: "2" 捕获到内容
+    // index: 3 捕获到的起始索引位置
+    // input: "abc23"  原始字符串
+    // groups 命名匹配
+
+    // 如果捕获不到就返回null
+    // console.log(reg.exec('abc')) // null
+
+    // exec返回值
+    // 1. 捕获到情况下 返回数组 [index, input, groups]
+    // 2. 未捕获到情况下 返回null
+
+    // let reg = /\d+/
+    // reg.exec('abc123') ["1", index: 3, input: "abc123", groups: undefined]
+
+    // ["123", index: 3, input: "abc123", groups: undefined]
+    // console.log(reg.exec('abc123')) //
+
+    // exec捕获到时候有一个 懒惰性
+    // let reg = /\d+/
+    // let str = 'abc111 abc222 abc333'
+
+    // 每次调用exec捕获的时候 都是从索引0开始捕获
+    // console.log(reg.exec(str)) // ["111", index: 3, input: "abc111 abc222 abc333", groups: undefined]
+
+    // console.log(reg.exec(str)) // ["111", index: 3, input: "abc111 abc222 abc333", groups: undefined]
+
+    // console.log(reg.exec(str)) // ["111", index: 3, input: "abc111 abc222 abc333", groups: undefined]
+
+    // 取消正则的懒惰性 修饰符g (global)
+    // let reg = /\d+/g
+    // let str = 'abc111 abc222 abc333'
+
+    // // ["111", index: 3, input: "abc111 abc222 abc333", groups: undefined]
+    // console.log(reg.exec(str))
+
+    // // ["222", index: 10, input: "abc111 abc222 abc333", groups: undefined]
+    // console.log(reg.exec(str))
+
+    // // ["333", index: 17, input: "abc111 abc222 abc333", groups: undefined]
+    // console.log(reg.exec(str))
+
+    // 不加g 始终从索引0那个位置 开始匹配或者捕获
+    // 加g 从上一次匹配或捕获的结束位置 继续向后匹配或者捕获
+
+    // 如果捕获到结束边界 会从头再来
+    // let reg = /\d+/g
+    // let str = 'abc111 abc222 abc333'
+
+    // lastIndex 标记我们上一次匹配或捕获的结束的索引位置
+    // lastIndex 下一次开始匹配或捕获的起始索引位置
+    // console.log(reg.lastIndex) // 0
+    // reg.test(str)
+
+    // console.log(reg.lastIndex) // 6
+
+    // ["222", index: 10, input: "abc111 abc222 abc333", groups: undefined]
+    // console.log(reg.exec(str))
+    // console.log(reg.lastIndex) // 13
+
+    // ["333", index: 17, input: "abc111 abc222 abc333", groups: undefined]
+    // console.log(reg.exec(str))
+    // console.log(reg.lastIndex) // 20
+
+    // console.log(reg.exec(str)) // null
+    // console.log(reg.lastIndex) // 0
+
+    // ["111", index: 3, input: "abc111 abc222 abc333", groups: undefined]
+    // console.log(reg.exec(str))
+    // console.log(reg.lastIndex) // 6
+
+
+    // ["222", index: 10, input: "abc111 abc222 abc333", groups: undefined]
+    // console.log(reg.exec(str))
+
+    // console.log(reg.test(str)) // true 111
+    // console.log(reg.test(str)) // true 222
+    // console.log(reg.test(str)) // true 333
+    // console.log(reg.test(str)) // false null
+    // console.log(reg.test(str)) // true 111
+
+    // console.log(reg.exec(str)) // 111
+    // console.log(reg.exec(str)) // 222
+    // console.log(reg.exec(str)) // 333
+    // console.log(reg.exec(str)) // null
+
+    // console.log(reg.exec(str)) // 111
+
+    // let reg = /\d+/g
+    // let str = 'abc111 abc222 abc333'
+
+    // console.log(reg.lastIndex)
+    // console.log(reg.exec(str)) // 111
+
+    // 接着上一次结束位置
+    // console.log(reg.lastIndex) // 6
+    // console.log(reg.test(str)) // true 222
+
+    // console.log(reg.lastIndex)
+    // console.log(reg.test(str))
+
+    // // 接着上一次结束位置
+    // console.log(reg.lastIndex)
+    // console.log(reg.exec(str))
+
+    // let reg = /\d+/g
+
+    // console.log(reg.lastIndex) // 0
+    // [111]
+    // console.log(reg.exec('abc111 abc222 abc333'))
+
+    // console.log(reg.lastIndex) // 6
+    // [555]
+    // console.log(reg.exec('abc444 abc555 abc666'))
+    // console.log(reg.lastIndex) // 13
+
+
+    // exec
+    // let reg = /\d+/g
+    // let str = 'abc111 abc222 abc333'
+    // console.log(reg.exec(str))
+    // console.log(reg.exec(str))
+    // console.log(reg.exec(str))
+
+
+    // match
+    // String.prototype.match()
+
+    // ["111", index: 3, input: "abc111 abc222 abc333", groups: undefined]
+    // console.log(str.match('111'))
+
+    // match支持正则
+    // let reg = /\d+/
+    // let str = 'abc111 abc222 abc333'
+
+    // 不加g（取消正则懒惰性）match捕获和exec捕获的结果 是一样的
+
+    // ["111", index: 3, input: "abc111 abc222 abc333", groups: undefined]
+    // console.log(str.match(reg))
+    // console.log(str.match(reg))
+    // console.log(str.match(reg))
+
+    // ["111", index: 3, input: "abc111 abc222 abc333", groups: undefined]
+    // console.log(reg.exec(str))
+    // console.log(reg.exec(str))
+    // console.log(reg.exec(str))
+
+    // 加g 取消正则懒惰性
+    // let reg = /\d+/g
+    // let str = 'abc111 abc222 abc333'
+
+    // 加g
+    // 对于match一次性捕获完
+    // 对于exec需要连续捕获多次
+
+    // ["111", "222", "333"]
+    // console.log(str.match(reg))
+
+    // console.log(reg.exec(str)) // [111]
+    // console.log(reg.exec(str)) // [222]
+    // console.log(reg.exec(str)) // [333]
+
+
+    // exec match
+    // exec 是正则方法  RegExp.prototype.exec('字符串')
+    // match 是字符串方法 String.prototype.match('关键字|正则')
+
+    // 在用正则捕获的情况下
+    // - 不加g 没有取消正则懒惰性情况下 exec捕获的结果和match是一模一样的
+    // let reg = /\d+/
+    // let str = 'a111 b222 c333'
+    // // [111, index: 1, input: 'a111 b222 c333', groups: undefined ]
+    // console.log(reg.exec(str))
+
+    // // ["111", index: 1, input: "a111 b222 c333", groups: undefined]
+    // console.log(str.match(reg))
+
+    // - 加g 取消正则懒惰性情况下 match一次性捕获完 exec需要连续捕获多次
+
+    // let reg = /\d+/g
+    // let str = 'a111 b222 c333'
+
+    // // ["111", "222", "333"]
+    // console.log(str.match(reg))
+
+    // // ["111", index: 1, input: "a111 b222 c333", groups: undefined]
+    // console.log(reg.exec(str))
+
+    // // ["222", index: 6, input: "a111 b222 c333", groups: undefined]
+    // console.log(reg.exec(str))
+
+    // // ["333", index: 11, input: "a111 b222 c333", groups: undefined]
+    // console.log(reg.exec(str))
+
+
+    // match原理就是exec
+
+    // let reg = /\d+/igm
+    // console.dir(reg)
+    // console.log(reg.global) // true 标识这个正则是有修饰符g
+    // console.log(reg.flags) // "igm" 返回关于这个正则的所有修饰符
+    // console.log(reg.source) // "\d+" 这个正则两个斜杠之间的元字符内容
+
+  let reg = /\d+/g
+  // let str = 'a111 b222 c333'
+  let str = 'a111 b222 c333'
+   String.prototype._match = function (reg) {
+     // this当前要进行捕获的字符串
+     if (!reg.global) {
+       return reg.exec(this)
+     }
+
+     let arr = []
+     let res = reg.exec(this)
+
+     while(res !== null) {
+       arr.push(res[0])
+       res = reg.exec(this)
+     }
+     return arr.length === 0 ? null : arr
+   }
+
+   console.log(str._match(reg))
+
+
+   // ["111", index: 1, input: "a111 b222 c333", groups: undefined]
+  //  console.log(str._match(reg))
+
+   // ["111", "222", "333"]
+  //  console.log(str.match(/\d+/g))
+
+  //  let reg2 = /\d+/g
+  //  console.log(reg2.exec(str))
+  //  console.log(reg2.exec(str))
+  //  console.log(reg2.exec(str))
+  //  console.log(reg2.exec(str))
+
+
+  </script>
+</body>
+</html>

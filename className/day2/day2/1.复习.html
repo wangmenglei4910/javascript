@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+   <h3 id="title"></h3>
+  <script>
+    // 什么是变量
+    // 变量是用来存储值，可以通过变量名来获取值
+    // 如何定义一个变量
+    // var 变量名 = 值 一个等号是用来赋值的
+    var a = 1
+
+    // JS中的数据类型（我们存储的值 都有哪些类型）
+    /**
+      基本数据类型
+        Number String Boolean null undefined
+      引用数据类型
+        - 对象数据类型
+         object {}  Array [] RegExp /\d/ Date 日期 Math 数学对象
+        - 函数数据类型 function
+    */
+    
+    // '' "" `` 空字符串
+    var s = ''
+    // 这个变量是什么数据类型 主要看它的值 是什么类型的
+    typeof s // "string"
+
+    // 数据类型检测
+    // typeof
+    // instanceof
+    // constructor
+    // Object.prototype.toString.call()
+
+    typeof [] // "object"
+    typeof {} // "object"
+    typeof null // "object"
+
+    // typeof 返回值
+    // "string" "number" "boolean" "object" "function" "undefined"
+
+    typeof typeof 1 // typeof "number" => "string"
+
+    // 输出方式
+    // 作用：将内容直接输出到 body里面
+    // 语法：document.write('输出内容 字符串类型')
+
+    // 作用：将内容插入到指定元素内
+    // innerHTML/innerText
+    // 语法：元素.innerHTML = '输出的字符串内容'
+    // 语法：元素.innerText = '输出的字符串内容'
+
+    // 元素指的是页面中的某个html标签
+   
+    // 根据id名获取一个元素  id名要加引号
+    // document.getElementById('id名')
+    var ele = document.getElementById('title')
+    // ele.innerHTML = 'JS从入门到放弃'
+    
+    // console.log(ele)
+
+    // 默认情况 单词 汉字 如果不加引号 都会当做变量来解析
+    // 如果你使用的变量 没有定义过就会报错
+    // var tt = 123
+
+    // 只要你看到这样的错误 就说明你使用了一个没有定义过的变量
+    // Uncaught ReferenceError: tt is not defined at 1.复习.html:69
+    console.log(tt)
+  </script>
+</body>
+</html>

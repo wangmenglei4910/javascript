@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     function fn(n) {
+    //     n = n;
+    //     return function(a) {
+    //       a++;
+    //       console.log((n += a));
+    //     };
+    //   }
+    //   var f = fn(10);
+    //   f(1);
+    // function fn(n) {
+    //     return function(a) {
+    //       a++;     //2
+    //       n += a   //12
+    //       console.log(n);
+    //     };
+    //   }
+    //   var f = fn(10);
+    //   f(1);
+    //   f(2);
+    var num = 20;
+      var obj = {
+        num: 30,
+        fn: (function(num) {
+          this.num += 5;
+          return function() {
+            console.log(num);
+          };
+        })(num)
+      };
+
+      obj.fn(obj.num);
+
+    </script>
+</body>
+</html>

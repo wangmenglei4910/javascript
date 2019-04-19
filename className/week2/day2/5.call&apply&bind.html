@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">btn</button>
+  <h3>111</h3>
+  <h3>222</h3>
+  <h3>333</h3>
+  <h3>444</h3>
+  <script>
+    // Function.prototype 上的方法 call apply bind
+    // 供Function的实例来使用  
+    // 所有的函数数据类型都是Function的实例
+
+    // call apply bind 用来修改函数中的this
+    // console.log(Function.prototype)
+
+    // 1.事件函数中的this 绑定事件的元素对象
+    // 2.普通函数中的this, 就看函数执行的时候，前面有没有’.‘,
+    //   点前面是谁this就是谁，否则就是window
+    // 3.自执行函数中的this 是window
+    // 4.定时器中的this是window
+    // 5.全局中的this window
+    // 6.构造函数中this 当前类的实例
+    // 7.箭头函数中this 是外层作用域中的this
+
+    // 1.call  Function.prototype.call
+
+    // function fe() {
+    //   console.log('this', this)
+    // }
+    // 对象.属性名（根据原型链进行查找）
+    // fe.call === Function.prototype.call true
+
+    // 1.call(context, 实参...)
+    // 作用call方法执行时，让函数执行并且将函数里this修改call方法中第一个实参
+    // call方法中第一个实参 是指定的this
+    // call方法中从第二个实参开始 才是给这个函数传递的参数
+    // fe.call(obj, 1, 2)
+
+    // 函数.call(this, param1, param2)
+
+    // function fe(a, b) {
+    //   console.log(a, b) // 10 20
+    //   console.log('this', this) // new Number(1)
+    // }
+    // fe.call(1, 10, 20)
+
+    // null undefined 不传 this => window
+    // fe.call(null)
+    // fe.call(undefined)
+    // fe.call() 
+
+    // function fe(a, b) {
+    //   console.log(a, b)
+    //   console.log('this', this) // obj
+    // }
+
+    // 通过call方法让fe执行 并且将fe里面this修改为call中第一个参数obj
+    // const obj = {id: 1}
+    // fe.call(obj, 1, 2)
+
+    // const obj = {id: 'obj'}
+
+    // 让fe执行 并且将fe里面的this修改为obj
+    // fe.call(obj)
+    
+    // var obj = {
+    //   fe: () => {
+    //     console.log(this)
+    //   },
+    //   timer: function() {
+    //     console.log('timer', this)
+
+    //     // setTimeout(() => {
+    //     //   console.log(this)
+    //     // }, 1000)
+
+    //     setTimeout(function() {
+    //       console.log(this)
+    //     }, 1000)
+
+    //   }
+    // }
+    // obj.timer()
+
+    // obj.fe()
+
+    // btn.onclick = () => {
+    //   console.log(this)
+    // }
+
+    // 2.apply 修改函数中的this关键字
+    // Function.prototype.apply
+    // fe.apply(this对象)
+
+    // function f1() {
+    //   console.log('f1', this)
+    // }
+    // apply 让f1这个函数执行 并且将f1里面的this 修改为 obj
+    var obj = {id: 2}
+    // f1.apply(obj)
+
+    // function f1(a, b) {
+    //   console.log(a, b)
+    //   console.log('f1', this)
+    // }
+    // f1.call(obj, 10, 20)
+    // f1.apply(obj, [100, 200])
+
+    // call和apply区别
+    // 传参的时候 
+    // call方法是从第二实参开始一个一个传 
+    // f1.call(this, param1, param2)
+
+    // apply方法 把要传的参数放到一个数组里 
+    // f1.apply(this, [param1, param2])
+  
+    // const eles = document.getElementsByTagName('h3')
+    // console.log(eles) // [h3, h3, h3, h3]
+
+    // function fo(a, b, c, d) {
+    //   console.log(a, b, c, d)
+    //   console.log(arguments)
+    // }
+
+    // // 一个一个传参
+    // fo.call(null, eles[0], eles[1], eles[2], eles[3])
+
+    // // 批量传参
+    // fo.apply(null, eles)
+
+  
+   
+    // bind 修改函数中this关键字(绑定this关键字)
+    // Function.prototype.bind
+    function f(a, b, c) {
+      console.log(a, b, c)
+      console.log('ff', this)
+    }
+
+    const o1 = {name: 'o1'}
+    // 将f2中this始终绑定为o1,
+    // 同时f2中第一个实参和第二实参 始终绑定给第一个形参和第二个形参
+
+    const f2 = f.bind(o1, 100, 200)
+    f2(300) // a = 100 b = 200 c = 300
+    f2(400) // a = 100 b = 200 c = 400
+
+    // 将f中的this修改为o1 返回一个修改后的新函数
+    
+    // const o1 = {name: 'o1'}
+    // const f2 = f.bind(o1)
+    // 克隆出来的这个函数f2 中的this 被绑定为o1
+    // console.log(f2)
+    // // f2()
+    // // f2()
+    // // f2()
+    // f2.call(100)
+
+
+
+    function add(x, y, z) {
+      return x + y + z
+    }
+   console.log(add(10, 20, 30))
+
+  //  function sum(x) {
+  //    return function(y) {
+  //      return function(z) {
+  //        return x + y + z
+  //      }
+  //    }
+  //  }
+  //  console.log(sum(10)(20)(30))
+
+  // function total(x, y, z) {
+  //   return x + y + z
+  // }
+
+  // const f11 = total.bind(null, 10) // x = 10
+  // const f22 = f11.bind(null, 20) // x = 10 y = 20
+  // const f33 = f22.bind(null, 30) // x = 10 y = 20 z = 30
+  console.log(f33())
+  </script>
+</body>
+
+</html>

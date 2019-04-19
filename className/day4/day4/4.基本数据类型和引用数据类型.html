@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var a = 1
+    var b = a // a存储的值 复制一份 给b
+    // console.log(a, b) // 1 1
+    // b = 2
+    // console.log(a, b) // 1 2
+
+    // 当你创建一个引用类型的时候
+    // 浏览器创建一块内存（堆内存）xxx 来存储引用类型里的值
+    // obj1存储的是这块内存的引用地址xxx
+    // obj1 = xxx
+    var obj1 = {
+      id: 1,
+      name: 'obj'
+    }
+
+    // 将obj1存储的地址 又给了obj2一份
+    var obj2 = obj1 // obj2 = xxx
+    // 根据obj2存储的值 找到这块对象内存 将里面的name属性 修改为 'zhufeng'
+    obj2.name = 'zhufeng'
+
+    console.log(obj1.name, obj2.name) // 'zhufeng' 'zhufeng'
+
+    // 当我们 打开页面时 开始加载 执行JS代码
+    // JS引擎 对JS 解析并执行
+    // 栈内存(运行内存) 供JS代码执行的环境 存储基本数据类型 var num = 1
+    // 堆内存(存储内存) 存储引用类型的值 var obj = {id: 123}
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">随机验证码</button>
+  <script>
+    // 避免拼接重复
+    // 在每次拼接之前 先判断下这个字符 之前是否已经拼接过code
+    function randomCode(len) {
+      var len = len || 4
+      var str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      var code = ''
+      while(code.length < len) {
+        // ind每次获取的随机索引
+        var ind = Math.round(Math.random() * (str.length - 1))
+        // char每次要拼接的字符
+        var char = str[ind]
+        // 如果拼接的字符串code中 还没有这个字符char 我们再进行拼接
+        if (code.indexOf(char) === -1) {
+          code += char
+        }
+      }
+      return code
+    }
+
+    var btn = document.querySelector('#btn')
+    btn.onclick = function() {
+      this.innerHTML = randomCode()
+    }
+  </script>
+</body>
+</html>

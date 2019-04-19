@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 特殊元字符 在正则中具有特殊含义的字符 比如 . (原义：小数点)
+    // 中括号
+    // 1.中括号中部分特殊元字符 代表的是原义
+    // . 代表除了\n以外任意一个字符
+    // [+] [?] [*] [.]
+
+    // \w [a-zA-Z0-9_] 当于 [a-zA-Z\d_]
+    // let reg = /^[\d]$/ // 相当于 /^[0-9]$/
+    // console.log(reg.test('d')) // false
+    // console.log(reg.test('0')) // true
+
+    // let reg = /^\.$/
+    // let reg = /^[.]$/  // [.]只代表小数点
+    // console.log(reg.test('1')) // false
+    // console.log(reg.test('a')) // false
+    // console.log(reg.test('.')) // true
+
+    // [+] 代表一个普通加号 
+    // let reg = /^[a+]$/ // 匹配a或者+ 中的一个
+    // console.log(reg.test('a')) // true
+    // console.log(reg.test('+')) // true
+    // console.log(reg.test('aaa'))
+
+    // 2.中括号中不能识别多位数
+    // let reg = /^[183]$/ // 1或者8或者3中 任意一个数字
+    // console.log(reg.test('1')) // true
+    // console.log(reg.test('183')) // false
+
+    // 只能匹配183
+    // let reg = /^183$/
+    // console.log(reg.test('183')) // true
+    // console.log(reg.test('18')) // false
+    // console.log(reg.test('1')) // false
+
+    // 3.中括号限制范围 [a-z] [0-9]
+    // let reg = /^[23-68]$/
+    // // 2 或者 [3-6] 或者 8
+    // console.log(reg.test('24')) // false
+    // console.log(reg.test('66')) // false
+    // console.log(reg.test('9')) // false
+    // console.log(reg.test('2'))
+    // console.log(reg.test('4'))
+    // console.log(reg.test('6'))
+    // console.log(reg.test('8'))
+
+    // let reg = /^[110-223]$/
+    // console.log(reg.test('0'))
+    // console.log(reg.test('1'))
+    // console.log(reg.test('2'))
+    // console.log(reg.test('3'))
+
+    // 只匹配23-68中的两位数
+    // let reg = /^23-68$/
+    // console.log(reg.test('23-68'))
+    
+    // 23-29  2[3-9]
+    // 30-59  [3-5]\d
+    // 60-68  6[0-8]
+
+    // let reg = /^(2[3-9])$/ // 23-29
+    // let reg = /^(2[3-9]|[3-5]\d)$/ // 23-59
+
+    let reg = /^(2[3-9]|[3-5]\d|6[0-8])$/ // 23-68
+    console.log(reg.test('22'))
+    console.log(reg.test('23'))
+    console.log(reg.test('39'))
+    console.log(reg.test('59'))
+    console.log(reg.test('60'))
+    console.log(reg.test('69'))
+  </script>
+</body>
+</html>

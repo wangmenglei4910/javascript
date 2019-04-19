@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+  </ul>
+  <script>
+    var list = document.querySelectorAll('ul>li')
+    // list [li, li, li]
+
+    // 封装了一个将类数组转换成数组方法 
+    function likeToAry(args) {
+      try {
+        console.log('第一种方案')
+        console.log(abc)
+        // 第一种方案
+        return [].slice.call(args)
+
+      } catch(e) {
+        console.log(e)
+        console.log('第二种方案')
+        // 第二种方案
+        var arr = []
+        for (var i = 0; i < args.length; i++) {
+          arr.push(args[i])
+        }
+        return arr
+      }
+    }
+    
+    var arr = likeToAry(list)
+
+    // console.log(arr)
+
+    // [].slice IE低版本不支持 会报错
+
+    // JS代码中 前面代码报错 后面的代码就都不会执行了
+
+    // 处理代码异常 try{}catch{}
+
+    
+    // try {
+    //   // 第一种方案
+    //   console.log(abc)
+    // } catch(e) {
+    //   // 第二种方案
+    //   console.log(456)
+    // }
+
+    // console.log('end hello')
+
+    // try {
+      
+    // } catch(e) {
+    //   // 只有try里面代码报错才会执行catch里的代码
+    // }
+    
+    // try{
+    //   // 有可能报错的代码
+    //   console.log(abc)
+    //   console.log(111)
+    // } catch(e) { // e 错误信息对象 
+    //   // 只有try里面代码报错才会执行catch里面代码
+    //   // 并且将错误信息 捕获到
+    //   console.log('错误信息', e)
+    // }
+    
+    // console.log('hello world!')
+  </script>
+</body>
+</html>

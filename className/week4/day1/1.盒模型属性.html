@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      position: absolute
+    }
+  </style>
+</head>
+<body>
+  <div class="box">123</div>
+  <script>
+    // client
+    // clientWidth 内容宽度+左右padding
+    // clientHeight 内容高度+上下padding
+    // clientLeft 左边框
+    // clientTop 上边框
+
+    // offset
+    // offsetWidth clientWidth（内容宽度+左右padding） + 左右边框
+    // offsetHeight clientHeight（内容高度+上下padding） + 上下边框
+
+    // 偏移值: 当前元素距离父级参照物的左边或上边距离
+    // offsetLeft 当前元素左边框距离父级参照物 左边的距离
+    // offsetTop 当前元素上边框距离父级参照物 上边的距离
+    // offsetParent 父级参照物 默认都是body（position：absolute/relative/fixed）
+  
+    // scroll
+    // scrollTop: 纵向滚动条滚动距离
+    // scrolLeft：横向滚动条滚动距离
+  
+    // scrollHeight: clientHeight + scrollTop（最大值）
+    // scrollWidth: clientWidth + scrollLeft（最大值）
+    // 内容没有溢出的情况下
+    // scrollHeight: clientHeight
+    // scrollWidth: clientWidth
+
+    // 获取浏览器窗口宽度和高度
+    document.documentElement.clientWidth || document.body.clientWidth
+    document.documentElement.clientHeight || document.body.clientHeight
+
+    // 获取浏览器窗口盒模型属性
+    function win(attr, val) {
+      if (typeof val === 'undefined') {
+        return document.documentElement[attr] || document.body[attr]
+      }
+      document.documentElement[attr] = val
+      document.body[attr] = val
+    }
+    win("scrollTop", val)
+
+    // 获取当前元素距离body 左偏移或上偏移
+
+    function offset(ele) {
+      let left = ele.offsetLeft
+      let top = ele.offsetTop
+      let parent = ele.offsetParent
+      while(parent && parent.nodeName.toLowercase() !== 'body') {
+        left += parent.offsetLeft
+        top += parent.offsetTop
+        parent = parent.offsetParent
+      }
+      return { left, top }
+    }
+    offset(ele)
+  </script>
+</body>
+</html>

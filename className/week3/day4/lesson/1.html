@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // function fn(n) {
+  //   // fn(10) n = 10 12 15
+  //   return function (a) {
+  //     // f(1) a = 1 2
+  //     // f(2) a = 2 3
+  //     a++;
+  //     n += a;
+  //     console.log(n);
+  //   };
+  // }
+  //
+  // var f = fn(10);
+  // f(1); // 12
+  // f(2); // 15
+
+  // /////////////////////////////////
+  // function fn(n) {
+  //   // fn(10) n = 10 12
+  //   n = n;
+  //   return function (a) {
+  //     // f(1) a = 1 2
+  //     a++;
+  //     console.log((n += a));
+  //   };
+  // }
+  //
+  // var f = fn(10);
+  // f(1); // 12
+
+
+  // ///////////////////////////
+  // var num = 20;
+  // var obj = {
+  //   num: 30,
+  //   fn: (function (num) {
+  //     // num = 20 25
+  //     num += 5;
+  //     return function () {
+  //       // obj.fn(20)
+  //       console.log(num);
+  //     };
+  //   })(num)
+  // };
+  // obj.fn(num); // 25
+  //
+  /////////////////////////////////
+  function fun(n, o) {
+    // fun(0) n 0
+    // fun(0) o undefined
+
+    // fun(1, 0) n 1
+    // fun(1, 0) o 0
+
+    // c.fun(2) n 2 销毁
+    // c.fun(2) o 1 销毁
+
+    // c.fun(3) n 3 销毁
+    // c.fun(3) o 1 销毁
+    console.log(o);
+    return {
+      fun: function (m) {
+        // fun(0).fun(1) m = 1
+        // c.fun(2) m = 2
+        // c.fun(3) m = 3
+        return fun(m, n);
+        // fun(0).fun(1) => fun(1, 0)
+        // c.fun(2) => fun(2, 1)
+        // c.fun(3) => fun(3, 1)
+      }
+    };
+  }
+
+  var c = fun(0).fun(1); // undefined 0
+  c.fun(2); // 1
+  c.fun(3); // 1
+
+</script>
+</body>
+</html>

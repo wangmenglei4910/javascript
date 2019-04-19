@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 正则分组捕获
+  // let reg = /hello(\d+)/g
+  // let str = 'hello2018 abc111 hello2019 abc222'
+
+  // ["hello2018", index: 0, input: "hello2018 abc111 hello2019 abc222", groups: undefined]
+  // console.log(reg.exec(str))
+
+  // 数组返回第一项 始终是整个大正则捕获到的内容 如果有分组话 从第二项开始依次排列
+  // ["hello2018", "2018"]
+  // ["大正则捕获内容", "分组1内容", "分组2内容"]
+  // console.log(reg.exec(str)[0]) // "hello2018"
+  // console.log(reg.exec(str)[1]) // "2018"
+
+  // console.log(reg.exec(str)) // ["hello2018", "2018"]
+  // console.log(reg.exec(str)) // ["hello2019", "2019"]
+
+  // let reg = /(hello)(\d+)/
+  // let str = 'hello2018 abc111 hello2019 abc222'
+  // console.log(reg.exec(str)) // ["hello2018", "hello", "2018"]
+
+  // console.log(str.match(reg)); // ["hello2018", "hello", "2018"]
+
+  // 如果加g （取消正则的懒惰性）match不能捕获分组内容
+  // let reg = /(hello)(\d+)/g
+  // let str = 'hello2018 abc111 hello2019 abc222'
+  // console.log(str.match(reg)); // ["hello2018", "hello2019"]
+  //
+  // console.log(reg.exec(str)) // ["hello2018", "hello", "2018"]
+  // console.log(reg.exec(str)) // ["hello2019", "hello", "2019"]
+
+
+  // (?:\d+) 只匹配不进行分组捕获
+  // 在这种场景下 用小括号只想改变优先级 不想进行分组捕获(?:取消分组捕获)
+  // let reg = /^(?:start|end)$/
+
+  // ["start", "start"]
+  // console.log(reg.exec('start'))
+  // console.log(reg.exec('end'))
+
+  // hello wenli 100
+  // hello linxing 1000
+  // let reg = /^hello\s(wenli|linxing)$/
+
+  // ["hello linxing", "linxing"]
+  // console.log(reg.exec('hello linxing'))
+
+  // hello wenli 1
+  // hello linxing 1
+  // let reg = /^hello\s(?:wenli|linxing)$/
+
+  // console.log(reg.exec('hello linxing'))
+  // console.log(reg.exec('hello wenli'))
+
+  // ? 出现0到1次 可有可无
+  // (?:) 取消分组捕获
+  // ?取消正则贪婪性
+  // ?=正向预查
+  // ?!负向预查
+
+</script>
+</body>
+</html>

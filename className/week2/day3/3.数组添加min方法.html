@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const arr = [9, 1, 7, 10, 30, 6]
+    const arr2 = [19, 11, 17, 10, 30, 6]
+    // 数组中最大值和最小值
+    // Math.min(...arr)
+    // Math.max(...arr)
+
+    // 实质我们的那些数组方法 在内部操作都是当前方法中的this
+    // arr.push() // push方法中this arr
+    // arr2.push() // push方法中this arr2 
+
+    // 想在 Array（数组类）的原型添加一个 供数组实例来使用的min max方法
+    Array.prototype._min = function() {
+      return Math.min(...this)
+    }
+
+    console.log(arr instanceof Array)
+    arr._min() // this => arr
+    arr2._min() // this => arr2
+
+    // Array.prototype._max 获取数组中最大值
+    Array.prototype._max = function () {
+      return Math.max(...this)
+    }
+
+    arr._max()
+    arr2._max()
+
+
+    // push
+
+    // arr.push(100) // this[arr.length] = 100
+    // Array.prototype._push = function(a) {
+    //   this[arr.length] = a
+    // }
+
+
+  </script>
+</body>
+</html>

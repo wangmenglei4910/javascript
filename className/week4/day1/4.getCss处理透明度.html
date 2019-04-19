@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .box {
+      width: 100px;
+      height: 200px;
+      border: 2px solid pink;
+      background: red;
+      color: #ffffff;
+      margin: 30px auto;
+      /* IE6-8不支持 */
+      opacity: .5;
+      /* IE6-8支持 */
+      filter: alpha(opacity=50);
+      /* filter: grayscale(100%); */
+      /* filter: blur(22px); */
+    }
+  </style>
+</head>
+<body>
+  <div id="box" class="box">我是box</div>
+  <script>
+    var box = document.getElementById('box')
+
+    function getCss(ele, attr) {
+      var val = ''
+      if (window.getComputedStyle) {
+        val = window.getComputedStyle(ele, null)[attr]
+      } else {
+        if (attr === "opacity") {
+          // "alpha(opacity=10)"
+          val = ele.currentStyle['filter']
+          var reg = /alpha\(opacity=(.+)\)/
+          val = reg.test(val) ? reg.exec(val)[1] / 100 : 1
+        } else {
+          val = ele.currentStyle[attr]
+        }
+      }
+      return val
+    }
+    console.log(getCss(box, 'opacity'))
+   
+    // let reg = /^alpha\(opacity=(.+)\)$/
+    // let val = window.getComputedStyle(box, null).filter
+    // console.log(val)// "blur(22px)"
+    // console.log(reg.exec('alpha(opacity=10)')[1]) // null[1]
+    // console.log(reg.exec(val)[1]) // null[1]
+   
+
+
+    // var getCss = function (ele, attr) {
+    //   var val = ''
+    //   if (window.getComputedStyle) { // 标准浏览器
+    //     val = window.getComputedStyle(ele, null)[attr]
+    //   } else { // IE6 - 8
+    //     if (attr === 'opacity') {
+    //       // "alpha(opacity=10)" 10
+    //       var reg = /alpha\(opacity=(.+)\)/;
+    //       val = ele.currentStyle['filter']
+    //       val = reg.test(val) ? reg.exec(val)[1] / 100 : 1
+    //     } else {
+    //       val = ele.currentStyle[attr]
+    //     }
+    //   }
+    //   return val
+    // }
+    // console.log(getCss(box, 'opacity'))
+
+  </script>
+</body>
+</html>

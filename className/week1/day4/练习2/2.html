@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  function fn1() {
+    console.log(this === ary);
+  }
+
+  function fn2() {
+    console.log(this);
+  }
+
+  function fn3() {
+  }
+
+  function fn4() {
+  }
+
+  var ary = [fn1, fn2, fn3, fn4];
+  ary[1](); // ary.1() ary
+
+  var arry = ary[1];
+  var arry = function fn2() {
+    console.log(this);
+  };
+ arry(); // window
+</script>
+</body>
+</html>

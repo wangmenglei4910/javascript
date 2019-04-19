@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+  // 变量提升 把变量声明 提升到作用域最顶端
+  // 函数定义 发生在变量提升阶段 
+  // 如果多次 定义同一个函数 会以最后一个为准。 
+  function fe() {
+    console.log(3)
+  }
+    
+  console.log(fe)
+
+  // in 检测一个属性是否属于这个对象
+
+  var obj = {id: 1}
+
+  // 检测obj这个对象里 是否存在 id这个属性
+  console.log('id' in obj)
+  console.log('name' in obj)
+
+  // for (var key in obj) {
+
+  // }
+
+  // 当var一个全局变量时，同时也会给window对象添加一个全局属性
+  var h = 11 
+
+  // window 全局对象
+
+  "alert" in window
+
+  // function fe() {
+  //   console.log(h)
+  //   var n = 123
+  // }
+
+  // // console.log(n)
+
+  // window.fe()
+  // fe()
+  // 作用域链 
+
+  function fe() {
+
+    function ff() {
+
+    }
+    console.dir(ff)
+  }
+  fe()
+  console.dir(fe)
+  // ff => fe => window
+
+  
+
+
+
+
+  </script>
+</body>
+</html>

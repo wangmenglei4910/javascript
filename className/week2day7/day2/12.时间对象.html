@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h3 id="time"></h3>
+    <script>
+      // 创建一个当前时间对象
+      var now = new Date();
+      // console.log(now)
+      // 获取日期 几号
+      console.log(now.getDate()); // 19号
+
+      // 获取星期几
+      console.log(now.getDay()); // 周2  0代表周日
+
+      // 获取月份
+      console.log(now.getMonth()); // 2月  0代表1月 11代表12月 比正常月份少1
+
+      // 获取年份
+      console.log(now.getFullYear());
+
+      // 获取小时
+      console.log(now.getHours());
+
+      // 获取分钟
+      console.log(now.getMinutes());
+
+      // 获取秒数
+      console.log(now.getSeconds());
+
+      // 获取毫秒数
+      console.log(now.getMilliseconds());
+
+      // 获取距离1970毫秒数
+      console.log(now.getTime());
+
+      var time = document.getElementById("time");
+
+      setInterval(function() {
+        var now = new Date();
+        time.innerHTML = `${now.getFullYear()}年 ${now.getMonth() +
+        1}月 ${now.getDate()}日 ${now.getHours()} 时 ${now.getMinutes()}分 ${now.getSeconds()}秒`;
+      }, 1000)
+    </script>
+  </body>
+</html>

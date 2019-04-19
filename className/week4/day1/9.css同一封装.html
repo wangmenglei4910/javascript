@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box">我是个div</div>
+    <script src="./utils.js"></script>
+    <script>
+      const { getCss, setCssBatch, setCss } = window._utils
+
+      // JS中的重载 根据参数类型不同 做不同的处理
+      function css(ele, param, val) {
+        // 第二参数是对象 说明是批量设置
+        if (typeof param === 'object') {
+          setCssBatch(ele, param)
+        }
+
+        // 第二个参数是字符串 并且没有第三个参数 说明获取css
+        if (typeof param === 'string' && typeof val === 'undefined') {
+          return getCss(ele, param)
+        }
+
+        // 说明是单独设置样式
+        if (typeof val !== 'undefined') {
+          setCss(ele, param, val)
+        }
+      }
+
+      // 第二个参数 是一个对象 说明是批量设置样式setCssBtch
+      css(box, {
+        width: 100,
+        height: 100,
+        background: 'red'
+      })
+
+      // 第二个参数 是一个字符串 说明是获取样式
+      // css(box, 'width')
+
+      // css(box, 'width', '100px')
+
+
+    </script>
+  </body>
+</html>

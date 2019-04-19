@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    ul li {
+      list-style: none;
+    }
+
+
+    .box li {
+      color: #ffffff;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .box li:nth-child(odd) {
+      background-color: red;
+    }
+    .box li:nth-child(even) {
+      background-color: green;
+    }
+
+    .box {
+      display: flex;
+    }
+
+    .box li {
+      flex: 1;
+    }
+
+    /* 划分为3等份 */
+    /*.item1 {*/
+    /*  flex: 1;*/
+    /*}*/
+
+    /*.item2 {*/
+    /*  flex: 2;*/
+    /*}*/
+
+
+    /* 子元素占用剩余空间 */
+    /*.box li {*/
+    /*  flex: 1;*/
+    /*}*/
+
+    /*.box li.item3 {*/
+    /*  flex: 2;*/
+    /*}*/
+
+    /*.box li {*/
+    /*  float: left;*/
+    /*}*/
+
+  </style>
+</head>
+<body>
+
+<ul class="box">
+  <li class="item1">item1</li>
+  <li class="item2">item2</li>
+  <li class="item3">item3</li>
+  <li>item4</li>
+  <li>item5</li>
+</ul>
+
+<!-- float -->
+<!--<style>-->
+<!--  .box {-->
+<!--    overflow: hidden;-->
+<!--  }-->
+<!--  .box li {-->
+<!--    width: 20%;-->
+<!--    float: left;-->
+<!--  }-->
+<!--</style>-->
+<!--<ul class="box">-->
+<!--  <li>item1</li>-->
+<!--  <li>item2</li>-->
+<!--  <li>item3</li>-->
+<!--  <li>item4</li>-->
+<!--  <li>item5</li>-->
+<!--</ul>-->
+</body>
+</html>

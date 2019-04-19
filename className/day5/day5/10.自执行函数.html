@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+
+    function fe() {
+      console.log('fe')
+    }
+    // 普通的函数 在我们需要的时候 自己调用
+    // fe()
+    // fe()
+    // fe()
+    console.log('line 19')
+
+    // 函数表达式之自执行函数
+    // 代码执行到这一行 就自动执行了
+    // ;(function () {
+    //   console.log('自执行函数')
+    // })();
+
+
+    console.log('line 25');
+
+    // 定义一个变量res 接收自执行函数的返回值
+    var res = (function (a, b) {
+      // console.log(a, b);
+      // console.log(arguments);
+      return a + b
+    })(100, 200);
+    console.log(res)
+
+   // 其他写法
+  !function () {
+    console.log('自执行1')
+  }();
+
+  ~function () {
+    console.log('自执行2')
+  }();
+
+  +function () {
+    console.log('自执行3')
+  }();
+
+  -function () {
+    console.log('自执行4')
+  }()
+
+  // 定义函数的两种方式
+  // 1.函数声明  函数可以 在定义之前执行
+  fe(); // 手动调用执行
+  function fe() {}
+
+  // 2.函数表达式  只能在函数定义后执行
+  var fn = function () {};
+  fn()
+
+  // 函数表达式之自执行函数（立即执行函数）
+  ;(function () { // 代码执行到这一行就自己执行了
+        console.log('自执行函数')
+  })()
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 函数接收实参（传递进来的参数）
+      // 1.形参
+      // 2.arguments 实参集合
+
+      function sum() {
+        var total = 0;
+        for (var i = 0; i < arguments.length; i++) {
+          var num = Number(arguments[i]);
+
+          // 只有数字才能 成功进入到这个条件里
+          if (!isNaN(num)) {
+            // 只要是数字 就进行累加
+            total += num;
+          }
+        }
+        return total;
+      }
+      var a = sum(1, 2, NaN, 3, "AAA", '10');
+      console.log(a);
+
+      // 当你传递进来的实参 个数不一定的时候 或者很多时候 一般用arguments
+      // 把传递进来的实参 进行累加求和
+      // function sum() {
+      //   // 用来累加每次取出来的实参
+      //   var total = 0
+
+      //   // 把实参集合中每一项一次取出来
+      //   for (var i = 0; i < arguments.length; i++) {
+      //     // 在total原来的基础上 累加 arguments[i]
+      //     total += arguments[i]
+      //   }
+      //   return total
+      // }
+
+      // console.log(sum(1, 2, 3, 10, 50, 60))
+      // console.log(sum(10, 50, 60))
+      // console.log(sum(3, 10, 50, 60))
+      // console.log(sum(1, 2, 3, 60))
+
+      // 我们传递进来求和的参数 是不定项
+      // var res1 = sum(10, 20, 30)
+      // console.log('返回值', res1)
+
+      // function sum() {
+      //   var total = 0;
+      //   for (var i = 0; i < arguments.length; i++) {
+
+      //     // 先将每次取出来的值 转换为数字
+      //     var num = Number(arguments[i]);
+
+      //     // isNaN 检测一个值是不是NaN
+      //     // 如果是NaN 返回true 不累加
+      //     // 如果不是NaN 返回false 累加
+      //     if (!isNaN(num)) { // !isNaN(1) => !false => true
+      //       // 将每次循环出来的值 累加到 total自身保存起来
+      //       total += num;
+      //     }
+
+      //     // 0 + 1
+      //     // 1 + 2
+      //     // 3 + 3
+      //     // 6 + 'AAA'
+      //     // '6AAA'
+      //   }
+      //   return total;
+      // }
+      // var a = sum(1, 2, NaN, 3, "AAA");
+      // console.log(a);
+
+      // var b = sum(7, 8, 9)
+      // console.log(b)
+
+      function sum() {
+        var total = 0
+        for (var i = 0; i < arguments.length; i++) {
+          // 先将实参转化为数字类型（正数 小数 负数 0 NaN）
+           var num = Number(arguments[i])
+
+           // 如果不是NaN 就进行累加
+           if (!isNaN(num)) {
+             total += num
+           }
+        }
+        return total
+      }
+      console.log(sum(1, 2, 'aaa', NaN, undefined))
+    </script>
+  </body>
+</html>

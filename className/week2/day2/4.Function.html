@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log(Function instanceof Function)
+
+    // 函数的三种角色
+
+    // function
+    // 1.作为一个普通函数执行（形参 实参 arguments 返回值）
+    // 2.函数作为一个类（new Fn 构造函数模式执行）
+    // 3.函数也是一个对象（添加属性 自身也有私有属性）
+
+    // 1.普通函数 
+    // function fe(a, b) {
+    //   // var c = undefined
+    //   console.log('fe', a, b)
+    //   // console.log(arguments) // 实参集合
+    //   return a + b
+    // }
+    // console.log(fe(1, 2))
+    // 形成一个私有作用域
+    // 形参赋值 变量提升
+    // 函数体代码从上到下执行
+    // 如果有return 返回值
+
+    // 2.作为类 (函数)
+    // (1) 类.prototype 可以在类的原型上 保存一些公有的属性和方法
+    // (2) new 操作符 可以让类 生成一个实例对象（__proto__），
+    // 同时也可以给这个实例对象添加一些私有属性和方法
+
+    function Fn(n) {
+      var num = 123
+      // 生成一个实例对象（this）
+      // 给这里实例的添加一个xxx的属性
+      this.xxx = 100
+    }
+    const f = new Fn(1)
+    console.log(f)
+    // new 类 形成一个私有作用域
+    // 形参赋值 变量提升
+    // 创建这个类的一个实例 并且用this表示
+    // 代码从上到下执行 this.xxx = value 给当前实例添加私有属性
+    // 执行完 默认将 实例对象（this） return到外面
+
+    // 3.作为一个普通对象 (所有对象数据类型都是Object的一个实例)
+    function fe(a, b) {}
+
+    // {name: 'fe', length: 0, __proto__: Function.prototype  }
+    console.dir(fe)
+    // 作为一个普通对象 查找length属性
+    console.log(fe.length) // 2 形参个数
+    console.log(fe.name) // "fe" 函数名
+
+    console.log(fe instanceof Object) // true
+
+    // 把函数当做对象来使用 添加私有属性和方法
+    fe.age = 10
+    fe.title = 'hello'
+
+    console.log(fe.age)
+    console.log(fe.title)
+
+    // 函数对象自身的属性，只能通过函数自身来调用 fe.title
+
+    // 把Array这个函数当做普通对象 在自身添加的一些私有属性
+    // Array.isArray() // 检测一个值 是不是数组
+    // Array.isArray(1) // false
+    // Array.isArray([1, 2, 3]) // true
+
+    // var arr = [1, 2, 3]
+    // arr.isArray()
+
+    // 公有属性（原型属性）
+    // 私有属性（静态属性）
+
+    function Foo() {}
+    // say就是一个静态属性（只能通过对象自身来使用）
+    Foo.say = 'hello static'
+
+    console.log(Foo.say)
+
+    // 函数式编程 柯理化函数 高阶函数 闭包
+
+    // 三种角色
+    function Per() {
+      // 私有变量
+      var num = 100
+
+      // 私有属性
+      this.xxx = 'xxx'
+
+      return num
+    }
+
+    // 当做类
+    Per.prototype.title = '原型属性'
+
+    // 当做普通对象
+    Per.say = 'hello world!'
+
+    const per = new Per()
+    console.log(per.xxx)
+    console.log(per.title)
+
+    console.log(Per.say)
+
+
+    // function add(x, y) {
+    //   return x + y
+    // }
+    // console.log(add(1, 2))
+
+    // function sum(x) { // x = 1
+    //   return function(y) {
+    //     return x + y
+    //   }
+    // }
+    // // sum(1) 返回值：ƒ (y) { return x + y }
+    // sum(1)(2) // return 1 + 2
+
+    // function sum(x) {
+    //   return function (y) {
+    //     return function (z) {
+    //       return x + y + z
+    //     }
+    //   }
+    // }
+    // console.log(sum(1)(2)(3)) // 6
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<!--<div id="box">box box</div>-->
+<div id="box">
+  <div id="box1">box1 box1</div>
+  <div id="box2">box2 box2</div>
+  <div id="box3">box3 box3</div>
+  <div id="box4">box4 box4</div>
+  <div id="box5">box4 box4</div>
+  <div id="box6">box4 box4</div>
+  <div id="box7">box4 box4</div>
+</div>
+<script>
+  // var box1 = document.getElementById('box1');
+  // var box2 = document.getElementById('box2');
+  // var box3 = document.getElementById('box3');
+  // var box4 = document.getElementById('box4');
+
+  // 根据选择器获取所有元素
+  var list = document.querySelectorAll('#box>div');
+  console.log(list); // [div, div, div, div]
+
+  // 需要把它们从集合中依次取出来 绑定点击事件
+  // for循环绑定点击事件
+  for (var i = 0; i < list.length; i++) {
+      // i = 0  list[0] => list[0].onclick = function () {console.log(this)}
+      // i = 1  list[1] => list[1].onclick = function () {console.log(this)}
+      // i = 2  list[2] => list[2].onclick = function () {console.log(this)}
+    list[i].onclick = function () {
+      console.log('this', this)
+    };
+    console.log(i)
+  }
+  // 其实for循环 也是 一个一个给每个元素 绑定点击事件
+  
+  // list[0].onclick = function () {
+  //   console.log(this)
+  // }
+  //
+  // list[1].onclick = function () {
+  //   console.log(this)
+  // }
+
+
+  // box1.myId = '130';
+  // box2.myId = '131';
+  // box3.myId = '133';
+  //
+  // box1.onclick = function () {
+  //   alert(this.myId)
+  // };
+  //
+  // box2.onclick = function () {
+  //   alert(this.myId)
+  // };
+  //
+  // box3.onclick = function () {
+  //   alert(this.myId)
+  // };
+  //
+  // box4.onclick = function () {
+  //
+  // }
+
+</script>
+</body>
+</html>

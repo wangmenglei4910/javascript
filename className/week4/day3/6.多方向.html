@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      opacity: 0;
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="box" class="box"></div>
+  <script src="./utils.js"></script>
+  <script>
+    const { css } = window._utils
+    const box = document.getElementById('box')
+
+    // 过渡时间
+    const duration = 2000
+
+    // 目标值
+    const targetLeft = 500
+    const targetTop = 600
+
+    // 起始值
+    const beginLeft = css(box, 'left')
+    const beginTop = css(box, 'top')
+
+    // 总移动距离
+    const changeLeft = targetLeft - beginLeft
+    const changeTop = targetTop - beginTop
+
+    // 记录时间
+    let time = 0
+    const interval = 10
+
+    const timerID = setInterval(() => {
+      time += interval
+
+      // 动画结束判断
+      if (time >= duration) {
+        console.log(time)
+        css(box, {
+          left: targetLeft,
+          top: targetTop
+        })
+        clearInterval(timerID)
+        return;
+      }
+
+      // 根据当前时间 计算出 当前的left值和top值
+      let curLeft = linear(time, beginLeft, changeLeft, duration)
+      let curTop = linear(time, beginTop, changeTop, duration)
+
+      css(box, {
+        left: curLeft,
+        top: curTop
+      })
+    }, interval)
+
+
+    /** 匀速运动公式
+      * @param t 当前时间
+      * @param b 起始位置
+      * @param c 总移动距离
+      * @param d 总时间
+      * @return 当前所在的位置
+     */
+    function linear(t, b, c, d) {
+       return t * (c / d) + b
+     }
+  </script>
+</body>
+</html>

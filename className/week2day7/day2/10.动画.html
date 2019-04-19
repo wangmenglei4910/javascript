@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    #box {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: red;
+      transition: 1s all linear;
+      -webkit-transition: 1s all linear;
+      /* position: absolute;
+      top: 0;
+      left: 0; */
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <script>
+    var box = document.getElementById('box')
+    var trans = 0
+    
+    var timeID = setInterval(function() {
+      trans += 500
+      box.style.transform = `translate(${trans}px, ${trans}px)`
+    }, 5000)
+
+    box.onclick = function() {
+      clearInterval(timeID)
+    }
+
+    // var left = 0
+    // setInterval(function() {
+    //   left += 10
+    //   console.log(left)
+    //   box.style.left = `${left}px`
+    // }, 50)
+  </script>
+</body>
+</html>

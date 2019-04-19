@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>复习</title>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+  // this
+  // 1. 事件函数中的this 指向绑定该事件的元素
+  // 2. 自执行函数中的this是window
+  // 3. setTimeout、setInterval中的this指向window
+  setTimeout(function () {
+    console.log(this);
+  }, 100)
+  // 4. 方法（函数）执行时，看方法名前是不是有 . 点前面是谁this就指向谁，没有点就是window
+  // 5. 构造函数中的this指向当前构造函数的实例
+  // 6. 全局中的this是window
+  var key = 15;
+  (function (k) {})(this.key);
+  // 7. 箭头函数中的this指向当前箭头函数声明时所在作用域中的this
+  var arrow = (a, b) => {
+    console.log(this);
+  }
+  var obj = {
+    num: 12,
+    fn: function () {
+      // this
+      // this
+      var num = 13;
+      return () => {
+        console.log(this.num);
+      }
+    }
+  }
+  var fn = obj.fn
+  fn();//
+  obj.fn(); //
+
+  // 8. this 一旦被函数包裹，this的指向就需要重新判断
+  console.log(this);
+  function funny() {
+    console.log(this);
+  }
+  var obj = {
+    fun: funny
+  }
+
+  // 对象：js中万物皆对象，封装属性、方法描述事物或者供调取
+  // 类：根据事物的特性、属性描述一类事物，人类 植物类
+  // 实例：类当中的一个具体的实例，我 就是人类的一个实例，每个实例都具有这个类所有的属性和特性
+  // 讲义更正：Math 是 js中的一个内置对象，不是一个类（function） （单体内置对象）
+  var reg = new RegExp('.', 'g');
+  var ary = new Array(5);
+  console.log(typeof Array);
+  console.log(typeof RegExp);
+
+  // 单例模式
+  // 单例模式就是将描述同一事物的特性和属性放在一个对象中，这个对象的名字就是命名空间。
+  // 作用：全局变量在全局下会互相影响、覆盖。原理：就是每个对象都是一个单独的对内存空间，所以不会互相影响。
+  var obj = {
+    name: '肖泽辉',
+    age: '59'
+  };
+  var obj2 = {
+    name: '雷舒雯',
+    age: '18'
+  };
+  // 高级单例：
+  var instance = (function () {
+    function eat() {
+      console.log('吃饭');
+    }
+
+    function weight() {
+      console.log('100kg');
+    }
+
+    return {
+      eat: eat
+    }
+  })()
+  console.log(instance.weight); // undefined 因为我们没有给外界暴露weight
+
+  var obj3 = {
+    name: '于腾跃',
+    age: '18'
+  }
+
+  // 单例模式缺陷：
+  // 单例模式解决了命名空间冲突，但是却不能批量创建对象，代码冗余度高
+
+</script>
+</body>
+</html>

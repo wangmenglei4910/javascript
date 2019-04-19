@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>构造函数模式</title>
+</head>
+<body>
+
+<script>
+  // 内置类型：Number String Boolean Date Array RegExp
+  var ary = [];
+  var str = 'sdfghjkl';
+  // js 中创建数据的两种方式
+  // 1. 实例的方式创建，通过new操作符调用当前类型的构造函数，会得到当前类型构造函数的一个实例，Array称为 Array 类(构造函数)，ary2 称为Array类的一个实例
+  var ary2 = new Array(1, 2, 3, 4, 5);
+  // console.dir(Array);
+  // console.log(ary2);
+  // 2. 字面量方式创建，
+  // 创建一个数组
+  var ary3 = [1, 2, 3, 4, 5];
+  // console.log(ary3);
+  // 创建对象
+  var obj = {
+    name: 'js'
+  }
+  // 通过字面量方式创建的引用数据类型和实例方式创建的都是引用数据类型，并且都是当前类的实例
+
+  // 创建基本数据类型
+  // 字面量的方式创建
+  var str1 = 'javascript';
+  // 实例方式创建
+  var str2 = new String('javascript');
+  // console.log('str1 => ', str1);
+  // console.log('str2 => ', str2);
+
+  // console.log('typeof str1 => ', typeof str1);
+  // console.log('typeof str2 => ', typeof str2);
+  // 基本数据类型只能通过字面量的方式创建，如果用实例的方式创建将得到一个对象。
+  
+  // instanceof 检测当前实例是否是当前类型的一个实例，如果是就会返回true，不是就返回false
+  // 实例都是对象数据类型
+
+
+  var a1 = new Array(1, 2, 3);
+  var a2 = [1, 2, 3];
+  // console.log(a1 instanceof Array); // true
+  // console.log(a2 instanceof Array); // true
+
+  // var str1 = 'javascript';
+  // var str2 = new String('javascript');
+  // console.log(str1 instanceof String); // false
+  // console.log(str2 instanceof String); // true
+  // 通过实例方式创建的基本数据类型是基本数据类型的实例，通过字面量的方式创建的不是。
+
+  // 构造函数模式：在普通函数的基础上，通过new操作符调用当前的函数，此时这个函数不再是一个普通的函数，而是一个【类】，函数名 称为 【类名】。通过new调用会返回当前类的一个实例（对象）
+  // 创建自定义类（构造函数）时函数名首字母要大写
+  // 【只有通过new的方式调用】，这个函数才能称为 类（构造函数）
+  // new 操作符调用一个函数，也是让函数体中的代码从上到下执行一次
+  var h3 = new Human('qq', '10', 'good'); // 会log出start 和 end
+
+  function Human(name, age, char) {
+    console.log('start');
+    this.name = name;
+    this.age = age;
+    this.char = char;
+    this.play = function () {
+      console.log('打篮球');
+    }
+    console.log('end');
+  }
+  // var h = new Human('肖泽辉', 15, 'tall'); // {...} Human
+  // var h2 = new Human('mabin', 28, 'tall'); // {//} Human
+  // console.log(h);
+
+  // var s = Human('cai', '12', 'thin');
+  // console.log(s); // undefined
+
+  // 构造函数用于：封装插件、类库、组件、框架(new Vue({...config}))
+
+
+</script>
+</body>
+</html>

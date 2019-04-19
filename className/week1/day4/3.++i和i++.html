@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var i = 0;
+  // ++i 是先累加自身，然后再和其他值运算
+  // i++ 是先参与与其他值运算，再累加自身
+  console.log(++i); // 1
+  console.log(i++); // 0
+
+  // var a = 12; // 13 14
+  // var b = 13; // 14 15
+  // console.log(++a + a++ + b++ + ++b); // 54
+  // 13 + 13 + 13 + 15
+
+  var a = 12; // 13 14
+  var b = 13; // 14 15
+  console.log(++a + a++ + b++ + b++); // 53
+  // 13 + 13 + 13 + 14
+</script>
+</body>
+</html>

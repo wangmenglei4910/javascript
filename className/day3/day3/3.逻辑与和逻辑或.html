@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 逻辑与 && （并且）
+      // 逻辑或 || （或者）
+
+      // 语法
+      // if (条件1 && 条件2 && 条件3) {
+      //   // 条件都为true的时候，才会执行这里面代码
+      // }
+
+      var score = 70;
+      if (score >= 60 && score < 80) {
+        console.log("你已经及格了");
+      }
+
+      // 逻辑或 ||
+      // 语法
+      // if (条件1 || 条件2) {
+      //   // 只要其中的一个条件成立 就执行这里面代码
+      // }
+
+      var num = 1;
+
+      if (num === 1 || num === 2) {
+        console.log("1或者2都行");
+      }
+
+      // 1 + undefined => NaN => !!NaN => false
+      // if (1 + undefined) {
+      //   console.log('会怎样')
+      // }
+      // isNaN('') => false
+      // !false => true
+      // if (!isNaN('')) {
+      //   console.log('zzzzzz')
+      // }
+      
+      // 0 '' null undefined NaN转换为Boolean都是false 其余都是true
+      // ! 取反 （先转换成Boolean值，再取反）
+      // if (![]) {
+      //   console.log(123123)
+      // }
+
+      // if (!true) {
+
+      // }
+
+      if (0) {
+        console.log(000000)
+      }
+
+      if (!0) {
+        console.log('11111111111111')
+      }
+    </script>
+  </body>
+</html>

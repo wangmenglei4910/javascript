@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // for in 循环 循环遍历对象中每一个属性
+
+    var obj = {
+      id: 1,
+      name: 'zhufeng',
+      age: 10
+    }
+
+    // key 代表的就是每次遍历出来的 属性名
+    for (var key in obj) {
+      // key 属性名  obj[key] 属性值
+      console.log(key, obj[key]) // "id" "name" "age"
+
+      // "id"  obj["id"] (1)
+      // "name" obj["name"] ("zhufeng")
+      // "age" obj["age"] (10)
+    }
+
+    // 一般是用来遍历我们对象中的每个属性
+
+    // for (var 变量名 in 对象名) {
+    // }
+  </script>
+</body>
+</html>

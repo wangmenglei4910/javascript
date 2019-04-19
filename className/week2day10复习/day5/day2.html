@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3 id="title" class="text"></h3>
+  <script>
+    // Boolean true false
+
+    // 其他类型转换为Boolean类型
+    // 0 '' null undefined NaN 这五个值都是false 其余都是true
+
+    // Boolean() !! 将其他值转换为Boolean值
+    Boolean(0) // false
+    !!null // false
+
+    // ! 取反 （先转换为Boolean值 然后再取反）
+    !1 // false
+    ![] // false
+
+    ![] == []; // false == [] => 0 == 0 => true
+     [] == []; // false 比较的引用地址
+
+     [] == false // true
+     ![] == false // false == false => true
+
+    //  if ('a' + 'b') { // 'ab'
+    //    console.log(123)
+    //  }
+
+    //  var n = 'a' + 'b' ? 1 : 2
+    //  console.log(n) // 1
+
+    // 对象
+    var obj = {
+      1: 20,
+      id: 1,
+      name: 'li'
+    }
+    // 对象名.属性名 obj.id 不支持获取数字属性
+    // 对象名['属性名'] obj['id']
+    // obj.1 错误写法
+    // obj.name = 'hello'
+
+    //  <h3 id="title" class="text"></h3>
+    var h1 = document.getElementById('title')
+
+    // [h2][0]
+    var h2 = document.getElementsByClassName('text')[0]
+    // console.log(h2)
+
+    var h3 = document.getElementsByTagName('h3')[0]
+    // console.log(h3)
+
+    // number
+    // 正数 负数 小数 0 NaN(非数字)
+    1 + undefined // NaN
+    typeof NaN // "number"
+
+    // Number() 严格转换
+    // 只要字符串中包含非数字字符 就直接返回NaN
+    Number('10') // 10
+    Number('10a') // NaN
+
+    Number('') // 0
+    Number([]) // 0
+    Number(null) // 0
+    Number(false) // 0
+    Number(true) // 1
+    Number({id: 1}) // NaN
+    Number(undefined) // NaN
+    // 提取
+    parseInt('10.5px') // 10
+    parseInt(10.5) // 10
+
+    // parseFloat()
+    parseFloat('10.5px') // 10.5
+
+    // isNaN() 检测一个值是不是NaN
+    // 如果是NaN 返回 true
+    // 如果不是NaN(有效数字) 返回 false
+    // isNaN在检测的时候 先将值用Number方法转换为数字类型 再进行判断
+    isNaN('1') // false isNaN(Number('1')) =>isNaN(1) => false
+
+    isNaN(undefined) // true isNaN(Number(undefined)) => isNaN(NaN) => true
+  </script>
+</body>
+</html>

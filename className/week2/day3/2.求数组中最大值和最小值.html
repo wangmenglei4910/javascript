@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 数组中最大值和最小值
+    // const arr = [9, 1, 7, 10, 30, 6]
+
+    // 一、先排序（从小到大）
+    // arr.sort(function (a, b) { // 原地排序
+    //   return a - b
+    // })
+    // // console.log(arr) // [1, 6, 7, 9, 10, 30]
+  
+    // console.log(arr[0]) // 最小值 1
+    // console.log(arr[arr.length - 1]) // 最大值 30
+
+    // 二、假设 循环比较
+    // const arr = [9, 1, 7, 10, 30, 6]
+    // var min = arr[0] // 假设第一个是最小的
+    // var max = arr[0] // 假设第一个是最大的
+
+    // for (var i = 1; i < arr.length; i++) {
+    //   arr[i] < min ? min = arr[i] : null;
+
+    //   arr[i] > max ? max = arr[i] : null;
+    // }
+    // console.log(min) // 1
+    // console.log(max) // 30
+
+    // for (var i = 1; i < arr.length; i++) {
+    //   if (arr[i] < min) {
+    //     min = arr[i]
+    //   }
+    // }
+
+    // Math
+    // 获取一堆数字中的最大值和最小值
+    // Math.max(8, 1, 3, 9) // 9
+    // Math.min(8, 1, 3, 9) // 1
+
+    // 我们需要将要比较的数字 
+    // 要以一个一个的实参的形式，传递到Math.max方法里 才能正常使用
+    // Math.max(8, 1, 3, 9)
+
+    const arr = [9, 1, 7, 10, 30, 6]
+    // 相当于把arr整体 当做是第一个实参传递进去
+    // Math.max(arr) // NaN
+    // Math.max(9, 1, 7, 10, 30, 6)
+
+    // 想办法将数组展开后 再传递Math方法里
+    
+    // 一、ES6 扩展运算符 ...对象
+    // console.log(...arr)
+    // Math.min(...arr)
+
+    // 二、apply 利用apply传参形式（数组或类数组形式）
+    // apply让Math.min 执行，并且以数组的形式给传参
+
+    // Math.min.apply(null, arr)
+    // Math.min.apply(null, [3, 9, 10])
+
+    // 三、数组转换成字符串 在进行字符串拼接
+    // var str = arr.toString() // "9,1,7,10,30,6"
+    // Math.min("9,1,7,10,30,6") // Math.min(9, 1, 7, 10, 30, 6)
+    // Math.min(str) // Math.min(9, 1, 7, 10, 30, 6)
+
+   // `Math.min(${str})` "Math.min(9,1,7,10,30,6)"
+   // eval 相当于小型JS解释器
+   // 将字符串当做是JS代码来执行
+  //  eval("1+2+3")
+  //  var str2 = `Math.min(${str})` // "Math.min(9,1,7,10,30,6)"
+  //  eval(str2) // eval("Math.min(9,1,7,10,30,6)")
+
+  // 数组和字符串拼接时候 或默认调用自身的toString()方法, 将自己转换成字符串 再拼接
+  // `Math.min(${arr})` // "Math.min(9,1,7,10,30,6)"
+  eval(`Math.min(${arr})`) // 1
+  eval(`Math.max(${arr})`) // 30
+  </script> 
+</body>
+
+</html>

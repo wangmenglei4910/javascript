@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./movie.css">
+</head>
+<body>
+  <div class="movie">
+    <!-- 头部header -->
+    <header class="movie-header">
+      <div class="movie-header-left">1111</div>
+      <div class="movie-header-center">2222</div>
+      <div class="movie-header-right">3333</div>
+    </header>
+
+    <div class="movie-content">
+     <div class="rating-list">
+       <ul class="movie-content_nav">
+         <li class="first">影片名称</li>
+         <li class="sort-btn" sort-id="0">综合票房</li>
+         <li class="sort-btn" sort-id="1">票房占比</li>
+         <li class="sort-btn" sort-id="2">排片场次</li>
+         <li class="sort-btn" sort-id="3">排片占比</li>
+         <li class="sort-btn" sort-id="4">场均人次</li>
+         <li class="sort-btn" sort-id="5">上座率</li>
+       </ul>
+
+       <!-- 电影列表 -->
+       <ul class="movie-rating-list" id="movieRating">
+         <li>
+          <span>反贪风暴4</span>
+          <span class="realtime">2448.26</span>
+          <span>51.4%</span>
+          <span>105549</span>
+          <span>34.2%</span>
+          <span>7</span>
+          <span>5.7%</span>
+         </li>
+         <li>
+           <span>反贪风暴4</span>
+           <span class="realtime">2448.26</span>
+           <span>51.4%</span>
+           <span>105549</span>
+           <span>34.2%</span>
+           <span>7</span>
+           <span>5.7%</span>
+         </li>
+       </ul>
+     </div>
+    </div>
+  </div>
+  <script src="./utils.js"></script>
+  <script src="./movie.js"></script>
+</body>
+</html>

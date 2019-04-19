@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // var str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+      // 索引范围 0 ~ (str.length - 1)
+
+      // 随机整数公式 Math.round(Math.random() * (m - n) + n)
+      // 生成随机验证码
+      // 1.获的一个随机索引(随机整数) Math.round(Math.random() * (str.length - 1))
+      // 2.根据随机的索引 找到对应的字符 拼接起来
+      // 3.你传几 就生成几位的验证码 不传实参 默认生成四位的验证
+
+      // 生成四位验证码 执行四次上面的步骤
+
+      function createCode(len) {
+        
+        // 如果没传参 就让len等于4 生成四位验证码
+        // if (isNaN(len)) { // 如果返回true 说明不是数字
+        //   len = 4
+        // }
+
+        // 函数的默认参数处理
+        // 如果你给len传值 就以len的值为准 否则就默认4
+        len = len || 4
+
+        var str =
+          "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        // 索引范围 0 ~ （str.length - 1）
+       
+        var codeStr = '';
+        for (var i = 0; i < len; i++) {
+          // 生成随机索引 0 ~ （str.length - 1）
+          var ind = Math.round(Math.random() * (str.length - 1));
+
+          // 根据随机索引ind 获取对应的字符
+          var char = str[ind];
+
+          // 将每一次获取到的字符 拼接起来
+          codeStr += char // codeStr = codeStr + char
+          // console.log('循环中', codeStr)
+        }
+
+        return codeStr
+      }
+
+      // createCode(6) // 生成六位验证码
+      // createCode(4) // 生成四位验证码
+
+
+
+      function createCode(len) {
+        len = len || 4
+
+        var str =
+          "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        // 索引范围 0 ~ （str.length - 1）
+       
+        var codeStr = '';
+        for (var i = 0; i < len; i++) {
+          var ind = Math.round(Math.random() * (str.length - 1));
+          var char = str[ind];
+          codeStr += char
+        }
+        return codeStr
+      }
+      
+    </script>
+  </body>
+</html>

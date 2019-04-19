@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // var num  var a  function fe 参加的是全局中的变量提升
+    // var num = 1 
+    // var a = 2
+
+    // function fe(n) {
+    //   var c = 3 // var c参加 私有作用域中变量提升
+    // }
+    // fe()
+    // 变量提升
+    // 作用域
+    // 对于function 提前声明并赋值为函数本身
+
+    // 当用function 多次声明同一个函数变量时，以最后一个为主（后面的会把前面覆盖掉）
+
+    // console.log(fe) // function fe() { console.log(100) }
+
+    // function fe() {
+    //   console.log(1)
+    // }
+ 
+    // function fe() {
+    //   console.log(2)
+    // }
+
+    // function fe() {
+    //   console.log(3)
+    // }
+
+    // function fe() {
+    //   console.log(4)
+    // }
+
+    // function fe() {
+    //   console.log(5)
+    // }
+
+    // function fe() {
+    //   console.log(100)
+    // }
+
+    console.log(fe) // function fe() { console.log(3) }
+
+    function fe() { // 代码执行时候 函数定义部分直接跳过
+      console.log(1)
+    }
+    
+    console.log(fe) // function fe() { console.log(3) }
+ 
+    function fe() { // 代码执行时候 函数定义部分直接跳过
+      console.log(2)
+    }
+
+    console.log(fe) // function fe() { console.log(3) }
+
+    var fe = function () { // 代码执行时候将fn赋值为function fe() {log('fe') }
+      console.log('fe')
+    }
+
+    console.log(fe)
+
+    function fe() {
+      console.log(3)
+    }
+    console.log(fe)
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>原型模式</title>
+</head>
+<body>
+<div id="box"></div>
+
+<script>
+  // 原型prototype：每一个函数（类）数据类型都天生自带一个属性prototype(原型)。这个属性是一个【对象】数据类型的值，用来存储当前类的共有属性、特性的。
+  // 函数（类）的prototype也天生自带两个属性：constructor，指向当前类本身；（prototype这个属性挂在那个类上，constructor就指向那个类；（另一个__proto__的一个属性，一般指向这个原型所属类的原型）
+  // 每一个实例都是一个对象数据类型，天生自带一个__proto__属性，它的值指向当前实例所属类的原型prototype。
+
+  function Fn() {
+    this.fn = '函数'
+  }
+  
+  var ary = new Array(1, 2, 3);
+  console.log(ary);
+  console.log(Array.prototype);
+
+  console.log(Fn.prototype);
+
+
+  //
+  console.log('数组类原型__proto__：',Array.prototype.__proto__);
+  console.log('对象类原型：', Object.prototype);
+  
+  var p = document.createElement('p');
+  p.innerHTML = '我是一个新来p标签';
+  var box = document.getElementById('box');
+  // console.dir(box);
+  // box.appendChild(p);
+
+  // 实例（对象）天生自带一个__proto__属性，这个属性的值指向当前实例所属类的prototype(原型)
+</script>
+</body>
+</html>

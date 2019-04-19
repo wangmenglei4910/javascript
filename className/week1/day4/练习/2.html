@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var num = 20;
+  var obj = {
+    num: 30,
+    fn: (function (num) {
+      num += 5;
+      return function () {
+        console.log(num);
+      };
+    })(num)
+  };
+  obj.fn(num);
+</script>
+</body>
+</html>

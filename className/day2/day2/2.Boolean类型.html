@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   // Boolean true(真) false(假)
+   // 大于 小于 等于
+  //  console.log(2 > 1) // true
+  //  console.log(1 > 2) // false
+   // Boolean值 通常是表示 判断或比较结果
+
+   // 其他数据类型都可以转换成Boolean值（true或false）
+   // 重点：0 '' NaN null undefined 这五个值转换为Boolean值都是false 其余都是true
+   
+   // Boolean(转换的值) 用来转换的方法
+  //  console.log(Boolean(0)); // false
+  //  console.log(Boolean('')); // false
+  //  console.log(Boolean(NaN)); // false
+  //  console.log(Boolean(null)); // false
+  //  console.log(Boolean(undefined)); // false
+
+  //  console.log(Boolean(1)); // true
+  //  console.log(Boolean([])); // true
+
+   // !! (操作符) 等价于 Boolean()
+   // 重点：0 '' NaN null undefined 这五个值转换为Boolean值都是false 其余都是true
+   console.log(!!0) // false
+   console.log(!!'') // false
+   console.log(!!NaN) // false
+   console.log(!!null) // false
+   console.log(!!undefined) // false
+
+   // !(操作符) 取反（先转换成Boolean类型 再取反）
+   // 首先0转换为Boolean值是false 再取反就是true
+   console.log('!0', !0) // true
+   console.log('空字符', !'') // true
+
+   console.log('!1', !1) // false
+
+   // Boolean类型转换
+   // 转换规则
+   // 0 '' null undefined NaN 这五个值转换为Boolean值都是false 其余都是true
+   // 转换方法：
+   // Boolean()
+   // !! 等价于Boolean()方法的作用
+   // ! 取反 （true false是一对反义词）
+  </script>
+</body>
+</html>

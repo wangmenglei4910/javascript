@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <script>
+    /**
+      基本数据类型
+        Number String  Booean null undefined (Symbol BigInt)
+      引用数据类型
+        对象数据类型：普通对象{} Array [] RegExp /\d+/ Date Math
+        函数数据类型：function
+      基本数据类型与引用数据类型区别
+      基本：操作的是值
+      引用：操作的是引用地址  
+    */
+
+    // 浏览器 就会为这个数组开辟一个堆内存 保存里面的每一项
+    // var arr = [1, 2, 3]
+    // typeof arr // "object"
+    // instanceof
+    // constructor
+    // Object.prototype.toString.call()
+
+    // 数组就是一组数据的集合，它可以存储JS中任何数据类型的数据，每一项用逗号隔开
+    var arr = [1, 'abc', true]
+    console.log(arr)
+
+    // 数组中会为每一项分配一个下标（数字属性名）
+    // 索引 就是方便我们 找到数组中某一项
+    // 索引 从0开始 从小到大排列的数字属性名
+    // console.log(arr[0]) // 1 获取数组中的第一项
+    // console.log(arr[1]) // 'abc' 获取数组中的第二项
+
+    // length 数组的长度：数组中元素个数
+    // arr.length // 3
+
+    // 要想获取数组中某一项 根据索引获取
+    var arr1 = [10, 20, 30, 10, 20, 30, 10, 20, 30]
+    arr1[0] // 第一项
+
+    // 获取数组中的最后一项
+    arr1[arr1.length - 1] // arr1.length - 1 就是当前数组中最后一项的索引
+    console.log(arr1)
+
+    // 元素集合 类数组
+    // var list = document.getElementsByTagName('li')
+    // console.log(list)
+
+
+    var arr2 = [1, 2, 3]
+
+   // 数组中的方法 （增加 修改 删除）
+   // 在数组中 提供了很多内置的属性方法（函数） 供我们来使用
+   // 向数组中添加
+   //  arr2.push(111)
+   arr2.push() // 数组.方法名()
+
+   // 这些数组方法都保存在 这个对象上Array.prototype
+   console.log(Array.prototype)
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this</title>
+</head>
+<body>
+<div id="box">I am a box</div>
+
+<script>
+  // this
+  // 1. 事件函数中的this，是当前绑定该事件的元素
+  var box = document.getElementById('box');
+  box.onclick = function () {
+    console.log(this);
+    this.innerHTML = 'You are a box';
+  }
+  // 2. 自执行函数中的this就是window
+  // ~ 按位取反
+  // ~function () {}()
+  // ;(function () {
+  //   console.log(this);
+  // })();
+
+  // 3. setTimeout/setInterval 定时器中的this指向window
+  // setTimeout(function () {
+  //   console.log(this);
+  // }, 0);
+
+  // 4. 方法调用时this指向，看方法调用时方法前面是不是有“.”，如果有，点前面是谁，this就指向谁，如果没有就是window
+  // var num = 13;
+  // var obj = {
+  //   num: 12,
+  //   fn: function () {
+  //     console.log(this);
+  //   },
+  //   1: function () {
+  //     console.log(this.num);
+  //   }
+  // };
+  // obj.fn(); // 12
+  // obj['fn'](); // 12
+  // obj[1]()
+  // var fn = obj.fn;
+  // fn() // 13
+
+  // 5. 构造函数中的this，指向当前构造函数的实例
+  // function Foo() {
+  //   this.name = '肖泽辉';
+  //   this.age = 30;
+  //   console.log(this);
+  // }
+  //
+  // var f = new Foo() // new：操作符 构建实例 f就是实例
+  // 6. 箭头函数中的this指向箭头声明时所在的作用域中的this
+  // var key = 13
+  // var obj2 = {
+  //   key: 12,
+  //   fn: () => {
+  //     console.log(this.key);
+  //   }
+  // }
+  // obj2.fn();
+  // 7. 全局作用域中的this是window
+</script>
+</body>
+</html>

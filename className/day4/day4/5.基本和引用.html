@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 最先开始执行 全局中的代码
+    // JS引擎 对JS 解析并执行
+    // 栈内存(运行内存) 供JS代码执行的环境 存储基本数据类型 var num = 1
+    // 堆内存(存储内存) 存储引用类型的值 var obj = {id: 123}
+    // var a = 1
+    // var b = 2
+
+    // 只要你创建一个引用类型时，浏览器就会创建一个块儿堆内存
+    var obj1 = {
+      id: 20,
+      name: 'shanghai'
+    }
+
+    // 对于引用类型的变量 存储的实质上是引用地址
+    var obj2 = obj1
+    // obj2根据存储地址 找到 name属性 将值 修改为 'beijing'
+    obj2.name = 'beijing'
+    console.log(obj1.name, obj2.name) // "beijing"
+
+    // 基本数据类型 直接操作的是值
+    // 引用类型操作的是 引用地址
+
+    // var a = 1
+    // var b = a
+
+    // var o1 = {}
+    // var o2 = o1
+    
+    var o1 = {}
+    var o2 = o1
+    o2.id = 123
+    o1.name = 'oo'
+    o2 = {}
+    o2.name = 'o3'
+
+    console.log(o1.name, o2.name)
+
+
+
+    // obj.t1 = 123
+    // obj.t2 = 123
+    // obj.t3 = 123
+    // obj.t4 = 123
+  </script>
+</body>
+</html>

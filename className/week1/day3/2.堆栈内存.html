@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   // JS引擎中分为
+   // 栈内存（作用域）供JS代码执行的环境，保存基本数据类型
+   // 堆内存 存储引用类型的值
+
+   // 堆内存创建和销毁
+   // 定义一个对象 数组 函数 浏览器都要分配一块堆内存 存储引用类型的数据
+
+   // var obj = xxx1
+   // obj引用这块儿内存
+  //  var obj = {
+  //    id: 1
+  //  }
+   // xxx1.id
+  //  obj.id
+   // 浏览器的内存也是有限 我尽量避免”内存泄露“（JS中有一些无用变量 占用着内存）
+
+   // 谷歌浏览器 会检测当前是否 有没被占用内存 将它回收
+
+  //  var obj = {
+  //    id: 1
+  //  }
+
+  //  // 用完释放内存 谷歌浏览器默认会进行回收
+  //  obj = null // 空指针对象
+
+  // 引用计数
+  var obj1 = { id: 2 } // fff 引用数 1
+  var obj2 = obj1 // obj2 = fff 引用数 2
+
+  obj1 = null // fff 引用数 1
+  obj2 = null // fff 引用数 0 这块内存可以被回收
+
+
+  // 堆内存
+  // 创建：定义一个对象 数组 函数 都会创建一个堆内存。 比如 var obj = { id: 1 }
+  // 释放：手工将对象赋值为null。 比如 obj = null
+
+  // 函数传参的时候 引用类型传递的是引用地址
+  function add(a) { // a = xxx
+    a.n = 20 // xxx.n = 20
+    console.log(a === obj) // true
+  }
+  var obj = {n: 1} // obj = xxx
+  
+  add(obj) // add(xxx)
+
+  console.log(obj) // {n: 20}
+
+
+  </script>
+</body>
+</html>

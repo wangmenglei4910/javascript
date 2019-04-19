@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=s, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    [] == false  // true
+
+     // 0 '' NaN null undefined 这五个值转化为Boolean都是false 其余都是true
+     // ! 取反（先转换为Boolean值 再取反）
+    ![] == [] // false == [] => 0 == 0 => true
+
+    // Number 只要字符串中包含非数字字符 就直接返回NaN
+    var n = Number('10px') // NaN
+
+    // NaN和任何值 比较都不相等 包括和自己比较 都不相等
+    if (n === 10) { // NaN === 10
+      console.log('one')
+    } else if (n === '10px') {
+      console.log('two')
+    } else if (n == NaN) {
+      console.log('three')
+    } else {
+      console.log('four')
+    }
+  </script>
+</body>
+</html>

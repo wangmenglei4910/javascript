@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // arguments 使用数组方法给arguments末尾添加一项
+    // arguments 类数组 不是 Array的实例 不能使用数组上的方法
+    // function fe() {
+    //   // [1, 2, 3, length: 3]
+    //   console.log(arguments instanceof Array) // false
+    //   console.log(arguments) // 实参集合 称为类数组（索引 length）
+    // }
+    // fe(1, 2, 3)
+
+    // 将类数组转化为数组
+    // 1.准备一个空数组 循环arguments中每一项 添加到空数组里
+    // function sum() {
+    //   // 准备一个空数组
+    //   const arr = []
+
+    //   console.log('arg', arguments)
+
+    //   // 循环arguments中每一项 并且添加到空数组里
+    //   for (let i = 0; i < arguments.length; i++) {
+    //     arr[arr.length] = arguments[i]
+    //   }
+    //   console.log('arr', arr)
+    // }
+    // sum(1, 2, 3)
+
+    // 2. 扩展运算符  （将arguments中内容 展开到一个新数组中）
+    // function sum() {
+    //   const arr = [...arguments] // [1, 2, 3]
+    //   console.log(arr)
+    // }
+    // sum(1, 2, 3)
+
+    // 3. slice() 截取克隆
+    // [].slice.call(类数组)
+    // Array.prototype.slice.call(类数组)
+
+    function fe() {
+
+      // 将arguments转换为数组
+      var arr = [].slice.call(arguments)
+      console.log(arr.reverse())
+    }
+    fe(11, 22, 33, 44, 55, 66)
+
+    // 只要具备索引和length 就可以冒充 数组方法中的this
+    var str = 'helloworld'
+    var a1 = [].slice.call(str)
+    console.log(a1) // ["h", "e", "l", "l", "o", "w", "o", "r", "l", "d"]
+
+
+    // 当调用slice方法时，将它里面的this修改为类数组（arguments）
+    // Array.prototype._slice = function() {
+    //   console.log('this', this) // arugments
+    //   var arr = []
+    //   for (let i = 0; i < this.length; i++) {
+    //     arr.push(this[i])
+    //   }
+    //   return arr
+    // }
+
+    // function sum() {
+    //   // Array.prototype.slice()
+    //   // 让数组的slice方法执行，并且将slice方法中的this修改为arguments
+    //   var arr2 = [].slice.call(arguments)
+    //   console.log('arr2', arr2)
+    //   console.log(arr2 instanceof Array)
+    // }
+    // sum(11, 22, 33)
+
+
+
+    // slice大致的实现原理 就是循环遍历 方法中的this（当前操作数组）
+    // slice(0)/slice() 返回的克隆后的新数组
+    // 基于原数组 克隆一个一模一样的新数组 并返回
+    // Array.prototype._slice = function() {
+    //   // this => ary
+    //   // return [...this]
+    //   var arr = []
+    //   for (let i = 0; i < this.length; i++) {
+    //     arr.push(this[i])
+    //   }
+    //   return arr
+    // }
+    // var ary = [10, 20, 30]
+    // var ary2 = ary._slice()
+    // console.log('ary2', ary2)
+
+    // ary.slice() // slice中 操作是 this => ary
+
+
+    // 类数组转换成数组
+    // 1.循环遍历 (IE 6)
+    // function sum() {
+    //   var arr = []
+    //   for (var i = 0; i < arguments.length; i++) {
+    //     arr.push(arguments[i])
+    //   }
+    //   return arr
+    // }
+    // sum(1, 2, 3, 4)
+
+    // 2. 扩展运算符
+    // function sum2() {
+    //   return [...arguments]
+    // }
+    // sum2(1, 2, 3, 4)
+
+    // 3. slice call
+    // [].slice.call(arguments)
+
+    // function sum2() {
+    //   return [].slice.call(arguments)
+    // }
+    // sum2(1, 2, 3, 4)
+
+    // 数组类上的一个静态方法
+    // Array.isArray()
+
+    // 4.将类数组转化为数组 Array.from()
+    function sum3() {
+      var arr = Array.from(arguments)
+      console.log('arr', arr)
+    }
+    sum3(1, 2, 3, 4)
+
+    // safari
+    // webkit Blink
+
+
+
+  </script>
+</body>
+
+</html>

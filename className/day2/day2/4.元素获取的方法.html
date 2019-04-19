@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box" class="c1">box1</div>
+  <div id="box" class="c1">box2</div>
+  <div id="box" class="c1">box3</div>
+  <!-- <div id="box">aaaaaa</div>
+  <div id="box">cccccc</div> -->
+  <script>
+    // 获取的元素 在js中都是以对象形式存在 称为元素对象或者DOM对象
+
+    // 根据标签名获取元素 返回一个元素集合
+    var ele5 = document.getElementsByTagName('div')
+    console.log(ele5) // [元素对象, 元素对象, 元素对象]
+    console.log(ele5[1]) // 获取集合中第二个元素对象
+
+    // 将集合中第二元素对象的 内容 修改成 123
+    ele5[1].innerHTML = 123
+
+    // var ele3 = document.getElementsByClassName('c1')
+    // console.log(ele3) // [div, div, div]
+
+    // // 根据class名获取一个或多个元素 返回的是一个元素集合
+    // var ele2 = document.getElementsByClassName('c1')
+    // // 元素集合 （类数组）也是个对象
+    // console.log(ele2) // [div1, div2]
+    // console.log(ele2.length) // 2 元素个数
+    
+    // // 根据数字属性名 获取到集合中 某一个元素对象 
+    // console.log(ele2[0])
+    // console.log(ele2[1])
+   
+
+
+    // 根据id名获取元素
+    var ele = document.getElementById('box')
+    // console.log(ele)
+    // 如果有多个重复id元素的获取到的是第一个
+    // 获取一个不存在的id元素 返回null
+
+
+    // 在原生JS里要想操作元素 就要先获取到它
+    // 根据ID名获取一个元素
+    // document.getElementById('id名')
+
+    // 根据class名获取一个或多个元素
+    // document.getElementsByClassName('class名')
+
+    // 根据标签名（tag name）获取一个或多个元素
+    // document.getElementsByTagName('标签名')
+
+  </script>
+</body>
+</html>

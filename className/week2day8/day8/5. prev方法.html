@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>prev</title>
+</head>
+<body>
+<ul>
+  <li>内容1</li>
+  <li>内容2</li>
+  <!---->
+  <!--dldlddldldl-->
+  <li id="three">内容3</li>
+</ul>
+<script>
+  // 获取当前元素的上一个【元素】哥哥 兼容IE6,7,8
+  // 1. 获取当前元素的上一个哥哥
+  // 2. 这个哥哥存在，判断这个节点是不是【元素节点】: nodeType是否等于1
+  // 3. 如果不是元素节点，则重复第1步
+
+  // p = #text
+  // p = #comment
+  // p = #text
+  // p = #comment
+  // p = #text
+  // p = li>内容2
+  function prev(cur) {
+    var p = cur.previousSibling;
+    console.log(p);
+    // 什么时候就不找了： p 不存在 或者 找到一个元素哥哥节点
+    while (p && p.nodeType !== 1) {
+      p = p.previousSibling;
+      console.log(p);
+    }
+    return p
+  }
+  var three = document.getElementById('three');
+  console.log(prev(three));
+</script>
+</body>
+</html>

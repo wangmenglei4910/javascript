@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    #img {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <img id="img" width="240" height="300" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555329079619&di=77dc8ec46ebaba293d19d10092e70397&imgtype=0&src=http%3A%2F%2Fwww.askququ.com%2Fuploads%2Fallimg%2F181211%2F1_181211235434_8.jpg" alt="">
+  <script src="./utils.js"></script>
+  <script>
+    const { css } = window._utils
+
+    var timer = window.setInterval(() => {
+      let op = css(img, 'opacity')
+      op += 0.1
+      css(img, 'opacity', op)
+
+      if (op >= 1) {
+        window.clearInterval(timer)
+      }
+    }, 200)
+
+    // 720 * 845
+    // 235 * 275
+
+    // 720 / 845
+    // 235/x
+    // 720 / 845 = 235/x
+
+    // 235 / (720 / 845)
+  </script>
+</body>
+</html>

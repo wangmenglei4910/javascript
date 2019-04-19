@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 所有对象数据类型（普通对象 实例对象 函数对象 原型对象），都是Object基类的一个实例。
+    // 所有的函数数据类型（类 普通函数），都有一个天生自带的属性prototype
+    // 所有对象数据类型，都有__proto__ 指向所属类的原型（prototype）
+
+    // 原型链
+    // 当你 对象.属性名 查找属性或方法时，先看自身是否有这个私有属性，如果自身没有，
+    // 就根据自身的__proto__，找到所属类的原型，如果原型也没有，就根据原型__proto__继续向上查找，一直找到Object.prototype 为止，如果没有就返回undefined
+    function Fn() {
+
+    }
+    Fn()
+
+
+    // const obj = {
+    //   id: 1
+    // }
+
+    // console.log(obj.__proto__ === Object.prototype) // true
+
+    // function Fn() {
+
+    // }
+    // f.__proto__ => Fn.prototype => Object.prototype
+    // const f = new Fn
+    // console.log(f)
+  </script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // == 相对比较
+    // === 绝对比较
+    // 1 == '1' // true
+    // 1 === '1' // false
+
+    // == 相对比较
+    // 如果比较的两个值，数据类型不同时，会发生数据类型的转换
+    // 1.当与一个数字进行比较时，两边都会转换成数字(Number()方法)再进行比较
+    1 == '1' // 1 == Number('1') => 1 == 1 => true
+    0 == [] // 0 == Number([]) => true
+
+    // JS ES5版本
+    // 八进制用0作为前缀表示的 022 16 + 2 => 18
+    // JS ES6
+    // 0o 0O 代表八进制
+    // 0x 代表十六进制
+    // 0b 代表二进制
+    // '012' == 012 // Number('012') == Number(012) => 12 == 10 => false
+    
+    // 2.与Boolean值比较时 也都是转换为数字 再进行比较
+    // Number(true) => 1
+    // Number(false) => 0
+    console.log([] == false); // true
+    // 先进行取反 ![](false) 再进行比较 false == false
+    console.log(![] == false); // true
+    !([] == false); // false
+
+    // 3.字符串与引用类型进行比较时 都是转换为字符串再进行比较
+    // 普通对象转换成字符串 都等于一个这样的字符串 "[object Object]"
+    // 数组转换为字符串，就相当于把中括号换成引号 [1,2] => "1,2"
+    var obj = {}
+    '1' == obj // false
+    // '1' == obj.toString()  '1' == "[object Object]" => false
+
+    // obj == "[object Object]" // obj.toString() == "[object Object]"
+
+    var arr = [1]
+    '1' == [1] // '1' == [1].toString() => '1' == "1" => true
+    [1, 2] == '1,2' // [1, 2].toString() == '1,2' => true
+
+    // 4.NaN和任何值比较都不相等 包括和自己比较 都不相等
+    NaN == NaN // false
+    NaN === NaN // false
+    // 相对比较情况  null和undefined它两 可以互相等 
+    // 但是它两和其它的值都不相等 (不包括自己本身 null == null true)
+    null == undefined // true
+    0 == null // false
+
+    // 5.引用类型和引用类型进行比较时，比较的是引用地址
+    var obj1 = {id: 1} // xxx1
+    var obj2 = {id: 1} // xxx2
+    console.log(obj1 == obj2) // false
+    console.log(obj1 == obj1) // true
+    var obj3 = obj2 
+    obj3.name = 'obj'
+    console.log(obj3 == obj2) // true
+    // 两个空数组 进行比较
+    console.log([] == []) // false
+
+    // ![] => false
+    console.log(![] == []) 
+    // false == [] => Number(false) == Number([]) => true
+
+    // 相对比较
+    // 1.其他值和数字进行比较时，两边都是转换为数字（Number()）再进行比较
+    // 2.其他值和Boolean值进行比较时，两边都是转换为数字（Number()）再进行比较
+    // 3.字符串和引用类型进行比较时，两边都转为字符串（toString()）再比较
+    // 4.特殊记
+    // (1)NaN 和任何值都不相等 包括自己
+    // (2) 相对比较时 ==  null == undefined 但是它俩 和其他值都不相等
+    // 5.引用类型和引用类型 比较的是引用地址 
+
+    // === 绝对比较 不会发生类型转换
+    // 如果类型不同，直接返回false  1 === '1' => false
+    // 如果类型相同 比较的具体的值  '1' === '1' true
+    null === undefined // false
+    null == undefined // true
+
+    // !=  !==
+  </script>
+</body>
+</html>

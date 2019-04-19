@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .bg0 {
+      background-color: red;
+      color: #ffffff;
+    }
+
+    .bg1 {
+      background-color: pink;
+      color: aqua;
+    }
+
+    .hover {
+      background-color: bisque;
+    }
+  </style>
+</head>
+<body>
+    <ul id="list">
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+        <li>item6</li>
+        <li>item7</li>
+        <li>item8</li>
+        <li>item9</li>
+        <li>item10</li>
+      </ul>
+      <script>
+        var list = document.querySelectorAll('#list > li')
+
+        for (var i = 0; i < list.length; i++) {
+          // 隔行变色
+          var cur = `bg${i % 2}` // 计算出来的类名
+          list[i].className = cur // 'bg0' 'bg1'
+
+          // 将计算出来的类名 保存到自身bg属性上
+          list[i].bg = cur // 将类名备份
+
+          // 绑定鼠标滑入事件
+          list[i].onmouseover = function() {
+            // 鼠标滑入时，给当前元素添加hover样式
+            this.className = 'hover'
+          }
+
+          // 绑定鼠标滑出事件
+          list[i].onmouseout = function() {
+            // 鼠标滑出时 在设为之前的类名
+            this.className = this.bg
+          }
+        }
+      </script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .news {
+      width: 500px;
+      margin: 20px auto;
+      list-style: none;
+      font-size: 20px;
+      border: 1px solid pink;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .news li {
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <ul class="news">
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国1</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国2</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国3</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国4</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国5</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国6</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国7</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国8</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国9</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国10</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国6</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国7</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国8</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国9</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国10</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国6</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国7</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国8</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国9</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国10</li>
+  </ul>
+  <script>
+
+    // 获取页面中li元素
+    var list = document.querySelectorAll('.news>li')
+    // [li, li, li, li]
+    console.log(list)
+
+    // for循环 循环取出里面每个li元素
+    // 元素集合中 有多少个 就循环多少次 每次取出一个li元素
+    // 元素个数 list.length
+    // 把变量i 作为索引来使用 取出对应的元素
+    // 第一次循环 i = 0  list[i] => list[0] 第一个元素
+    // 第二次循环 i = 1  list[i] => list[1] 第二个元素
+    // ...
+
+    for (var i = 0; i < list.length; i++) {
+      // 每次循环 取出当前元素
+      var cur = list[i] 
+
+      // 根据当前索引i的值 判断奇偶
+      if (i % 2 === 0) { // 奇数行的时候 pink
+        cur.style.backgroundColor = 'pink'
+      } else { // i % 2 = 1 偶数行的时候 red
+        cur.style.backgroundColor = 'red'
+      }
+    }
+
+
+    // 设置背景颜色
+    // 元素对象.style.bacgroundColor = '颜色值'
+
+
+
+
+    // 获取所有li元素
+    // 如何区分集合中li元素 是奇数行还是偶数行
+    // 如果是奇数行 背景色 pink
+    // 如果是偶数行 背景色 red
+    // 通过JS给 元素 设置行内样式
+    // 元素对象.style.backgroundColor = 'pink'
+
+    // 如何区分集合中li元素 是奇数行还是偶数行
+    // 索引是偶数 2n 对应的是奇数行 pink
+    // 索引是奇数 2n+1 对应的是偶数行 red
+
+    // 当前元素索引%2 
+    // 余数是0 说明 索引是偶数 对应 页面奇数行 pink
+    // 余数是1 说明 索引是奇数 对应 页面偶数行 red
+  </script>
+</body>
+</html>

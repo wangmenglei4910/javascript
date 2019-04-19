@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="news">
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+    <li>item4</li>
+    <li>item5</li>
+  </ul>
+
+  <ul>
+    <li>12312</li>
+    <li>12312</li>
+    <li>12312</li>
+  </ul>
+
+  <ul>
+      <li>12312</li>
+      <li>12312</li>
+      <li>12312</li>
+    </ul>
+  <script>
+    // document代表的是整个html文档
+    // 获取整个HTML文档中的索引li元素
+    // 获取范围
+    // var list = document.getElementsByTagName('li')
+    // console.log(list) // [li, li, li, li, li]
+   
+    // 逐级获取元素
+
+    // 先获取父元素 ul
+    var news = document.getElementById('news')
+
+    // 在通过父元素获取到 里面所有li元素
+    var list = news.getElementsByTagName('li')
+    console.log(list) // [li, li, li, li, li]
+  </script>
+</body>
+</html>

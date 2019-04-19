@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>简版排序</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      margin: 20px auto;
+      border: 1px solid #00b38a;
+      width: 600px;
+    }
+    .header {
+      height: 40px;
+      line-height: 40px;
+    }
+    .header > a {
+      padding: 0 25px;
+      text-decoration: none;
+    }
+    ul, li {
+      list-style: none;
+    }
+    ul > li {
+      height: 40px;
+      line-height: 40px;
+      font-size: 20px;
+    }
+    ul > li:nth-child(odd) {
+      background: yellow;
+    }
+    ul > li:nth-child(even) {
+      background: bisque;
+    }
+    ul > li > span {
+      padding: 0 15px;
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+  <div class="header" id="header">
+    <a href="javascript:;">上架日期</a>
+    <a href="javascript:;">价格</a>
+    <a href="javascript:;">热度</a>
+  </div>
+  <ul class="list" id="list">
+    <li data-price="100" data-time="2015-12-12" data-hot="123">
+      <span>上架日期：2015-12-12</span>
+      <span>价格：￥100</span>
+      <span>销量：123</span>
+    </li>
+    <li data-price="99" data-time="2016-10-01" data-hot="345">
+      <span>上架日期：2016-10-01</span>
+      <span>价格：￥99</span>
+      <span>销量：345</span>
+    </li>
+    <li data-price="10" data-time="2014-09-03" data-hot="999">
+      <span>上架日期：2014-09-03</span>
+      <span>价格：￥10</span>
+      <span>销量：999</span>
+    </li>
+    <li data-price="999" data-time="2019-02-05" data-hot="15">
+      <span>上架日期：2019-02-05</span>
+      <span>价格：￥999</span>
+      <span>销量：15</span>
+    </li>
+    <li data-price="520" data-time="2017-05-20" data-hot="27">
+      <span>上架日期：2017-05-20</span>
+      <span>价格：￥520</span>
+      <span>销量：27</span>
+    </li>
+    <li data-price="880" data-time="2013-11-22" data-hot="45">
+      <span>上架日期：2013-11-22</span>
+      <span>价格：￥880</span>
+      <span>销量：45</span>
+    </li>
+  </ul>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>

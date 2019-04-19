@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3 id="title" class="tt"></h3>
+  <script>
+    // 根据id名获取 直接返回的是一个元素对象
+    var title = document.getElementById('title')
+    console.log(title) // h3
+    // title.innerHTML = 'SDFADSF'
+
+    // 根据class名获取 返回的是一个元素集合 [元素对象, 元素对象]
+    var list = document.getElementsByClassName('tt')
+    console.log(list) // [h3]
+    // list[0].innerHTML = 'ASDFASDF'
+
+    // 根据标签名获取 返回的是一个元素集合 [元素对象, 元素对象]
+    var ts = document.getElementsByTagName('h3')
+    console.log(ts) // [h3]
+  </script>
+</body>
+</html>

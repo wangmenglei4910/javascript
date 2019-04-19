@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 栈内存（作用域）供JS代码执行的环境，也是用来保存基本数据类型
+    
+    // 当打开浏览器页面时，首先会形成一个全局的栈内存（全局作用域）
+
+    // 函数执行的时候，也会形成一个栈内存（函数作用域）
+
+    function add() {
+      var a = 1 + 2
+      console.log(a)
+    }
+    // 函数每一次执行 都会形成一个全新的栈内存
+    // 执行三次形成三个栈内存
+    add() // 第一次形成一个私有作用域 创建一个私有变量a
+    add() // 第二次形成一个私有作用域 创建一个私有变量a
+    add() // 第三次形成一个私有作用域 创建一个私有变量a
+
+    // 栈内存销毁
+    // 全局栈内存 当页面关闭的时候 才会销毁
+
+    // 函数形成栈内存
+    // 一般函数执行完后 就自动销毁栈内存
+
+    
+  </script>
+</body>
+</html>

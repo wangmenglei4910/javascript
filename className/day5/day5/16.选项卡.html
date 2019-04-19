@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .tab-container {
+      width: 306px;
+      margin: 20px auto 0;
+    }
+
+    .tab-container .tab-header {
+      list-style: none;
+    }
+
+    .tab-container .tab-header li {
+      float: left;
+      width: 100px;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      border: 1px solid pink;
+      cursor: pointer;
+    }
+
+    .tab-container .tab-header li.select {
+      background-color: orange;
+      color: #ffffff;
+    }
+
+    .tab-container .tab-panel div {
+      display: none;
+      width: 304px;
+      height: 200px;
+      text-align: center;
+      line-height: 200px;
+      border: 1px solid pink;
+      border-top: none;
+    }
+
+    .tab-container .tab-panel div.select {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+<div class="tab-container">
+  <!-- 页卡部分  [li, li, li]-->
+  <ul class="tab-header" id="tab-header">
+    <li class="select">电影</li>
+    <li>电视剧</li>
+    <li>综艺</li>
+  </ul>
+
+  <!-- 面板内容 [div, div, div]-->
+  <div class="tab-panel" id="tab-panel">
+    <div class="select">电影</div>
+    <div>电视剧</div>
+    <div>综艺</div>
+  </div>
+</div>
+<script>
+  // 获取页卡父级元素
+  var tabHeader = document.getElementById('tab-header')
+  // 通过父级获取到里面li元素（页卡）[li, li, li]
+  var tabHeaderList = tabHeader.getElementsByTagName('li')
+
+  // 获取面板父级元素
+  var tabPanel = document.getElementById('tab-panel')
+  // 通过面板父级获取里面div元素（面板）[div, div, div]
+  var tabPanelList = tabPanel.getElementsByTagName('div')
+
+  // tabHeaderList [li, li, li]  0 1 2
+  // tabPanelList [div, div, div] 0 1 2
+
+
+  // 点击第一个li 索引0   tabPanelList[0](第一个对应div取出来了)
+  // 点击第二个li 索引1   tabPanelList[1](第二个对应div取出来了)
+  // 点击第三个li 索引2   tabPanelList[2](第三个对应div取出来了)
+
+
+  // 当你点击第一个li 并且得到点击li的索引值 然后去面板集合里 找出对应索引位置的div 让它显示
+
+  // 利用for循环 给我们每个li元素绑定点击事件 onclick
+
+  for (var i = 0; i < tabHeaderList.length; i++) {
+    console.log('每次循环时', i)
+
+    // 每次循环时 把当前i的值 保存给当前元素对象的属性上myInd
+    tabHeaderList[i].myInd = i
+
+    tabHeaderList[i].onclick = function () {
+      // 不能再事件函数里 使用变量i 如果在点击事件里直接用变量i 我们每次点击时 输出的都是 循环完后的i
+      // console.log('点击时的输出', i)
+      // console.log('this', this)
+
+      // 保存的索引 this.myInd
+      // 我要通过li元素的索引 来找到 面板集合中的div 让它添加类名显示
+
+
+      for (var l = 0; l < tabPanelList.length; l++) {
+        // 再给对应div添加select类名之前，先把所有的div类名都清空一下
+        tabPanelList[l].className = ''
+
+        // 再给对应li添加select类名之前，先把所有的li类名都清空一下
+        tabHeaderList[l].className = ''
+      }
+
+      // [div, div, div]
+      // console.log(tabPanelList[this.myInd])
+
+      // 将我们每次点击找到的对应div 添加类名 让它显示
+      tabPanelList[this.myInd].className = 'select'
+
+      // 给当前点击的这个li 添加上选中样式
+      this.className = 'select'
+    }
+  }
+  console.log('循环后', i)
+
+  // 成功的将每次循环时变量i的值 保存到每个li元素的myInd属性上
+  // tabHeaderList[0].myInd
+  // 0
+  // tabHeaderList[1].myInd
+  // 1
+  // tabHeaderList[2].myInd
+  // 2
+
+
+  // 选项卡实现思路
+  // 当你点击哪一个li 就得到点击的这个li的索引n  通过这个索引n 让对应的div显示 其他的隐藏掉
+
+  // 具体步骤
+  // 1.先获取要操作的元素 所有的li 和 所有的div
+
+  // 2.给所有的li 循环绑定点击事件（onclick）
+
+  // 3.在for循环里 通过给当前取来的li元素对象添加自定义属性 保存当前索引i的值 （当前取出来的元素对象.属性名 = i）
+
+  // 4.当我们在点击的时候，通过for循环的形式 先将所有元素的类名清空一遍，再给对应的li或div 添加选中样式类名。
+
+  // 5.当点击哪一个li的时候 得到当前li元素对象中保存的索引（this.ind） 去面板集合中 找到对应索引（this.ind）位置的div， 添加显示的类名 ‘select’即可。
+
+
+  // 建议大家如何去学习
+  // 先看老师讲义
+  // 在边看 边敲 边看效果
+
+  // 再自己 完全写一下
+
+</script>
+</body>
+</html>

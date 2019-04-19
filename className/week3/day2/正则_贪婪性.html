@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 正则懒惰性：匹配或捕获的时候 每次都是从索引0位置开始 匹配或捕获（加g 取消懒惰性）
+  // 正则贪婪性：按照最长匹配或捕获
+
+  // 取消贪婪性 量词后面加？（按照最短匹配或捕获）
+
+  // let reg = /\d{2,8}?/g
+  // let reg = /\d+?/g
+  // let reg = /\d*?/g
+  // let reg = /\d{2,4}?/g
+  // console.log(reg.exec('123456789')) // '123456'
+  // console.log(reg.exec('123456789')) // '123456'
+  // console.log(reg.exec('123456789')) // '123456'
+
+
+ // i ignoreCase忽略大小写
+ // g global全局
+ // m multiline 多行匹配
+
+ // let reg = /a/i
+ // console.log(reg.test('a')) // true
+ // console.log(reg.test('A')) // true
+
+ // a开头字符串 b结尾
+ // let reg = /^a.+b$/mg
+ // console.log(reg.test('a123 123b'))
+
+//  let str = `a123b
+// a456b
+// a789b`
+//  // console.log(reg.test(str))
+//  console.log(reg.exec(str)) // a123b
+//  console.log(reg.exec(str)) // "a456b"
+//  console.log(reg.exec(str)) // "a789b"
+
+
+</script>
+</body>
+</html>

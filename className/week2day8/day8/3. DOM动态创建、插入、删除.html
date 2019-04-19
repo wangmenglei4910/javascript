@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3. DOM动态创建、插入、删除</title>
+</head>
+<body>
+<div id="box">
+  <p>正在加载请稍后......</p>
+</div>
+<div id="box2"></div>
+
+<script>
+  // DOM 动态创建
+  // document.createElement('标签名')
+  // 参数：标签名 h1 ul div li p ...
+  // 返回值：新创建的dom对象（元素对象）；
+  // 我们可以像操作现成的元素对象一样操作
+  var headline = document.createElement('h1');
+  headline.innerHTML = '我是一个新建的h1';
+  headline.style.backgroundColor = '#00b38a';
+
+  console.log(headline);
+
+  // 插入新元素
+  // 容器.appendChild(新元素) 将当前容器对象末尾追加新元素
+  // document.body.appendChild(headline);
+
+  // 容器.insertBefore(新元素, 老元素) 将新元素插入到老元素之前
+  var box2 = document.getElementById('box2');
+  // 用节点关系获取box2
+ // var box3 = box.nextElementSibling;
+  // document.body.insertBefore(headline, box3);
+
+  // 删除DOM元素 容器.removeChild(节点)
+  // 参数：你要删除的节点
+  // 返回值：被你删除的节点
+  // document.body.removeChild(box2)
+
+  // 替换节点
+  // 容器.replaceChild(新元素, 老元素)
+  // document.body.replaceChild(headline, box2)
+  // 返回值：返回被替换掉的老元素
+
+
+</script>
+</body>
+</html>

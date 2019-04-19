@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .tab-box {
+      width: 300px;
+      margin: 20px auto;
+    }
+
+    .tab-header {
+      list-style: none;
+      overflow: hidden;
+    }
+
+    .tab-header li {
+      box-sizing: border-box;
+      float: left;
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border: 1px solid pink;
+      cursor: pointer;
+    }
+
+    .tab-panel div {
+      display: none;
+      box-sizing: border-box;
+      width: 300px;
+      height: 150px;
+      text-align: center;
+      line-height: 150px;
+      border: 1px solid pink;
+      font-size: 24px;
+    }
+
+    /* 选中样式 */
+    .tab-panel div.select {
+      display: block;
+    }
+
+    .tab-header li.select {
+      background-color: orange;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+<div id="tab-box" class="tab-box">
+  <!-- header部分 [li, li, li]-->
+  <ul class="tab-header">
+    <li class="select">关注</li>
+    <li>推荐</li>
+    <li>小说</li>
+  </ul>
+
+  <!-- panel部分 [div, div, div]-->
+  <div class="tab-panel">
+    <div class="select">我的关注</div>
+    <div>我的推荐</div>
+    <div>我的小说</div>
+  </div>
+</div>
+
+<script>
+  // 获取操作元素
+  // 获取到所有li元素
+  var headerList = document.querySelectorAll('.tab-header > li');
+
+  // 获取到所有div元素
+  var panelList = document.querySelectorAll('.tab-panel > div');
+
+  for (var i = 0; i < headerList.length; i++) {
+
+    console.log('循环中', i) // 0 1 2
+    headerList[i].ind = i;
+
+    headerList[i].onclick = function () { // 0 1 2
+      for (var a = 0; a < headerList.length; a++) {
+        // 清空li类名
+        headerList[a].className = '';
+        // 清空div类名
+        panelList[a].className = '';
+      }
+
+      this.className = 'select';
+      panelList[this.ind].className = 'select'
+    }
+  }
+
+</script>
+</body>
+</html>

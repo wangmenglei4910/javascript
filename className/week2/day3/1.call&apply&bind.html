@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // call apply bind 修改this关键字的
+    // Function.prototype
+    // 只能供函数来使用
+    // function fe() {
+    //   console.log('this', this)
+    // }
+    // const obj = {id: 1}
+    // 让fe执行 并且将fe中的this修改为 call方法或者apply方法中的第一个参数
+    // fe.call(obj)
+    // fe.apply(obj)
+
+    // call apply 区别
+    // 传参方式
+    // fe.call(obj, param1, param2,...) 从第二个参数开始 一个一个的传参
+    // fe.apply(obj, [param1, param2]) 传参要以数组的形式传参
+
+    // function fe(a, b) { // a = arr[0] b = arr[1]
+    //   console.log(a, b)
+    //   console.log('this', this)
+    // }
+    // const obj = {id: 1}
+    // fe.call(obj, 1, 2)
+
+    // 批量传参 
+    // fe.apply(obj, [10, 20])
+    // var arr = [10, 20]
+    // fe.apply(obj, arr)
+
+    // bind 会将修改this后的函数 以新函数的形式返回（函数克隆） 绑定this和参数
+
+    // bind不会立即执行 改造后的函数 （可以永久绑定this和参数）
+    // function add() {
+    //   console.log(this)
+    // }
+    // var obj = {id: 3}
+    // var ff = add.bind(obj)
+    // ff()
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Number类型 正数 负数 小数 0 NaN(代表非数字) Not a Number
+
+    // typeof 1 // "number"
+    // typeof -1
+    // typeof 0
+    // typeof 0.123
+
+    // typeof NaN // "number"
+
+    // 将字符串转换为数字类型
+    // Number() 将字符串转换为数字
+     Number('10') // 10
+     Number('10px') // NaN
+     Number('A10') // NaN
+     // 只要字符串中 包含非有效数字字符 就直接返回NaN
+
+     // [1, 2, 3] 
+     // 数组转换成字符串 相当于 把中括号换成引号
+     // 对于数组 先转换为字符串 再转换为数字
+     Number([1]) // Number([1]) => Number('1') => 1
+    //  [1, 2, 3] => "1, 2, 3"
+     Number([1, 2, 3]) // Number("1,2,3") => NaN
+
+     // 特殊记
+     Number('') // 0
+     Number([]) // 0
+     Number(null) // 0
+     Number(true) // 1
+     Number(false) // 0
+
+     // Number() 强制转换
+     // *只要转换的字符串中，包含非有效数字字符 就直接返回NaN*
+     Number('N123') // NaN
+     
+     // 提取数字
+     // 从左往右 依次进行提取，只要中途遇到非数字字符 就停止提取，
+     // 将提取到的内容以数字形式直接返回
+     // parseInt() 
+     parseInt('10') // 10
+     parseInt('10px') // 10
+     parseInt('123a666') // 123
+
+     // parseInt() 不能够识别小数点 我们通常用它来进行取整
+     parseInt('121.12') // 121
+     parseInt(12.12) // 12
+
+     // parseFloat() 多识别一个小数
+     parseFloat('121.12') // 121.12
+
+     // Number类型：正数 负数 小数 0 NaN(非数字的值)
+
+     // 字符串转换为number类型
+     // Number()
+     // parseInt()
+     // parseFloat()
+  </script>
+</body>
+</html>

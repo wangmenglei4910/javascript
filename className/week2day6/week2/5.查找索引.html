@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // indexOf 和 lastIndexOf
+
+    // indexOf
+    // 查找某项 在数组中的首次出现的索引位置
+    // 返回值：查找到的索引值 
+    // 如果返回-1，说明数组中不存在这一项
+
+    // var arr = [10, 20, 30, 40, 30, 50]
+
+    // // console.log(arr.indexOf(30)) // 2
+    // // 如果返回-1 说明这个数组中没有100这一项
+    // var res = arr.indexOf(100)
+    // console.log(res) // -1
+
+    // if (arr.indexOf(200) === -1) {
+    //   console.log('不存在这一项')
+    // }
+
+    // lastIndexOf
+    // 查找某项 在数组中最后一次出现的索引位置
+    // 如果查找不到 返回-1
+    var arr = [10, 20, 30, 40, 30, 50, 30]
+    // arr.indexOf(30) // 2
+    // console.log(arr.lastIndexOf(30)) // 6
+
+    console.log(arr.indexOf(40)) // 3
+    console.log(arr.lastIndexOf(40)) // 3
+
+    // indexOf lastIndexOf
+    // indexOf 查找某项 在数组中的首次出现的索引位置
+    // lastIndexOf 查找某项 在数组中最后一次出现的索引位置
+
+    var a = [1, NaN, 3, NaN]
+    // console.log(a.indexOf(NaN)) // -1
+    // console.log(a.lastIndexOf(NaN)) // -1
+
+    for (var i = 0; i < a.length; i++) {
+      if (a[i] !== a[i]) { //  因为只有NaN和自己不相等
+        console.log(i, a[i])
+      }
+    }
+  </script>
+</body>
+</html>

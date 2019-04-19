@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button id="btn">验证码</button>
+    <script>
+            function randomCode(len) { // len验证码位数
+              // 默认参数处理
+              len = len || 4
+
+              var str =
+                "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+              var codeStr = "";
+
+              for (var i = 0; i < len; i++) {
+                // 获取一个随机的索引ind（索引范围 0 ~ str.length - 1）
+                var ind = Math.round(Math.random() * (str.length - 1));
+
+                // 根据索引获取对应的字符str[ind]
+                codeStr += str[ind];
+              }
+
+              return codeStr
+            }
+
+            var btn = document.getElementById('btn')
+
+            btn.onclick = function() {
+              this.innerHTML = randomCode(10)
+            }
+
+
+            // while(循环条件) {
+              // 只要循环条件为true就一直循环下去
+            // }
+
+            function randomCode2(len) { // len验证码位数
+              // 默认参数处理
+              len = len || 4 // len 生成验证码长度
+
+              var str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+              var codeStr = ""; // 拼接验证码
+   
+              // 只要拼接的字符个数 不够 len个 就要继续循环下去
+              while(codeStr.length < len) {
+                var ind = Math.round(Math.random() * (str.length - 1));
+                codeStr += str[ind];
+                // codeStr每拼接一个字符 codeStr.length就自动加1
+              }
+              return codeStr
+            }
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style></style>
+  </head>
+  <body>
+    <div id="box">我是个div</div>
+    <script>
+      // getComputedStyle/currentStyle 只能获取样式
+
+      // 设置css样式
+      // 动态添加类名 批量添加样式
+      // 行内样式 element.style[attr] = value
+      // function setCss(ele, attr, value) {
+
+      //   if (attr === 'opacity') {
+      //     ele.style.filter = 'alpha(opacity='+ value * 100 +')'
+      //   }
+
+      //   // 把一些常见样式属性自动添加单位
+      //   let reg =/^(width|height|(margin|padding)?(top|left|right|bottom)?)$/i
+      //   if (reg.test(attr)) {
+      //     if (!isNaN(value)) {
+      //       value += 'px'
+      //     }
+      //   }
+      //   ele.style[attr] = value;
+      // }
+
+      // function setCss(ele, attr, value) {
+      //   if (attr === 'float') {
+      //     ele.style.cssFloat = value
+      //     ele.style.styleFloat = value
+      //     return
+      //   }
+
+      //   if (attr === 'opacity') {
+      //     ele.style.filter = 'alpha(opacity='+ value * 100 +')'
+      //   }
+
+      //   // 把一些常见样式属性自动添加单位
+      //   // width height margin padding marginTop paddingTop
+      //   // left top right bottom
+      //   let reg =/^(width|height)|((margin|padding)?(top|left|bottom|right)?)$/i
+
+      //   // 是否是需要加单位属性
+      //   if (reg.test(attr)) {
+      //     // 这个value是否已经有单位
+      //     if (!isNaN(value)) { // 是有效数字需要 加单位
+      //       value += 'px'
+      //     }
+      //   }
+      //   ele.style[attr] = value;
+      // }
+      setCss(box, "height", 250)
+      setCss(box, "width", "100px")
+
+      // setCss(box, "margin", "10px")
+      // setCss(box, "top", "10px")
+
+      // setCss(box, "opacity", 0.2);
+
+      // setCss(box, "width", 200);
+      // setCss(box, "height", 200);
+
+      setCss(box, "background", "red");
+
+      // setCss(box, "float", "right");
+
+      // setTimeout(() => {
+      //   setCss(box, "width", "200px");
+      //   setCss(box, "height", "200px");
+      //   setCss(box, "background", "red");
+      // }, 3000);
+    </script>
+  </body>
+</html>

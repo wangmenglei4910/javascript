@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h3>{{ title }} {{title}}</h3>
+      <div>
+        <h4>{{ text }}</h4>
+        <p>{{ context }}</p>
+        <p>{{ context }} 你好 {{ context }}</p>
+        <p>{{ context }} 你好 {{ context }}</p>
+      </div>
+    </div>
+    <script>
+      let app = document.getElementById("app");
+
+      let data = {
+        title: "Hello Vue.js!",
+        text: "前端大神",
+        context: "我是一枚程序猿~"
+      };
+      let reg = /\{\{(.+?)\}\}/g;
+      let str = app.innerHTML.replace(reg, (a, b) => data[b.trim()]);
+      app.innerHTML = str
+
+    </script>
+  </body>
+</html>

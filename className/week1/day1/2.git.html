@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   // Git代码管理工具 将本地代码 上传到GitHub
+   // GitHub 项目代码托管平台
+
+   // 你可以使用Git命令 或者图形化界面 上传提交代码
+
+
+  // 用Git关联GitHub
+
+
+  // 1.在GitHub上 创建一个新的仓库（远程仓库）
+
+  // 2.将这个远程仓库 下载到本地
+
+  // 复制远程仓库的Git地址
+  // https://github.com/Lwenli1224/201902JS.git
+  
+  // 在本地 找到相应位置
+  // 右键 打开 git bash here 命令窗口
+
+  // 将远程仓库下载到本地
+  // git clone 远程仓库地址
+
+  // git clone https://github.com/Lwenli1224/201902JS.git
+
+  // Git仓库就是一个文件夹
+  // 每个git仓库里都有一个 默认隐藏的 .git文件夹
+
+
+  // 查看本地仓库 和 哪个远程仓库有关联
+  // git remote -v
+
+  // origin  https://github.com/Lwenli1224/201902JS.git (fetch)
+  // origin  https://github.com/Lwenli1224/201902JS.git (push)
+
+
+  // 将本地仓库中 的文件 上传到对应的远程仓库里
+
+  // 提交代码 需要经历 三个区
+  // 工作区  本地文件夹
+  // 暂存区  缓存区域
+  // 历史区  针对此次提交 生成一个版本记录
+
+  // git status 查看当前仓库文件状态
+
+  // 将工作区所有文件 添加到 暂存区
+  // git add . 
+
+  // git status
+  // 红色 说明当前文件在工作区
+  // 绿色 说明当前文件在暂存区
+
+
+  // 将暂存文件 全部提交到历史区
+  // git commit -m "我添加了一个1.txt文件" 
+
+  // 将历史区文件 上传到远程仓库
+  // git push origin master(主干)
+
+  // orgin对应的远程仓库名称
+
+  // 输入你GitHub的用户名 密码
+
+  // 将本地修改 上传到 远程仓库
+  // 修改完文件
+  // 1. git add .
+  // 2. git commit -m "备注信息"
+  // 3. git push origin master
+  // push后有的需要你 输入用户名username  输入密码password
+
+  // 我会创建一个讲义仓库
+
+  // git clone 别人远程仓库地址
+
+  // 拉取最新代码 pull拉取
+  // git pull origin master
+
+  // 如果是直接 git clone 下来的仓库 已经默认建立关联了 不需要再建立
+
+
+  // 本本地已有文件夹 变成Git仓库 和 远程指定仓库建立关联
+  // git init 把已有本地文件夹 初始化成git仓库
+
+  // 建立关联
+  // git remote add origin 远程仓库地址
+
+
+  // 学生 把老师讲义仓库 克隆下来
+  // git clone https://github.com/Lwenli1224/201902JS-.git
+
+
+  // 以后每天 进入201902JS 打开命令行
+  // git pull origin master  (拉取最新的内容)
+
+  </script>
+</body>
+</html>

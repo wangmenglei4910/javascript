@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM节点</title>
+</head>
+<body>
+<div id="tab"><ul class="tab-header">
+    <li>卡1</li>
+    <li>卡2</li>
+    <li>卡3</li>
+  </ul>
+  <div id="tab-panel" class="tab-panel" conf="zhufeng">
+    <!--我就是一个注释，谁喊我？-->
+    <div>内容1</div>
+    <div>内容2</div>
+    <div>内容2</div>
+  </div>
+</div>
+<script>
+  // DOM节点
+  // node: 在html文档中，所有的内容都被视为节点，包含元素、文本、注释、属性。
+
+  // 常用的节点
+  // 元素节点：元素
+  // 属性节点：属性
+  // 文本节点：文本
+  // 注释节点：注释
+  // 文档节点：document文档
+
+  // 常用的节点  nodeType   nodeName      nodeValue
+  // 元素节点：   1        大写标签名       null
+  // 属性节点：   2        属性名          属性值
+  // 文本节点：   3        #text           文本内容
+  // 注释节点：   8         #comment       注释内容
+  // 文档节点：   9         document        null
+
+  // 节点关系：描述节点间关系的属性
+  // 元素.childNodes 获取当前元素所有的子节点的集合，不仅是元素，还有文本，注释...
+  var tabs = document.querySelector('#tab');
+  console.log(tabs.childNodes);
+
+  // IE6-8 不兼容
+  // 元素.children：获取当前元素的所有元素子节点的集合
+
+  // 元素.parentNode：获取的当前元素的父亲节点对象
+  console.log(tabs.parentNode);
+
+  // 元素.previousSibling:获取当前元素的哥哥节点，不一定是元素
+  // 元素.nextSibling： 获取当前元素的弟弟节点，不一定是元素
+
+  // IE6-8 不兼容
+  // 元素.previousElementSibling: 上一个元素哥哥节点
+  // 元素.nextElementSibling: 下一个元素弟弟节点
+
+  // 元素.firstChild 当前元素的第一个儿子节点，
+  var tabPanel = document.getElementById('tab-panel');
+  console.log(tabPanel.firstChild);
+
+  // 元素.lastChild 当前元素的最后一个子节点；
+  console.log('最后一个孩子', tabPanel.lastChild);
+
+  // IE6-8
+  // 元素.firstElementChild 当前元素的第一个【元素】子节点
+  // 元素.lastElementChild 当前元素的最后一个元素子节点
+
+  // 注意：ATTENTION
+  // 上面属性获取不到是null
+
+  //
+
+</script>
+</body>
+</html>

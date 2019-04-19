@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>单例模式</title>
+</head>
+<body>
+
+<script>
+  // 描述一个事物(全局变量)，全局变量互相影响覆盖
+  // var name = '肖泽辉';
+  // var age = '59';
+  // var sex = 'boy';
+  //
+  // var name = '雷舒雯';
+  // var age = '18';
+  // var sex = 'girl';
+
+  var person1 = {
+    name: '肖泽辉',
+    age: '59',
+    sex: 'boy',
+    money: '$1000000000000000'
+  };
+
+  var person2 = {
+    name: '雷舒雯',
+    age: '19',
+    sex: 'girl'
+  };
+
+  var person3 = {
+    name: '于腾越',
+    age: '18',
+    sex: ''
+  }
+
+  // 单例模式
+  // 定义：通过将描述一个事物的属性/特性包装到一个对象中。这种创建对象的方式称为单例模式模式；
+  // 优点：解决了全局变量互相影响覆盖的问题。因为person1和person2代表两个不同的堆内存空间，
+  // person1和person2变量名 称为命名空间（nameSpace）
+
+  // 高级单例模式：高级单例模式不再是直接将一个对象赋值给命名空间，而是先执行一个自执行函数，在函数执行结束时返回一个对象；
+  // 特点：我们可以在自执行函数的作用域声明我们需要的方法或者属性，我们只导出外界需要的方法或者属性；利用类函数的【惰性封装】思想
+
+  var phone = (function () {
+    function call() {
+      console.log('打电话');
+    }
+    function msg() {
+      console.log('发短信');
+    }
+    var brand = 'MI';
+    var jidai = '基带';
+    return {
+      call: call,
+      msg: msg,
+      brand: brand
+    }
+  })();
+
+  // 单例模式也是模块化开发的一种思路
+
+  // 不足：不能批量创建对象，代码冗余度高
+
+
+</script>
+</body>
+</html>

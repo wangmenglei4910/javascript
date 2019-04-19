@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      position: absolute;
+      top: 100px;
+      left: 100px;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="box" class="box"></div>
+  <script src="./utils.js"></script>
+  <script>
+    const { css } = window._utils
+    const box = document.getElementById('box')
+
+    // 过渡时间
+    const duration = 2000
+    // 目标值
+    const target = 800
+    // 起始值
+    const begin = css(box, 'left')
+    // 总移动距离
+    const change = target - begin
+
+    // 记录当前时间
+    let time = 0
+
+    const interval = 10
+    // JS中实现动画 通过定时器    
+    const timeID = setInterval(() => {
+      time += 10
+
+      // 动画结束条件
+      if (time >= duration) {
+        css(box, 'left', target)
+        clearInterval(timeID)
+        return
+      }
+      // 根据当前时间 推导出当前所在的位置
+      let curLeft = linear(time, begin, change, duration)
+      css(box, 'left', curLeft)
+    }, interval)
+
+    /** 匀速运动公式
+      * @param t 当前时间
+      * @param b 起始位置
+      * @param c 总移动距离
+      * @param d 总时间
+      * @return 当前所在的位置
+     */
+    function linear(t, b, c, d) {
+       return t * (c / d) + b
+     }
+  </script>
+</body>
+</html>

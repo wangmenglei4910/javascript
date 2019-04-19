@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 变量提升细节
+    // 1.if条件中 不管条件成不成立 都会进行 变量提升
+    // 2.函数中，return下面代码虽然不执行，但会进行变量提升，
+    // 3.return 右边值不会参加变量提升
+
+    function add() {
+      console.log(n) // undefined
+      console.log(fe) // function fe() {console.log('fe')}
+
+      return 1;
+
+      var n = 123
+
+      function fe() {
+        console.log('fe')
+      }
+    }
+    add()
+
+    // function fe() { // var n = undefined
+    //   console.log(n) // undefined
+    //   console.log(foo)
+
+    //   // return 返回值 不会参加变量提升
+    //   return function foo() {
+    //     console.log('foo')
+    //   }
+
+    //   var n = 123
+    // }
+    // fe()
+
+    // console.log(num) // undefined
+    // if (false) {
+    //   var num // 全局中变量提升
+    // }
+
+    // console.log(fe) // undefined
+    // if (true) { // 在if语句中声明函数 变量提升时，赋值为默认值undefined
+    //   function fe() { console.log('fe') } // 不规范代码
+    // }
+
+    // // 通常声明一个函数 是在全局作用域中 和 函数作用域 
+    // function fe() { // 在全局中声明fe函数
+    //   function f() {} // 在函数作用域中声明 函数f
+    // }
+
+  </script>
+</body>
+</html>

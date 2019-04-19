@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 变量命名规范
+    // 1.可以使用字母、数字 特殊符号_ $
+    var num1 = 100
+    var num2 = 200
+    console.log(num1) // 100
+    console.log(num2) // 200
+
+    var title = '这是个标题'
+   
+    // _ $ 自发约定的
+    var _num = 300 // _是内部私有变量
+    var $num = 400 // JQ js类库 用来表示通过jq获取的变量元素
+
+    // 2.数字或者一些其他字符不能作为变量名开头
+    // 错误的写法：var 1num = 123
+
+    // 3.JS里变量名严格区分大小写
+    // var A = 1
+    // var a = 2
+    // console.log(A) // 1
+    // console.log(a) // 2
+
+    var a = 1
+
+    // 4.驼峰式命名（命名规则）
+    // 小驼峰 定义一般变量
+    // 大驼峰 定义类名
+
+    // 小驼峰首先第一个单词首字母小写，
+    // 从第二个单词开始 后面的每一个单词首字母都要大写
+    var myContextTitle = 200
+    // var mycontexttitle = 300
+    // document.getElementById()
+
+    // 每个单词首字母都要大写
+    var MyTitle = 123
+
+    // 5.变量名不能使用 关键字 保留字（将来升级为关键字）
+    // 在js中有很多特殊意义单词 关键字
+    // var var = 123
+    // var const = 100
+  
+  </script>
+</body>
+</html>

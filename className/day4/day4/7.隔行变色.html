@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .news {
+      width: 400px;
+      margin: 20px auto;
+      list-style: none;
+      border: 1px solid pink;
+    }
+
+    .news li {
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+    }
+
+    /* odd 奇数行 */
+    /* .news li:nth-child(odd) {
+      background-color: pink;
+    } */
+
+    /* even 偶数行
+    .news li:nth-child(even) {
+      background-color: red;
+    } */
+
+    /* 2n+1 奇数 */
+    /* .news li:nth-child(2n+1) {
+      background-color: pink;
+    } */
+
+    /* 2n 偶数 */
+    /* .news li:nth-child(2n) {
+      background-color: red;
+    } */
+  </style>
+</head>
+
+<body>
+  <ul id="news" class="news">
+    <li>重农固本！习近平对“三农”的深深牵挂1 奇数行</li>
+    <li>重农固本！习近平对“三农”的深深牵挂2 偶数行</li>
+    <li>重农固本！习近平对“三农”的深深牵挂3 奇数行</li>
+    <li>重农固本！习近平对“三农”的深深牵挂4 偶数行</li>
+    <li>重农固本！习近平对“三农”的深深牵挂5 奇数行</li>
+    <li>重农固本！习近平对“三农”的深深牵挂6 偶数行</li>
+    <li>重农固本！习近平对“三农”的深深牵挂7 奇数行</li>
+    <li>重农固本！习近平对“三农”的深深牵挂8 偶数行</li>
+    <li>重农固本！习近平对“三农”的深深牵挂9 奇数行</li>
+    <li>重农固本！习近平对“三农”的深深牵挂10 偶数行</li>
+  </ul>
+
+  <script>
+
+    // 获取ul
+    var news = document.getElementById('news')
+    var list = news.getElementsByTagName('li')
+    console.log(list)
+
+    for (var i = 0; i < list.length; i++) {
+      if (i % 2 === 0) {
+        list[i].style.backgroundColor = 'pink'
+      } else {
+        list[i].style.backgroundColor = 'red'
+      }
+    }
+
+   </script>
+</body>
+
+</html>

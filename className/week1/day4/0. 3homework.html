@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  function fun(n, o) {
+    // fun(0) n 0
+    // fun(0) o undefined
+
+    // fun(0).fun(1) n 1
+    // fun(0).fun(1) o 0
+
+    // c.fun(2) n 2
+    // c.fun(2) 0 1
+
+    // c.fun(3) n 3
+    // c.fun(3) o 1
+    console.log(o);
+    return {
+      fun: function (m) {
+        // m 1
+        // c.fun(2) m 2
+        // c.fun(3) m 3
+        return fun(m, n);
+        // f(0).fun(1) =>　fun(1, 0)
+        // c.fun(2) => fun(2, 1)
+        // c.fun(3) => fun(3, 1)
+      }
+    };
+  }
+
+  var c = fun(0).fun(1); // undefined 0
+  c.fun(2); // 1
+  c.fun(3); // 1
+
+</script>
+</body>
+</html>

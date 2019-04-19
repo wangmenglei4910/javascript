@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>模板引擎</title>
+</head>
+<body>
+<div id="root"></div>
+<!--type="text/x-diy-template" 可以让script里面写html-->
+<script type="text/x-diy-template" id="tmp">
+  <div>{{name}}</div>
+  <div>{{age}}</div>
+</script>
+
+<script>
+  let tmp = document.getElementById('tmp');
+  let tmpStr = tmp.innerHTML;
+  // console.log(tmpStr);
+  let reg = /\{\{(\w+)\}\}/g;
+  var obj = {
+    name: 'zhufeng',
+    age: 11
+  };
+  let result = tmpStr.replace(reg, function (...arg) {
+    console.log(arg);
+    return obj[arg[1]]
+  });
+  console.log(result);
+  // 插入到页面中
+  let root = document.getElementById('root');
+  root.innerHTML = result;
+</script>
+</body>
+</html>

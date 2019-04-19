@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<h3 id="title" class="text">我是h3的内容</h3>
+
+<div>
+  <h3>{{message}}</h3>
+  <ul>
+    <li>{{text}}</li>
+  </ul>
+</div>
+<script>
+  // 编程语言中的一种设计思想 （面向对象 Java）
+  // JS中把我们要研究的事物或者数据 抽象为一个一个对象 {属性：属性值}
+  // 所有的事物都是抽象为一个一个对象 在对象自身保存自己的属性和方法
+
+  // const title = document.getElementById('title')
+  // console.log(title)
+  //
+  // const xiaoxiaoshu = {
+  //   name: '肖',
+  //   age: 18,
+  //   height: 1.80
+  // }
+
+  // 通过类 对JS中的事物（对象）进行 划分
+  let arr = [] // 数组类
+  let obj = {} // Object对象类
+  let num = 1 // 数字类
+
+  // 内置类
+  // Array RegExp String Number Boolean Object Function
+  // 面向对象
+  // 类：对JS中事物一个划分 比如 人属于人类、 植物属于植物类
+  // 实例对象：类中的一个具体的事物（对象类型）比如：人类中某一个人 植物类中某一个植物
+
+  // 所有的对象数据类型，都是Object这个基类的实例
+  // Array
+  let arr1 = [1, 2, 3] // 数组类中的一个数组实例
+  let arr2 = [4, 5, 6] // 数组类中的一个数组实例
+  let arr3 = new Array(1, 2, 3)
+  console.log(arr2 instanceof Array)
+  console.log(arr3 instanceof Array)
+
+  // 在我们类上 保存了关于我们实例 可以使用的公有的属性和方法
+  // 通过 实例化 new Array 生成一个实例
+
+  // 要想生成一个实例，需要先创建一个类（当类在实例化的时候，给这个实例对象添加 私有和公有的属性或方法）
+
+  // 类上存储的是针对实例对象的公有属性和方法
+  // 实例上存储的是针对自身的私有属性和方法
+
+  let arr4 = [6, 7, 8]
+
+  // 每个函数（类 普通函数），天生都有一个自带的属性prototype（原型对象），在这里存储所属类实例的公有属性和方法
+
+  // 对于一个实例对象来说，如何获取和使用公有的属性和方法（原型链）
+
+  // 实例可以通过原型链 找到类上的公有属性和方法来使用
+
+  // // 当你new一个类时候，发生了什么
+  // function Fn() {
+  //   // 创建一个实例对象
+  //   const obj = {id: 1, name: 'obj'}
+  //   // 并且这个实例对象的__proto__指向当前类的原型
+  //   obj.__proto__ = Fn.prototype
+  //   return obj
+  // }
+  // Fn.prototype.name = '我是FN'
+  // const fn = new Fn()
+  // console.log(fn)
+
+  // 在JS中类就是一个函数
+  console.log(typeof Array) // "function"
+  arr4.__proto__ = Array.prototype
+
+  // 基于面向对象的思想 设定自己的类
+  // new 类 构造函数中this指向当前类的实例（让你能够给这个实例添加私有属性 this.xxx = 属性值）
+  // function Fn() {
+  //   this.xxx = '私有属性'
+  // }
+  // Fn.prototype.name = 'fn这个类'
+  // const f1 = new Fn()
+  // // 根据实例的__proto__来判断当前这个实例 属于哪个类
+  //
+  // // 类的原型和实例 是通过__proto__关联在一起的
+  // console.log(f1) // {xxx: '私有属性', __proto__: Fn.prototype}
+
+  // 用new操作符 通过类创建一个实例的过程
+  // function Fn() {
+  //
+  //   if (this instanceof Fn) {
+  //     const obj = new Object()
+  //     obj.xxx = '私有属性'
+  //     obj.__proto__ = Fn.prototype
+  //     return obj
+  //   }
+  //
+  // }
+  // const f2 = new Fn()
+  // console.log(f2)
+
+  function F1() {
+    this.name = 'f1'
+  }
+
+  F1.prototype.age = 20
+  const f1 = new F1()
+  f1.name
+  console.log(f1.constructor === F1)
+
+  // 一般情况下 原型对象的__proto__指向的都是 Object.prototype
+  // f1 => f1.__proto__ (F1.prototype) => f1.__proto__.__proto__ (Object.prototype) => undefined
+
+  // 原型链（查找属性）：当对象.属性的时候，先看对象自身是否有这个私有属性，
+  // 没有就根据__proto__找到所属类的原型，如果所属类的原型也没有，就根据原型的__proto__,
+  // 找到Object的原型， 如果Object的原型也没有就返回undefined
+
+  // 每个函数（类 普通函数）都有一个天生自带的属性prototype，
+  // 在原型对象prototype 都有一个自带的属性constructor指向这个类本身
+  // obj.fn()
+
+  // 根据一个对象查找自身
+  // console.log(F1.prototype.constructor === F1)
+  // console.log(F1.prototype.constructor.prototype.constructor === F1)
+  // console.log(F1.prototype.constructor.prototype.constructor.prototype.constructor === F1)
+
+  // var obj1 = {id: 1}
+  // obj1.con = obj1
+  // console.log(obj1)
+
+  // var f2 = { name: 'f2' }
+  // f2.prototype = {
+  //   constructor: f2
+  // }
+
+  // 面向对象
+  // 类：可以创建实例，在它原型上prototype上保存供实例使用的公有属性和方法
+  // 实例：存储私有属性和方法，可以根据自身__proto__找到原型上属性和方法
+
+  // 每个对象数据类型（普通对象 原型对象 函数对象）都是一个Object基类的一个实例
+  // 每个实例对象都有一个__proto__的属性，指向所属类的原型
+  // 通过实例对象的__proto__构成的原型链
+
+  // 创建类(设计的人类)
+
+  function People(name, age) {
+    this.name = name
+    this.age = age
+  }
+
+  People.prototype.say = function (msg) {
+    console.log(`${this.name}说 ${msg}`)
+  }
+  People.prototype.eat = function (food) {
+    console.log(`${this.name}吃 ${food}`)
+  }
+
+  // 创造一个人类的实例 (人类中一个具体人) 具体的事物
+  const xiaofei = new People('xiaofei', 18)
+  console.log(xiaofei) // {name, age}
+
+  const xiaoshu = new People('xiaoshu', 20)
+  console.log(xiaoshu) // {name, age}
+</script>
+</body>
+</html>
+
+
+
+
+

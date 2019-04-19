@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+     /**
+      * JS代码执行之前 会先预先分析我们的JS代码
+      * 
+      * JS引擎执行分为两步：
+      * 1.预解析（变量提升）
+      * 2.执行
+     */
+
+     /**
+      * 变量提升（预解析）
+      * 在JS代码执行之前 对所有声明过的变量 带var 和 带function关键字的变量，
+      * 进行提前的声明和定义（赋值）
+      * 
+      * 普通变量和函数变量的变量提升的区别
+      * 对于带var的进行提前声明 并赋值为默认值undefined
+      * 
+      * 对于带function的进行提前声明 并提前赋值为函数定义本身
+      * 
+      * 变量提升结束之后，代码从上到下开始执行
+      * 
+     */
+
+     // var num = undefined 变量提升时
+
+    //  console.log(num) // undefined 变量提升时 赋的默认值
+    //  var num = 100 // 代码执行到这一行时，将它赋值为100
+    //  console.log(num)
+
+    console.log(fe) // 输出的是提前定义的函数体本身
+    
+    fe()
+
+    // 函数定义部分 
+    function fe() {
+      console.log('fe')
+    }
+
+     // 当我们打开页面时，为了执行全局中代码 开辟了一个全局作用域（栈内存）
+  </script>
+</body>
+</html>

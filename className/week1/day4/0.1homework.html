@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  // 题一
+  // function fn(n) {
+  //   // fn(10) n 10 12 15
+  //   return function(a) {
+  //     // f(1) a 1 2
+  //     // f(2) a 2 3
+  //     a++;
+  //     n += a;
+  //     console.log(n);
+  //   };
+  // }
+  // var f = fn(10);
+  // f(1); // 12
+  // f(2); // 15
+
+  // 题二
+  // 1、开辟作用域
+  // 2、变量提升：fn = 函数 f undefined
+  // function fn(n) {
+  //   // 1. 开辟作用域
+  //   // 2. 形参赋值：n 10 12
+  //   // 3. 变量提升 无
+  //   // 4. 代码执行
+  //   // fn 作用域不销毁
+  //   n = n;
+  //   return function (a) {
+  //     // a 1 2
+  //     a++;
+  //     console.log((n += a));
+  //   };
+  // }
+  //
+  // var f = fn(10);
+  // f(1); // 12
+
+  // 题三
+  // var num = 20;
+  // var obj = {
+  //   num: 30,
+  //   fn: (function (num) {
+  //     // num 20 25
+  //     num += 5;
+  //     return function () {
+  //       console.log(num);
+  //     };
+  //   })(num)
+  // };
+  // obj.fn(num); // 25
+
+  // 题四
+  function fun(n, o) {
+    // 不销毁执行
+    // fun(0) n 0
+    // fun(0) o undefined
+
+    // 全新执行，每次执行完都销毁
+    // a.fun(1) => n 1
+    // a.fun(1) => o 0
+
+    // a.fun(2) => n 2
+    // a.fun(2) => o 0
+
+    // a.fun(3) => n 3
+    // a.fun(3) => o 0
+
+    console.log(o);
+    return {
+      fun: function (m) {
+        // a.fun(1) m 1
+        // a.fun(2) m 2
+        // a.fun(3) m 3
+        return fun(m, n);
+        // a.fun(1) fun(1, 0)
+        // a.fun(2) fun(2, 0)
+        // a.fun(3) fun(3, 0)
+      }
+    };
+  }
+
+  // var a = fun(0); // undefined
+  // a.fun(1); // 0
+  // a.fun(2); // 0
+  // a.fun(3); // 0
+
+  var b = fun(0).fun(1).fun(2).fun(3);
+
+  var c = fun(0).fun(1);
+  c.fun(2);
+  c.fun(3);
+  console.log(a);
+  console.log(b);
+  console.log(c);
+
+
+</script>
+</body>
+</html>

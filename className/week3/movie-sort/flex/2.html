@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      display: flex;
+      width: 300px;
+      height: 300px;
+      border: 2px solid black;
+      margin: 20px auto;
+      position: relative;
+
+      /* 控制主轴方向 默认水平方向 */
+      /*flex-direction: row-reverse;*/
+      /*flex-direction: column;*/
+      /*flex-direction: column-reverse;*/
+
+      /* 子元素 沿着主轴 居中排列 */
+      justify-content: center;
+      /*justify-content: flex-end;*/
+      /*justify-content: space-between;*/
+      /*justify-content: space-around;*/
+
+      /* 子元素 沿着交叉轴 居中排列 */
+      align-items: center;
+      /*align-items: flex-start;*/
+      /*align-items: flex-end;*/
+      /*align-items: stretch;*/
+    }
+    .item {
+      width: 50px;
+      height: 50px;
+      /*position: absolute;*/
+      /*top: 0;*/
+      /*bottom: 0;*/
+      /*right: 0;*/
+      /*left: 0;*/
+      /*margin: auto;*/
+      background-color: red;
+      color: #fff;
+      margin: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+
+    <div class="item">1111</div>
+    <div class="item">2222</div>
+    <div class="item">3333</div>
+
+  </div>
+</body>
+</html>

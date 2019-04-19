@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .bg0 {
+      background-color: red;
+    }
+
+    .bg1 {
+      background-color: pink;
+    }
+
+    .bg2 {
+      background-color: aquamarine;
+    }
+
+    .bg3 {
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+<button id="btn">进行隔行变色</button>
+<ul id="news" class="news">
+  <li>重农固本！习近平对“三农”的深深牵挂1 奇数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂2 偶数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂3 奇数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂4 偶数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂5 奇数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂6 偶数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂7 奇数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂8 偶数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂9 奇数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂10 偶数行</li>
+</ul>
+<script>
+
+  var btn = document.querySelector('#btn');
+
+  // 给元素绑定点击事件
+  btn.onclick = function () {
+    var list = document.querySelectorAll('.news > li');
+    for (var i = 0; i < list.length; i++) {
+      list[i].className = `bg${i % 4}`
+    }
+  }
+
+</script>
+</body>
+</html>

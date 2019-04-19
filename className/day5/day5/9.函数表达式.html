@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 函数声明
+  // function 函数名() { // 函数体
+  //
+  // }
+
+  // 声明一个变量将 函数当作一个值 赋值给变量fn
+  // 函数表达式
+  // var fn = function (a) {
+  //   console.log(a)
+  // };
+  // console.log(fn)
+  // fn(100)
+
+  // 没有名字的函数成为匿名函数
+
+  // f1();
+  // 函数声明方式 你可以在函数定义之前来调用执行  正式课（变量提升）
+  function f1() {
+    console.log('f1')
+  }
+
+  // 通过函数表达式方式 定义的函数 必须在函数定义后使用
+  // f2() 会报错 f2 is not a function
+  console.log('before', f2); // undefined
+
+  var f2 = function () {
+    console.log('f2')
+  };
+
+  console.log('after', f2);
+  f2()
+
+</script>
+</body>
+</html>

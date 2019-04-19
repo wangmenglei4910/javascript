@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 双循环去重
+    // 用当前项 和它后面每一项进行比较 如果相等就说明重复，将后一项删除（splice(j, 1)）
+    
+    // 数组塌陷
+    // 前面某项删除 后面的每项 都会往前挪一位
+    // j = 1 => 2
+    // j = 1 => 2
+    var arr = [2, 2, 2, 2]
+
+    function unique(ary) {
+      for (var i = 0; i < ary.length; i++){
+        var cur = ary[i]
+
+        for (var j = i + 1; j < ary.length;) {
+
+          cur === ary[j] ? ary.splice(j, 1) : j++
+          
+        }
+      }
+      console.log(ary)
+    }
+    unique(arr)
+    
+    // function unique(ary) {
+    //   for (var i = 0; i < ary.length; i++){
+    //     var cur = ary[i]
+    //     for (var j = i + 1; j < ary.length;) {
+    //       if (cur === ary[j]) {
+    //         // 如果在当前位置 删除了这一项 就再从这个位置比较一次 先不让j++
+    //         ary.splice(j, 1)
+    //       } else {
+    //         j++ // 指向下一个位置的数
+    //       }
+    //     }
+    //   }
+    //   console.log(ary)
+    // }
+    // unique(arr)
+    
+    
+    // var arr = [1, 1, 1, 2, 2, 2, 3, 3]
+    
+    // function unique(ary) {
+    //   // 外层循环负责取出当前项这个值
+    //   for (var i = 0; i < ary.length; i++){
+    //     // i当前项的索引
+    //     // 当前项
+    //     var cur = ary[i] // 1
+
+    //     // 内层循环负责将当前项 后面的每一项依次取出来
+    //     // [1, 1, 1, 2, 2, 2, 3, 3]
+    //     for (var j = i + 1; j < ary.length; j++) {
+    //       // j是后一项的索引
+    //       if (cur === ary[j]) { // 当前项和后一项重复了
+    //         // 根据后一项的索引 删除
+    //         ary.splice(j, 1)
+    //       }
+
+    //     }
+    //   }
+    //   console.log(ary)
+    // }
+
+    // unique(arr)
+
+  </script>
+</body>
+</html>

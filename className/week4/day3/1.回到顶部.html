@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      height: 5000px;
+    }
+    .back-top {
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      width: 60px;
+      height: 60px;
+      background-color: red;
+      cursor: pointer;
+      /* opacity: 0; */
+      /* transition: all 1s linear; */
+    }
+  </style>
+</head>
+<body>
+  <h3>我是顶部</h3>
+  <div class="box"></div>
+  <div class="back-top" id="backTop"></div>
+  <script src="./utils.js" charset="utf-8"></script>
+  <script type="text/javascript">
+   const { win, css } = window._utils
+   const $ = function (selector) {
+     return document.querySelector(selector)
+   }
+   // document.querySelector('#backTop')
+   const backTop = $('#backTop')
+  
+   // 指定步长
+   const step = 300
+   const target = 0
+   backTop.onclick = function () {
+     // 创建新定时器之前，先把之前清除
+     // 预防动画累积
+     this.timer && clearInterval(this.timer)
+     this.timer = setInterval(() => {
+        // 获取到当前的sTop值 
+        let sTop = win('scrollTop')
+        
+        // 在当前的基础上递减 step
+        sTop -= step
+        console.log('meici', sTop)
+        if (sTop <= target) {
+          console.log('last', sTop)
+          win('scrollTop', target)
+          clearInterval(this.timer)
+          return
+        }
+        win('scrollTop', sTop)
+     }, 10)
+   }
+   // 对于动画 是要有过度效果
+  //  backTop.onclick = function () {
+  //   //  win('scrollTop', 0)
+  //  }
+
+   // setInterval
+   // 目标值
+   // 动画结束判断
+   // 累加步长
+
+    // 透明度有 0 到 1
+    // 每次累加0.1（步长）
+    // const step = 0.1
+    // const target = 1
+    // const timer = setInterval(() => {
+      // 获取元素目前透明度
+    //   let curOp = css(backTop, 'opacity')
+    //   curOp += step  
+    //   // 结束条件 1.05 >= 1
+    //   if (curOp >= target) {
+    //     // 当到达结束条件时，不能保证刚好达到目标值
+    //     // 需要最后时候，修正为目标值
+    //     css(backTop, 'opacity', target)  
+    //     clearInterval(timer)
+    //     return;
+    //   }
+    //   console.log(curOp)
+    //   css(backTop, 'opacity', curOp)  
+    // }, 500)
+    // 0.35 + 0.35 + 0.35 => 1.05
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 在全局中 用var和function声明的变量 也相当于给window上添加一个属性
+
+    // 在全局作用域中 一个内置全局对象 window
+
+    // window内置的属性
+    // alert()
+    // setTimeout()
+    // setInterval()
+
+    // 在全局中var num 也相当于给window对象上添加一个叫num的全局属性
+    // var num = 2019
+    // console.log(window.num) // 2019
+    // window.num = 2020
+    // console.log(num)
+    // num 和 window.num 绑定在一起
+
+    // function fe() {
+    //   console.log('fe')
+    // }
+    // fe() // window.fe()
+
+    // // 返回当前设备信息 iPhone  Android Chrome
+    // window.navigator.userAgent
+    
+    // 不带var不会参加 变量提升
+
+    // console.log(a) // undefined a参加变量提升
+    // // console.log(b) // b is not defined
+    // var a = 1;
+    // b = 2; // 不带var 不会参加变量提升 所以不会被 提前声明和赋值
+    // console.log(b)
+
+    // 变量提升 只针对 带var和带function关键字的变量
+
+    // 不带var 直接赋值 相当于跟window上添加一个这样的全局属性   
+    // b = 2 // window.b = 2
+
+    // function fe() {
+    //   num = 100 // window.num = 100
+    //    n = 1
+    // }
+    // fe()
+    // console.log(num) // 100
+    // console.log(window.num) // 100
+
+    // console.log(n)
+    // b=10
+    // console.dir(b)
+    function fn(){
+//a=10;     //如果函数内赋值a相当于在window下定义一个a的值为10★★★★★★★★★★★
+ var a=10;    //★★★★★★★函数内var了一个值var a =10；相当于函数内声明定义了一个a为10，属于私有变量。函数外拿不到这个值,如果想拿到这个值，就return这个值，这个函数执行的返回值就是这个值，console.log(fn())===a；
+// console.log(a)
+return a;
+    }
+
+var cur= fn()
+console.log(cur)
+  </script>
+</body>
+</html>

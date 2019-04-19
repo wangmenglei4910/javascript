@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // splice 删除、添加
+      // 直接修改的原数组
+      // 返回值：一个新数组
+
+      // 无参数
+      // var arr = [10, 20, 30]
+
+      // console.log('调用前', arr)
+      // var res = arr.splice()
+      // console.log('调用后', arr)
+      // console.log('返回值', res) // 返回值一个新的空数组
+
+      // 情况一、只有一个参数
+      // splice(x) 从索引x处开始，一直删除到末尾
+      // 返回值：删除后的内容 组成的新数组
+      // 修改原数组
+
+      // var arr = [10, 20, 30, 40, 50]
+
+      // console.log('调用前', arr) // [10, 20, 30, 40, 50]
+      // var res = arr.splice(1)
+      // console.log('调用后', arr) // [10]
+      // console.log('返回值', res) // [20, 30, 40, 50]
+
+      // 情况二、两个参数
+      // splice(x, y) 从索引x处开始，删除y个
+      // 返回值：将删除的内容 组成新数组返回
+      // var arr = [10, 20, 30, 40, 50]
+
+      // console.log('调用前', arr) // [10, 20, 30, 40, 50]
+      // var res = arr.splice(1, 3)
+      // console.log('调用后', arr) // [10, 50]
+      // console.log('返回值', res) // [20, 30, 40]
+
+      // splice(x, 0)从索引x开始 一个都不删除
+      //  arr.splice(1, 0)
+      //  console.log('arr', arr)
+
+      // 情况三 两个参数以上
+      // splice(x, y, ...n)
+      // 从索引x处开始，删除y个，将第二项后面的所有参数插入到删除位置（索引x处）
+      // 返回值：删除后的内容组成的新数组
+      // var arr = [10, 20, 30, 40, 50]
+
+      // console.log('调用前', arr) // [10, 20, 30, 40, 50]
+      // var res = arr.splice(1, 2, 100, 200)
+      // console.log('调用后', arr) // [10, 100, 200, 40, 50]
+      // console.log('返回值', res) // [20, 30]
+
+      // splice(x, 0, ...n) 向数组中间添加
+      // 从索引x处开始，一项都不删除，将第二项后面的参数 插入到索引x处
+      // var arr1 = [1, 2, 3];
+
+      // console.log("调用前", arr1);
+      // arr1.splice(1, 0, 100, 200);
+      // console.log("调用后", arr1);
+
+      // push 向数组末尾添加 
+      // splice(arr.length, 0, ...n)
+      // var a = [1, 2, 3]
+
+      // console.log("调用前", a); // [1, 2, 3]
+      // a.splice(a.length, 0, 4, 5, 6)
+      // console.log("调用后", a); // [1, 2, 3, 4, 5, 6]
+      
+
+      // unshift 向数组开头添加
+      var a1 = [1, 2, 3]
+
+      console.log("调用前", a1); // [1, 2, 3]
+      a1.splice(0, 0, 100, 200)
+      console.log("调用后", a1); // [100, 200, 1, 2, 3]
+
+      // splice （push unshift pop shift）
+
+      var a3 = [1, 2, 3, 4]
+      a3.push(10, 20) // [1, 2, 3, 4, 10, 20]
+      a3.shift() // [2, 3, 4, 10, 20]
+      a3.splice(1, 2, 50, 60) // [2, 50, 60, 10, 20]
+      console.log(a3) // [2, 50, 60, 10, 20]
+    </script>
+  </body>
+</html>

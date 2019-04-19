@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 函数栈内存：正常情况下，函数执行会形成一个栈内存，当函数执行完 就自动销毁。
+    
+    // 函数栈内存不销毁的条件
+    // 当函数内部定义的引用类型 被外部变量或者属性占用，就造成不销毁的条件
+
+    // return引用类型 实质上return是引用地址
+    // function fe() {
+    //   return { id: 1 } // return xxx 
+    // }
+    // // obj = xxx
+    // var obj = fe() // 执行形成一个不销毁的栈内存 里面定义堆内存 被外部变量占用
+    // console.log(obj)
+
+    // 它们形成的栈内存 可以正常销毁
+    // fe() // 形成一个栈内存
+    // fe() // 形成一个栈内存
+
+
+    // function fe() {
+    //   return [1, 2, 3]
+    // }
+    // var a = fe() // 形成一个不销毁的栈内存和一个堆内存
+
+    // 函数栈内存不销毁的条件
+    // 当函数内部定义的引用类型 被外部变量或者属性占用，就造成不销毁的条件
+
+    // 只要函数内部的引用类型 被外部变量占用 就会造成不销毁的栈内存
+    // var obj = null
+    // function a() {
+    //   // obj 外部变量 引用了 函数内部对象
+    //   obj = { id: 2 }
+    // }
+    // a()
+
+    // console.log(obj)
+
+    // function fe() {
+    //   return {id: 1} // fe执行几次 就会在函数里 创建几次堆内存
+    // }
+    // var f1 = fe() // 第一次执行 stack 0  return heap 0
+
+    // var f2 = fe() // 第二次执行 stack 1  return heap 1
+
+    // var f3 = fe() // 第三次执行 stack 2  return heap 2
+
+    // console.log(f1)
+    // console.log(f2)
+    // console.log(f3)
+    // console.log(f1 === f2)
+    // console.log(f2 === f3)
+
+
+    function fe() {
+      var n = 0
+      return function ff() {
+        n++
+        console.log(n)
+      }
+    }
+
+    var f1 = fe() // 形成栈内存stack1 var n = 0 => 1 => 2
+    f1() // 第一次f1执行 找的是stack1中变量n n++ 1
+    f1() // 第二次f1执行 找的是stack1中变量n n++ 2
+
+    var f2 = fe() // 形成栈内存stack2 var n = 0 => 1
+    f2() // 第一次f2执行 找的是stack2中变量n n++ 1
+
+    
+    // a b c
+
+    // a b c
+
+
+
+    // 形成不销毁的栈内存
+    // 在函数执行的时候 内部返回的引用类型被外部变量或者占用 就形成不销毁的栈内存
+
+    function fn() {
+      return {id: 1}
+    }
+    var f1 = fn() // fn执行形成不销毁栈内存
+   
+    var f2 = null
+    function fe() {
+      f2 = {id: 2}
+    }
+    fe() // fe执行形成不销毁栈内存
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   // 捕获
+   // reg.exec(str)
+   // str.match(reg)
+   
+   // 懒惰性
+  //  let reg = /\d+/
+  //  let str = 'hello111 hello222 hello333'
+  //  // ["111"]
+  //  console.log(reg.exec(str))
+  //  console.log(reg.lastIndex) // 0
+
+  //  //  ["111"]
+  //  console.log(str.match(reg))
+  //  console.log(str.match(reg))
+  //  console.log(str.match(reg))
+  
+  // 取消懒惰性 exec需要捕获多次 match一次性全部捕获完
+  //  let reg = /\d+/g
+  //  let str = 'hello111 hello222 hello333'
+   // ["111"]
+  //  console.log(reg.exec(str))
+  //  console.log(reg.lastIndex) // 8
+
+   // ["111", "222", "333"]
+  //  console.log(str.match(reg))
+
+   // reg.lastIndex 加了g 可以手工指定下一次捕获的起始索引位置
+    // reg.lastIndex = 8
+    // console.log(reg.exec(str))
+
+   let reg = /hello(\d+)/g
+   let str = 'hello111 aaa222 hello333 aaa666'
+   console.log(reg.exec(str)) // reg.exec(str)[1]
+   console.log(reg.exec(str))
+
+   let reg2 = /aaa(\d+)/
+   console.log(reg2.test(str)) // ["aaa222", "222"]
+   
+   // RegExp属性 是以最后一次使用的正则为主
+   // RegExp $1~$9 代表捕获1到9的分组内容
+   // RegExp $& 代表捕获到整个内容
+   console.log(RegExp.$1) // "222"
+   console.log(RegExp['$&']) // "aaa222"
+   console.dir(RegExp)
+  </script>
+</body>
+</html>

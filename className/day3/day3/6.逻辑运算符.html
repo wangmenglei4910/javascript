@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 逻辑运算符
+    // 逻辑与 && 
+    // 逻辑或 ||
+
+    // 利用它来进行 取值
+    // 从第一个开始看 哪一个是假 就返回哪一个
+    // 都为假 就返回 第一个
+    // 都为真 就返回 最后一个
+    // console.log(1 && null) // null 
+    // console.log(0 && NaN) // 0
+    // console.log(2 && 3) // 3
+     
+    // 如果前面为真 就会执行后面的alert()
+    // 1 && alert(123)
+    // 0 && alert(123)   
+   
+    // var age = 1
+    // if (age) {
+    //   alert(123)
+    // } 
+
+    // age && alert(123)
+    
+    // var num = 3 && 1
+    // console.log('num', num)
+
+    // if (1 && null) {
+    //   console.log('会执行吗？')
+    // }
+
+    // 逻辑或 ||
+    // 从第一个开始看 哪个是真 就返回哪一个
+    // 如果第一个是真 就返回第一个
+    // 如果都是假 就返回第二个
+    // 1 || 0 // 1
+    // 0 || 2
+    // 0 || null // null 
+    // 1 || 2 // 1
+
+    // 1 && 2 && null && 0
+   
+    // && 优先级高于 ||
+    1 && 6 || null || 2 && NaN // 6
+    // 6 || null || NaN
+
+
+    // var a = 1
+    // var n = a || 10
+    // console.log('n', n)
+
+    // 如果a的值 为 真 true
+    // 就将a的值 赋值给 n 一份
+    if (a) {
+      var n = a
+    } else {
+      var n = 10
+    }
+
+    // var b = 1
+    // var c = b // 把变量b的值 复制一份 给变量c
+    // console.log(b, c)
+
+    // 逻辑与 &&
+    // 从第一个开始看 哪一个是假 就返回哪一个
+    // 都为假 就返回 第一个
+    // 都为真 就返回 最后一个
+
+    // 逻辑或 ||
+    // 从第一个开始看 哪个是真 就返回哪一个
+    // 如果第一个是真 就返回第一个
+    // 如果都是假 就返回第二个
+  </script>
+</body>
+</html>

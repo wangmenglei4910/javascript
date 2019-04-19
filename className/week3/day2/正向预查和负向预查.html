@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 正向预查 (?=元字符) 不会发生分组捕获
+  // 负向预查（?!元字符）不会发生分组捕获
+
+  // 捕获 后面跟着3或者4的字母
+  // let reg1 = /[a-z](?=3|4)/g
+  // let str1 = 'a1 b2 c3 d4'
+  // console.log(str1.match(reg1)) // ["c", "d"]
+
+  // 负向预查
+  // 捕获 后面跟着的不是3或者4的字母
+  // let reg2 = /[a-z](?!3|4)/g
+  // let str2 = 'a3 b2 c1 d4'
+  // console.log(str2.match(reg2)) // ["b", "c"]
+
+
+  // 正向预查 负向预查 放在开头使用 它后面最后跟着一个范围 \d \w [0-9]
+
+  // 限定后面范围 限定了出现一到多个数字只能是3
+  // let reg1 = /^(?=3)\d$/
+
+  // let reg1 = /^((?=3)\d)+$/
+  // console.log(reg.test('1')) // false
+  // console.log(reg.test('2')) // false
+  // console.log(reg.test('3')) // true
+  // console.log(reg1.test('3333')) // true
+  // console.log(reg1.test('3222')) // true
+  // console.log(reg.test('a')) // false
+
+  // let reg2 = /^((?!4)\d)+$/g
+  // console.log(reg2.test('1123123')) // true
+  // console.log(reg2.test('11234123')) // false
+  // console.log(reg2.test('11234566')) // false
+
+
+  // 同时包含 数字 字母大小写
+  // let reg = /^(?!([a-zA-Z]+|\d+)$)[a-zA-Z\d]{8,15}$/
+  let reg = /^(?!([a-zA-Z]+|[a-z\d]+|[A-Z\d]+)$)[a-zA-Z\d]{8,15}$/
+  console.log(reg.test('lolABC123')) // true
+  console.log(reg.test('lol12313123')) // false
+  console.log(reg.test('ADF12313123')) // false
+  console.log(reg.test('12312313123')) // false
+  console.log(reg.test('LLLLLLLLLL')) // false
+  console.log(reg.test('aaaaaaass')) // false
+
+</script>
+</body>
+</html>

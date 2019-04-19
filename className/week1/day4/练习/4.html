@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  var num = 12;
+  var obj = {
+    num: 3,
+    bar: (function (n) {
+      var n = 12; // 13 14 15 16
+      return function (k) {
+        console.log(k + (++n));
+      }
+    })(window.num)
+  };
+  obj.bar(1);
+  obj.bar(2);
+  var fn3 = obj.bar;
+  fn3(2);
+  fn3(4);
+</script>
+</body>
+</html>

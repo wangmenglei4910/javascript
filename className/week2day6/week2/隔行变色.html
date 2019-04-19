@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .bg0 {
+        background-color: red;
+      }
+
+    .bg1 {
+      background-color: pink;
+    }
+    .hover {
+      background-color: orange;
+      font-size: 20px; 
+    }
+  </style>
+</head>
+<body>
+<ul id="news" class="news">
+  <li>重农固本！习近平对“三农”的深深牵挂1 奇数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂2 偶数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂3 奇数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂4 偶数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂5 奇数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂6 偶数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂7 奇数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂8 偶数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂9 奇数行</li>
+  <li>重农固本！习近平对“三农”的深深牵挂10 偶数行</li>
+</ul>
+<script>
+  // 1.获取操作元素
+  var list = document.querySelectorAll('.news > li');
+
+  for (var i = 0; i < list.length; i++) {
+    // 将拼接好的类名 设置给当前元素 bg0
+    // 隔行变色
+    list[i].className = `bg${i % 2}`
+
+    // 通过自定义属性myClass 将类名 保存到当前元素自身
+    // list[0].myClass = 'bg0'
+    list[i].myClass = `bg${i % 2}`
+
+    // 鼠标滑入事件 onmouseover
+    // 给滑入元素对象添加hover的类名
+    list[i].onmouseover = function() {
+      // console.log('onmouseover', this)
+      this.className = 'hover'
+    }
+
+    // 鼠标滑出事件 onmouseout
+    list[i].onmouseout = function() {
+      // 当滑出的时候 将当前元素类名 修改为 之前的类名
+      this.className = this.myClass
+    }
+  }
+
+</script>
+</body>
+</html>

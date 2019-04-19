@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="box" class="box"></div>
+<script src="./utils.js"></script>
+<script>
+
+  const { css } = window._utils
+
+  const box = document.getElementById('box')
+
+  // 过渡时间(单位：毫秒)
+  const duration = 2000
+
+  // 目标值(目标状态)
+  const targetLeft = 800
+
+  // 起始值(初始状态)
+  const beginLeft = css(box, 'left')
+
+  // 改变距离（从初始状态 到 目标状态的差距）
+  const changeLeft = targetLeft - beginLeft
+
+  // 记录动画时间
+  let time = 0
+
+  // 定时器间隔时间
+  const interval = 10
+
+  box.timerID = setInterval(() => {
+    // 记录当前时间
+    time += interval
+
+    // 动画结束判断
+    if (time >= duration) {
+      css(box, 'left', targetLeft)
+      clearInterval(box.timerID)
+      return
+    }
+
+    // 根据当前时间 推导出 当前状态
+    // time 当前时间
+    // beginLeft left起始值
+    // changeLeft 改变距离
+    // duration 过渡时间
+    let curLeft = linear(time, beginLeft, changeLeft, duration)
+    // 将元素相应的属性 设置为当前状态
+    css(box, 'left', curLeft)
+  }, interval)
+
+  /** 匀速运动公式
+   * @param t 当前时间
+   * @param b 起始位置
+   * @param c 移动距离
+   * @param d 过渡时间
+   * @return 当前所在的位置
+   */
+  function linear(t, b, c, d) {
+    return t * (c / d) + b
+  }
+</script>
+</body>
+</html>

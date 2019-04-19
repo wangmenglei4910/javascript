@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      /* css盒模型 content(内容宽度) + padding(内填充) + border(边框) + margin(外边距) */
+      /* w3c盒模型 宽度是不包含 padding border */
+
+      /* IE盒模型 宽度是包含 padding border */
+      /*box-sizing: border-box;*/
+      width: 300px;
+      height: 12200px;
+      background-color: red;
+      padding: 50px;
+      border: 20px solid blue;
+      /*border-top-width: 30px;*/
+      /*border-right-width: 60px;*/
+      margin: 50px auto;
+      overflow-y: scroll;
+    }
+  </style>
+</head>
+<body>
+<div class="box" id="box">【联播+】4月8日，习近平等中央领导同志参加了首都义务植树活动。习近平挥锹铲土，扶苗培土，与广大少先队员和市民们一起劳动。植树现场一片热火朝天景象。
+
+  “我们的根扎在劳动人民之中。”习近平曾这样发自肺腑地说道。
+
+  1969年初，不满16岁的习近平来到陕北农村插队，一头扎进最基层。在农村生活的7年间，他什么活儿都干过，乡亲们说他是“吃苦耐劳好后生”。
+
+  从政之后，习近平不改劳动本色，从贫困山村到基层社区，他走进群众中间，一起种树、打糍粑、炸酥肉……所到之处，都留下了他与人民一同劳动的温暖记忆。
+
+  央视网用八张海报，带你重温过去，感受习近平总书记与人民同劳动的暖心瞬间。
+  【联播+】4月8日，习近平等中央领导同志参加了首都义务植树活动。习近平挥锹铲土，扶苗培土，与广大少先队员和市民们一起劳动。植树现场一片热火朝天景象。
+
+  “我们的根扎在劳动人民之中。”习近平曾这样发自肺腑地说道。
+
+  1969年初，不满16岁的习近平来到陕北农村插队，一头扎进最基层。在农村生活的7年间，他什么活儿都干过，乡亲们说他是“吃苦耐劳好后生”。
+
+  从政之后，习近平不改劳动本色，从贫困山村到基层社区，他走进群众中间，一起种树、打糍粑、炸酥肉……所到之处，都留下了他与人民一同劳动的温暖记忆。
+
+  央视网用八张海报，带你重温过去，感受习近平总书记与人民同劳动的暖心瞬间。
+  </div>
+<script>
+ // JS盒模型: 通过JS中的属性和方法 获取元素样式属性信息
+ const box = document.getElementById('box')
+
+ // client
+ // 1.clientWidth/clientHeight
+ // clientWidth 内容宽度 + 左右padding
+ // console.log(box.clientWidth)
+
+ // clientHeight 内容高度 + 上下padding
+ // console.log(box.clientHeight)
+
+ // 2.clientLeft/clientTop
+ // clientLeft(左边框)
+ // console.log(box.clientLeft) // 20
+ // clientTop(上边框)
+ // console.log(box.clientTop) // 30
+
+ // 3.offsetWidth/offsetHeight
+ // offsetWidth clientWidth（内容宽度 + 左右padding） + 左右边框宽度
+ // console.log(box.offsetWidth) // 500 + 100 + 40
+
+ // offsetHeight clientHeight（内容宽度 + 上下padding） + 上下边框宽度
+ // console.log(box.offsetHeight) // 300 + 100 + 40
+
+ // 4.scrollLeft(横向滚动条)/scrollTop(纵向滚动条)
+ // 滚动条 滚动的距离 默认是0
+ //  元素.scrollTop/元素.scrollLeft
+ // 获取浏览器窗口滚动距离
+ // document.documentElement.scrollTop || document.body.scrollTop
+
+ // 内容宽度和高度固定  里面内容溢出的时候 出现滚动条
+
+ // scrollHeight/scrollWidth
+ // 一屏的高度 + 溢出的内容高度
+ // scrollHeight  === clientHeight + scrollTop(最大值)
+ // scrollWidth  === clientWidth + scrollLeft(最大值)
+
+ // 在没有内容溢出的情况
+ // scrollHeight === clientHeight
+ // scrollWidth === clientWidth
+
+ // client
+ // clientWidth: 内容宽度 + 左右padding
+ // clientHeight: 内容高度 + 上下padding
+ // clientLeft: 左边框宽度
+ // clientTop: 上边框宽度
+
+ // offset
+ // offsetWidth: clientWidth(内容宽度 + 左右padding) + 左右边框
+ // offsetHeight: clientHeight(内容高度 + 上下padding) + 上下边框
+
+// scroll
+// scrollLeft: 横向滚动条 滚出去距离
+// scrollTop: 纵向滚动条 滚出去距离
+
+// scrollHeight/scrollWidth
+// 1.内容溢出的情况下
+// scrollHeight = clientHeight + scrollTop(最大值)
+// scrollWidth = clientWidth + scrollLeft(最大值)
+
+// 2.内容没溢出的情况下
+// scrollHeight = clientHeight
+// scrollWidth = clientWidth
+
+//  scrollLeft/scrollTop 可读可写 其余的是 只读的 盒模型属性
+
+// 获取浏览器窗口的盒模型属性
+// 获取浏览器窗口一屏的宽度和高度（可视区域宽度和高度）
+// 兼容写法
+const winW = document.documentElement.clientWidth || document.body.clientWidth
+const winH = document.documentElement.clientHeight || document.body.clientHeight
+
+ // 兼容写法
+ document.documentElement.scrollTop || document.body.scrollTop
+
+ // document.documentElement.scrollTop = document.body.scrollTop = 100
+
+ // 给win传一个参数 获取  传俩参数设置值
+ function win(attr, val) {
+   if (typeof val === 'undefined') {
+     return document.documentElement[attr] || document.body[attr]
+   }
+   document.documentElement[attr] = document.body[attr] = val
+ }
+ // win('scrollTop')
+ // win('scrollTop', 100)
+
+// IE window对象 没有JSON方法
+// eval(`(${data})`)
+
+</script>
+</body>
+</html>

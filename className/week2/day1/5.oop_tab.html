@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .Tab {
+      width: 304px;
+      margin: 20px auto;
+    }
+
+    .Tab ul {
+      overflow: hidden;
+      border-left: 1px solid black;
+    }
+
+    .Tab ul li {
+      cursor: pointer;
+      float: left;
+      width: 100px;
+      height: 30px;
+      text-align: center;
+      line-height: 30px;
+      border: 1px solid black;
+      border-left: none;
+    }
+
+    .Tab ul li.active {
+      background-color: #ff9b08;
+    }
+
+    .Tab .panel div{
+      width: 302px;
+      height: 100px;
+      text-align: center;
+      line-height: 100px;
+      border: 1px solid black;
+      border-top: none;
+      display: none;
+    }
+
+    .Tab .panel div.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="Tab1" class="Tab">
+    <ul class="header">
+      <li class="active">综艺</li>
+      <li>娱乐</li>
+      <li>新闻</li>
+    </ul>
+    <div class="panel">
+        <div class="active">综艺内容</div>
+        <div>娱乐内容</div>
+        <div>新闻内容</div>
+    </div>
+  </div>
+
+  <div id="Tab2" class="Tab">
+      <ul class="header">
+        <li class="active">综艺</li>
+        <li>娱乐</li>
+        <li>新闻</li>
+      </ul>
+      <div class="panel">
+          <div class="active">综艺内容</div>
+          <div>娱乐内容</div>
+          <div>新闻内容</div>
+      </div>
+  </div>
+  <script>
+    function Tab(options) {
+      if (!options || !options.el) {
+        return console.error('缺少DOM元素 sorry！')
+      }
+
+      // 把传递进来的配置项 保存到实例的属性上
+      this.options = options
+
+      // 初始执行函数（入口函数）
+      this._init()
+
+    }
+
+    // new Tab() => this._init()
+    Tab.prototype._init = function() {
+      // 获取所有操作元素 headerList 和 panelList
+      this._querySelector()
+
+      // 给headerList中，每个li绑定点击事件
+      this._bindEvent()
+    }
+
+    // 清空类名
+    Tab.prototype._clearClassName = function() {
+      // ES6解构赋值
+      const headerList = this.headerList
+      const panelList = this.panelList
+      for (let i = 0; i < headerList.length; i++) {
+        headerList[i].className = ''
+        panelList[i].className = ''
+      }
+    }
+
+    // 绑定点击事件
+    Tab.prototype._bindEvent = function() {
+      const that = this
+      const headerList = this.headerList
+      const panelList = this.panelList
+
+      for (let i = 0; i < headerList.length; i++) {
+        headerList[i].onclick = function () {
+          that._clearClassName()
+          panelList[i].className = 'active'
+          this.className = 'active'
+        }
+      }
+    }
+
+    //  获取操作元素
+    Tab.prototype._querySelector = function() {
+      // 获取操作元素
+      const tabEle = document.querySelector(this.options.el)
+      // 获取操作元素li
+      this.headerList = tabEle.querySelectorAll('.header > li')
+      // 获取操作元素div
+      this.panelList = tabEle.querySelectorAll('.panel > div')
+    }
+
+    new Tab({
+      el: '#Tab1',
+      // idx: 0
+    })
+
+    new Tab({
+      el: '#Tab2',
+      // idx: 1
+    })
+  </script>
+</body>
+
+</html>

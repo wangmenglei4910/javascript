@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  // 私有属性：对象自己拥有的属性
+  function Tree(name, age) {
+    this.name = name;
+    this.age = age;
+    this.leaf = true;
+    this.branches = true;
+  }
+  var t1 = new Tree('柳树', 10);
+  console.log(t1); // Tree
+
+  // 工厂
+  function wood(name, age) {
+    var obj = {};
+    obj.name = name;
+    obj.age = age;
+    return obj
+  }
+  var w = wood('杨树', 5)
+  console.log(w); // {}
+
+  function Human(n, a) {
+    this.name = n;
+    this.age = a;
+    this.eat = function () {
+      console.log('吃');
+    }
+    this.sleep = function () {
+      console.log('睡');
+    }
+  }
+  
+  var h1 = new Human('mabin', 28);
+  console.log(h1);
+
+  // 构造函数模式的不足就是不能实现共有属性、方法共有。
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    var arr = [1, 1, 1, 2, 2, 1, 1] // [1, 2]
+
+    var newArr = []
+
+    for (var i = 0; i < arr.length; i++) {
+      var cur = arr[i]
+      
+      // 如果当前newArr中不存在这一项cur 我再给它里面添加
+      if (newArr.indexOf(cur) === -1) {
+        newArr.push(cur)
+      }
+
+    }
+    console.log(newArr) // [1, 2]
+
+
+    var arr2 = [6, 6, 6, 7, 7, 7, 8, 8]
+
+    // var newArr = []
+    // for (var i = 0; i < arr.length; i++) {
+
+    //   var cur = arr[i] // 1 1 2 2
+
+    //   // [1].indexOf(1) 0 === -1 false
+    //   // [1].indexOf(2) -1 === -1 true
+    //   // [1, 2].indexOf(2) 1 === -1 false
+    //   if (newArr.indexOf(cur) === -1) {
+    //     // [1].push(2)
+    //     // [1, 2]
+    //     newArr.push(cur)
+    //   }
+    // }
+    // console.log(newArr) // [1, 2]
+    
+    // var newArr = []
+    // for (var i = 0; i < arr.length; i++) {
+    //   // 取出来的每一项
+    //   var cur = arr[i]
+    //   // 如果等于-1 说明这个新数组里 还没有这一项
+    //   // 如果不存在这一项 我就将它添加到新数组
+    //   if (newArr.indexOf(cur) === -1) {
+    //     newArr.push(cur)
+    //   }
+    // }
+    // console.log(newArr) // [1, 2]
+  </script>
+</body>
+</html>

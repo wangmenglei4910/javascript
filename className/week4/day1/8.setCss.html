@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="box">我是个div</div>
+    <script src="./utils.js"></script>
+    <script>
+      const { setCssBatch } = window._utils
+      setCssBatch(box, {
+        width: 200,
+        height: 200,
+        textAlign: 'center',
+        lineHeight: '200px',
+        background: 'red',
+        color: '#ffffff'
+      })
+
+      // setCss(box, 'width', 200)
+      // setCss(box, 'height', 200)
+      // setCss(box, 'background', 'red')
+
+      // setCssBatch
+      // setCssBatch(box, {
+      //   width: 100,
+      //   height: '200px',
+      //   background: 'green'
+      // })
+
+      // function setCssBatch(ele, obj) {
+      //   if (typeof obj !== 'object') return
+      //   for (var key in obj) {
+      //     if (obj.hasOwnProperty(key)) {
+      //       setCss(ele, key, obj[key])
+      //     }
+      //   }
+      // }
+
+      // var obj = {
+      //   width: 100,
+      //   height: '200px',
+      //   background: 'green'
+      // }
+
+      // for (var key in obj) {
+      //   console.log(key, obj[key])
+
+      //   setCss(box, key, obj[key])
+      // }
+    </script>
+  </body>
+</html>

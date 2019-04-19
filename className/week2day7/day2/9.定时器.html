@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   // window对象上提供了两个方法 定时器
+   // setTimeout(函数, 毫秒) 指定的毫秒后 执行一次
+   // setInterval(函数, 毫秒) 每间隔一段时间 就执行一次
+   // 1秒 = 1000毫秒
+
+  //  setTimeout(function(){
+  //   // 3秒后要执行代码 写在这里
+  //   console.log('timeout')
+  //  }, 1000)
+
+   // 定时器方法的返回值就是一个 定时器ID
+   var timeID = setInterval(function () {
+     console.log('Interval')
+   }, 1000)
+
+   // 清除定时器
+   // clearTimeout(定时器ID)
+   // clearInterval(定时器ID)
+   clearInterval(timeID)
+
+   var id = setTimeout(function() {
+     alert('弹弹 老谭酸菜面')
+   }, 3000)
+   clearTimeout(id)
+
+   // 对于一些定时器 用完之后 最好清除掉 比较占内存的
+  </script>
+</body>
+</html>

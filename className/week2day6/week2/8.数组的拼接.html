@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // concat()
+    // 返回值 拼接好的新数组 不会影响到原数组
+    var a1 = [1, 2, 3]
+    var a2 = [4, 5, 6]
+
+    // var res = a1.concat(a2)
+    // var res = a2.concat(a1)
+
+    // console.log('a1', a1)
+    // console.log('a2', a2)
+    // console.log('返回值', res) // [4, 5, 6, 1, 2, 3]
+
+    // var res = [30].concat([10, 15], 20, 'hello')
+    // console.log(res) // [30, 10, 15, 20, "hello"]
+
+    // concat默认只能展开一层数组
+    // var a3 = [1]
+    // var res = a3.concat([[2, 3, 4]], [5, 6])
+    // console.log(res) // [1, [2, 3, 4], 5, 6]
+
+    // 相当于克隆
+    var a4 = [1, 2, 3]
+    var res = a4.concat()
+    console.log(res) // [1, 2, 3]
+    console.log(res === a4) // false
+  </script>
+</body>
+</html>

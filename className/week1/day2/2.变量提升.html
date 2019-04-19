@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   // 变量提升
+   // JS代码执行之前，对所有声明的变量 带var和带function关键字的变量，
+   // 进行提前声明和定义（赋值）
+
+   // 对于带var在变量提升时，提前声明并赋值为默认undefined
+   // 对于带function在变量提升时，提前声明并赋值为函数定义本身
+   
+  //  console.log(num) // undefined
+  //  var num = 2018 // 赋值操作 只在代码运行到这一行发生
+  
+   console.log(fn)
+   function fn() { // 在代码执行到这一行时 就会忽略函数定义部分
+     console.log('fn')
+   }
+
+  // JS中作用域 供JS代码执行的环境 保存基本数据类型
+  // 全局作用域 当页面打开时，首先形成一个全局作用域 执行全局中代码 
+  // 函数作用域（私有作用域）当函数执行时，会形成一个函数作用域，执行函数体里的代码
+  // 块级作用域（私有作用域 ES6）
+  
+  // // 全局变量：在全局作用域中声明的变量
+  // var n = 123 // 全局变量
+  
+  // function fe() {
+  //   // 私有变量：在私有作用域中声明的变量
+  //   var a = 100 // 私有变量
+  //   console.log(a)
+  // }
+
+  // fe()
+
+  // 变量提升只发生在当前作用域当中
+  // 全局中的变量 参加的全局中的变量提升
+  // 私有变量 参加的私有作用域中的变量提升
+
+  console.log(n) // undefined
+  var n = 123
+
+  function fn() {
+    console.log(m) // undefined
+    var m = 100
+  }
+  fn() // 函数执行的时候，形成一个私有作用域
+
+
+
+ 
+  </script>
+</body>
+</html>

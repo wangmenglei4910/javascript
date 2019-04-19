@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // break 一旦在循环体里 遇到break 整个循环就结束了
+      // continue
+      // for (var i = 0; i < 10; i++) {
+      //   console.log(i); // 0
+      //   break; // break后面代码都不会 执行（包括i++也不执行）
+      //   console.log(123)
+      //   console.log(123)
+      //   console.log(123)
+      // }
+
+      // break 一旦在循环体里 遇到break 整个循环就结束了
+      // for (var i = 0; i < 10; i++) {
+      //   console.log(i) // 0 1 2 3 4 5
+
+      //   if (i === 5) {
+      //     break; // 当 i 等于 5 整个循环就结束了
+      //   }
+      // }
+      
+      // continue 只是结束当前这一轮循环 直接跳到下一轮
+      // for (var i = 0; i < 5; i++) {
+      //    if (i === 3) {
+      //      continue; // 后面代码不会执行 直接进入下一轮
+      //    }
+      //    console.log(i, 'hello')
+      // }
+      
+      for (var i = 0; i < 10; i++) { // 2 4 5 6 8 10
+        if (i > 3 && i < 6) {
+          continue;
+        }
+        i++
+        console.log('循环体', i) // 1 3 7 9
+      }
+      console.log('end', i) // "end" 10
+
+
+      // break 一旦在循环体里 遇到break 整个循环就结束了
+      // continue 只是结束当前这一轮循环 直接跳到下一轮
+      
+
+
+    </script>
+  </body>
+</html>

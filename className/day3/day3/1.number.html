@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Number：正数 负数 小数 0 NaN(非数字) 不是一个数
+    // var obj = {}
+    // console.log(obj.id)
+
+    // 1 + undefined 等于NaN 说明得到的结果是非有效数字
+    // typeof NaN // "number"
+
+    // 1 + null
+
+    // isNaN() 检测一个值是不是NaN
+    // 如果是NaN返回true
+    // 否则返回false
+    
+    // 返回true 说明不是有效数字 isNaN(NaN) true
+    // 返回false 说明是有效数字  isNaN(1) false
+    isNaN(1 + undefined) // true
+
+    // isNaN检测的时候 先用Number()方法将值转换，再进行判断是不是NaN
+    isNaN('10') // isNaN(Number('10'))
+    // 看不到转换 隐式转换
+    isNaN(null) // false  isNaN(Number(null)) => isNaN(0)
+    isNaN([]) // false isNaN(Number([])) => isNaN(0)
+    isNaN('12,3') // true isNaN(Number('12,3')) => isNaN(NaN)
+
+    // isNaN() 使用 检测规则
+  </script>
+</body>
+</html>

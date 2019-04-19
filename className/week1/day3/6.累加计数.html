@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">+++++++++</button>
+  <script>
+    const btn = document.getElementById('btn')
+
+    // 实现累加计数
+    // 1.需要有一个不销毁的上级作用域（全局 函数 块级）
+    // 2.在不销毁的上级作用域中声明一个累加的变量let count = 0
+
+    // 方式一 利用不销毁的全局作用域
+    // let count = 0
+
+    // btn.onclick = function() {
+    //   count++
+    //   console.log(count)
+    // }
+
+    // 方式二 自定义不销毁的函数作用域
+
+    // btn.onclick = (function fe(){
+    //   let count = 0
+    //   return function() {
+    //     count++
+    //     console.log(count)
+    //   }
+    // })()
+
+    // function fe() {
+    //   let count = 0
+    //   return function() {
+    //     count++
+    //     console.log(count)
+    //   }
+    // }
+    // btn.onclick = fe()
+
+    // 方式三 利用块级作用域 形成一个不销毁栈内存
+
+    { // 形成一个块级作用域
+      let count = 0
+
+      btn.onclick = function () {
+        count++
+        console.log(count)
+      }
+    }
+
+    // 事件函数 => 块级作用域 => window
+
+    // btn.onclick = null 移除事件
+
+    
+    // 函数内部的引用类型被外部占用 就会形成不销毁的栈内存
+    function f1() {
+      return {}
+    }
+    let obj1 = f1()
+
+    function f2() {
+      return []
+    }
+    let obj2 = f2()
+
+    // 在一个函数内部 返回一子函数 称作是闭包
+    function f3() {
+      return function() { // 闭包函数
+
+      }
+    }
+    let obj3 = f3()
+  </script>
+</body>
+</html>

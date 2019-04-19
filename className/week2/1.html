@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+
+  // 1. 30 60 80 41
+  // 2. 22 23 65 30
+  // 3. 'window'
+  // 4. undefined 'language'
+
+
+  // 刘鑫 常旭霞 闫小飞 于腾越 杨海光 赵丹 王川 陈云凯 徐飞 刘卫星 边耿华 尚帅
+
+  // function fn(i) {
+  //   return function (n) {
+  //     console.log(n + (i++));
+  //   }
+  // }
+  // let f = fn(10);
+  // f(20); // 30
+  // fn(20)(40); // 60
+  // fn(30)(50); // 80
+  // f(30) //41
+
+  var num = 10;
+  var obj = {num: 20};
+  obj.fn = (function (num) {
+    this.num = num * 3;
+    num++;
+    return function (n) {
+      this.num += n;
+      num++;
+      console.log(num);
+    }
+  })(obj.num);
+  var fn = obj.fn;
+  fn(5); // 22
+  obj.fn(10); // 23
+  console.log(num, obj.num); // 65 30
+
+  var name='window';
+  var Tom={
+    name:"Tom",
+    show:function(){
+      console.log(this.name);
+    },
+    wait:function(){
+      var fun=this.show;
+      fun();
+    }
+  };
+  Tom.wait(); // 'window'
+
+  var fullName='language';
+  var obj={
+    fullName: 'javascript',
+    prop:{
+      getFullName:function(){
+        return this.fullName;
+      }
+    }
+  };
+  console.log(obj.prop.getFullName()); // undefined
+  var test=obj.prop.getFullName;
+  console.log(test()); // 'language'
+</script>
+</body>
+</html>

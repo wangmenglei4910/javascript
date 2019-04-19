@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./movie.css">
+</head>
+<body>
+  <div class="movie-container">
+    <header class="movie-header">
+      <div class="header-left">
+        <span class="header-logo"></span>
+        <span class="header-time" id="header-time">2019-04-09 20:03:00</span>
+      </div>
+      <div class="header-center">
+        <span>综合票房</span>
+        <span>分账票房</span>
+      </div>
+      <div class="header-right">
+        <span>全屏</span>
+        <span>返回常规版</span>
+      </div>
+    </header>
+    <div class="movie-content">
+      <div class="movie-content-left">
+        <div class="content-left_top">11111</div>
+        <div class="content-left_bottom">22222</div>
+      </div>
+      <div class="movie-content-right">
+        <ul class="movie-rating-header" id="movieRatingHeader">
+          <li class="movie_name">影片</li>
+          <li class="btn-sort" sort-id="0">综合票房(万)</li>
+          <li class="btn-sort" sort-id="1">票房占比</li>
+          <li class="btn-sort" sort-id="2">排片场次</li>
+          <li class="btn-sort" sort-id="3">排片占比</li>
+          <li class="btn-sort" sort-id="4">场均人次</li>
+          <li class="btn-sort" sort-id="5">上座率</li>
+        </ul>
+        <ul class="movie-rating-list" id="movieRating">
+         <!-- <li>
+          <span>反贪风暴4</span>
+          <span class="realtime">2448.26</span>
+          <span>51.4%</span>
+          <span>105549</span>
+          <span>34.2%</span>
+          <span>7</span>
+          <span>5.7%</span>
+         </li>-->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="./movie.js"></script>
+</body>
+</html>

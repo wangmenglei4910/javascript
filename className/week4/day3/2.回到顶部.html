@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      height: 5000px;
+    }
+    .back-top {
+      display: none;
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      width: 60px;
+      height: 60px;
+      background-color: red;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h3>我是顶部</h3>
+  <div class="box"></div>
+  <div class="back-top" id="backTop"></div>
+  <script src="./utils.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    const { win } = window._utils
+    const backTop = document.getElementById('backTop')
+
+    // 设置定时器 setInterval
+    // 目标值 target
+    // 指定步长 step
+    // 预防动画累积（开始新动画之前，清除之前的动画）
+    // 动画结束条件（边界判断）
+    const target = 0
+    const step = 300
+    backTop.onclick = function () {
+      this.timer && clearInterval(this.timer)
+
+      this.timer = setInterval(() => {
+        let sTop = win('scrollTop')
+        sTop -= step
+        console.log('back')
+        if (sTop <= target) {
+          win('scrollTop', target)
+          clearInterval(this.timer)
+          return;
+        }
+        win('scrollTop', sTop)
+      }, 10)
+    }
+
+    window.onscroll = function () {
+      const sTop = win('scrollTop')
+      const winH = win('clientHeight')
+      
+      backTop.style.display = sTop >= winH / 2 ? 'block' : 'none'
+    }
+  </script>
+</body>
+</html>

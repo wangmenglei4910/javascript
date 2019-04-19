@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // call apply bind 都是用来修改this关键字
+
+  // call 让fn执行 并且将fn中的this修改为that, 从第二项开始 一次给fn传参
+  // fn.call(that, param1, param2)
+
+  function fn(a, b) {
+
+  }
+  // fn中this 被实例化1  call方法中的this fn
+  // fn.call(1, 10, 20)
+  // Function.prototype.call
+  // call方法执行 让它(call方法)的this（fn）执行，并且将fn里面this再修改为1
+
+  function f1() {
+    console.log('f1')
+  }
+
+  function f2() {
+    console.log('f2')
+    console.log(this)
+  }
+
+  // 连续调用 两个或两个以上call方法 最终执行的都是f2
+  // 最终谁执行
+  // f1.call.call(f2) // call2
+
+  // 为什么可以连续调用call方法
+  // 因为call方法本身也是一个函数，所以它也能使用Function原型上的方法 Function.prototype.call
+
+  // call方法执行 让它(call方法)的this（fn）执行，并且将call的this（fn）里面this再修改为1
+  // f1.call.call(f2)
+  // call2执行里面this => (f1.call)
+  // call2 让f1.call()执行 并且将它f1.call()里面this修改为 f2
+  // f1.call() => f2.call()
+  // f2.call() 让f2执行 并且f2里面this => window
+
+  // fe.call(obj)
+  // call方法作用：让它(call方法)的this执行，并且执行时将它（call）的this(fe) 里面this修改为obj
+  // f1.call.call(f2)
+  // 谁最先执行 最右边 call
+  // call2 中this  => (f1.call)
+  // call2 让它的this(f1.call)执行 => f1.call()
+  // 再将f1.call()执行时，里面this修改为f2 (f2.call())
+
+  // 最终f2.call() => 让f2执行 并且里面this为window
+
+  // f1.call.call(f2)
+  // 明确哪个call最先执行 call2 (f1.call.call())
+  // 明确这个call方法执行的时候 它里面this是谁 (f1.call)
+  // 同时这个call方法执行的时候 做了什么  call2让它的this（f1.call()执行 并且将f1.call()中的this修改为f2）
+
+  // f1.call() => f2.call()
+  // 最终 f2.call()  f2() 里面this => window
+
+  // 连续调用两个或两个以上call方法最终执行都是f2
+
+  f1.call.call.call.call(f2)
+  // CALL => this f1.call.call.call()
+  // f1.call.call.call() => f2.call()
+
+  // f2.call()
+
+  // function fe() {
+  //
+  // }
+  // let obj = {}
+  // fe.call(obj) // obj.fe()
+</script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="box" class="box"></div>
+<script src="./utils.js"></script>
+<script>
+
+  const { css } = window._utils
+
+  const box = document.getElementById('box')
+  //
+  // animate({
+  //   ele: box,
+  //   duration: 2000,
+  //   target: {
+  //     left: 600,
+  //     top: 600,
+  //     opacity: 1
+  //   }
+  // })
+
+  // 过渡时间(单位：毫秒)
+  const duration = 2000
+
+  // 目标值(目标状态)
+  const targetLeft = 600
+  const targetTop = 600
+  const targetOp = 1
+
+  // 起始值(初始状态)
+  const beginLeft = css(box, 'left')
+  const beginTop = css(box, 'top')
+  const beginOp = css(box, 'opacity')
+
+  // 改变距离（从初始状态 到 目标状态的差距）
+  const changeLeft = targetLeft - beginLeft
+  const changeTop = targetTop - beginTop
+  const changeOp = targetOp - beginOp
+
+
+  // 记录动画时间
+  let time = 0
+
+  // 定时器间隔时间
+  const interval = 10
+
+  box.timerID = setInterval(() => {
+    time += interval
+
+    if (time >= duration) {
+      css(box, {
+        left: targetLeft,
+        top: targetTop,
+        opacity: targetOp
+      })
+      clearInterval(box.timerID)
+      return
+    }
+
+    let curLeft = linear(time, beginLeft, changeLeft, duration)
+    let curTop = linear(time, beginTop, changeTop, duration)
+    let curOp = linear(time, beginOp, changeOp, duration)
+    css(box, {
+      left: curLeft,
+      top: curTop,
+      opacity: curOp
+    })
+  }, interval)
+
+  /** 匀速运动公式
+   * @param t 当前时间
+   * @param b 起始位置
+   * @param c 移动距离
+   * @param d 过渡时间
+   * @return 当前所在的位置
+   */
+  function linear(t, b, c, d) {
+    return t * (c / d) + b
+  }
+
+</script>
+</body>
+</html>

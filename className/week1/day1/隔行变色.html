@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .bg0 {
+        background-color: red;
+      }
+
+      .bg1 {
+        background-color: pink;
+      }
+      .hover {
+        background-color: orange;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="news" class="news">
+      <li>重农固本！习近平对“三农”的深深牵挂1 奇数行</li>
+      <li>重农固本！习近平对“三农”的深深牵挂2 偶数行</li>
+      <li>重农固本！习近平对“三农”的深深牵挂3 奇数行</li>
+      <li>重农固本！习近平对“三农”的深深牵挂4 偶数行</li>
+      <li>重农固本！习近平对“三农”的深深牵挂5 奇数行</li>
+      <li>重农固本！习近平对“三农”的深深牵挂6 偶数行</li>
+      <li>重农固本！习近平对“三农”的深深牵挂7 奇数行</li>
+      <li>重农固本！习近平对“三农”的深深牵挂8 偶数行</li>
+      <li>重农固本！习近平对“三农”的深深牵挂9 奇数行</li>
+      <li>重农固本！习近平对“三农”的深深牵挂10 偶数行</li>
+    </ul>
+    <script>
+      var list = document.querySelectorAll('#news>li')
+
+      for (var i = 0; i < list.length; i++) {
+        var cur = `bg${i % 2}`
+        list[i].className = cur
+        
+        // 将计算出来的类名 再备份一份 到元素自身
+        list[i].bg = cur
+
+        list[i].onmouseover = function() {
+          this.className = 'hover'
+        }
+
+        list[i].onmouseout = function () {
+          this.className = this.bg
+        }
+      
+      }
+      console.log(list)
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>延时加载</title>
+	<style>
+		p {
+			height: 1500px;
+			border: 2px solid black;
+		}
+		.box {
+			width: 236px;
+			height: 420px;
+			background-color: #ccc;
+		}
+		.box img {
+			display: none;
+		}
+		.box img.show {
+			display: block;
+		}
+	</style>
+</head>
+<body>
+<div id="box">
+	<!--<p>点击时才加载图片</p>-->
+	<div class="box" title="这里有一张图片">
+		<img data-src="./img/1.jpg"
+				 title="我是张图片"
+				 id="img">
+	</div>
+	<button id="btn">点击加载</button>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/lazy1.js"></script>
+</body>
+</html>

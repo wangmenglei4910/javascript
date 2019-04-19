@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // i++ ++i
+    // i++ 先运算再加1
+    // ++i 先加1再运算
+
+    // var n = 0 // 1
+    // var a = n++ // 0++
+    // console.log(a)
+
+    // var m = 0
+    // var b = ++m // ++0
+    // console.log(b) // 1
+
+    // // 每次n++取值后都会进行加1
+    // var n = 1
+    // var c = n++ + n++ + n++
+   
+    // // var c = 1 + 2 + 3
+    // console.log(c, n)
+
+    // var num = 1 // 2
+    // var sum = num++ + num * 2
+    // // sum = 1 + (2 * 2)
+    // console.log(sum) // 5
+
+    // var a = 1
+    // var b = 2
+    // var c = a + b
+    // 从左往右取值
+    // a = 1
+    // b = 2
+    // 1 + 2
+    // 3
+
+    // 先从左 往右 进行取值 然后根据运算符进行运算
+    // var a = 1
+    // var b = 2
+
+    // function fn() {
+    //   b = 10
+    //   return b
+    // }
+
+    // var c = a + fn()
+    // a = 1
+    // fn() 10
+    // 1 + 10
+
+    // num++ ++num 都是取值后就立马加1
+    var num = 1
+    var sum = num++ + ff() // 1 + 2 * 2
+
+    function ff() {
+      console.log(num)
+      return num * 2
+    }
+    console.log('sum', sum)
+
+  </script>
+</body>
+</html>

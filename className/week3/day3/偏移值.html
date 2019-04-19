@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .outer {
+      position: absolute;
+      top: 100px;
+      left: 120px;
+      width: 500px;
+      height: 500px;
+      margin: 50px auto;
+      background: pink;
+      border: 20px solid rebeccapurple;
+    }
+
+    .inner {
+      /*position: absolute;*/
+      /*left: 30px;*/
+      /*top: 30px;*/
+      width: 300px;
+      height: 300px;
+      border: 20px solid blue;
+      background-color: green;
+      margin: 100px;
+    }
+  </style>
+</head>
+<body>
+ <div id="outer" class="outer">
+   <div id="inner" class="inner">inner</div>
+ </div>
+ <script>
+   const outer = document.getElementById('outer')
+   const inner = document.getElementById('inner')
+
+   // offsetLeft/offsetTop
+   // offsetLeft 左偏移值：元素左边框距离 父级参照物左边距离（y轴）
+   // offsetTop 上偏移值：元素上边框距离 父级参照物上边的距离 (x轴)
+   // console.log(outer.offsetLeft) // 120
+   // console.log(outer.offsetTop) // 100
+
+   // 标准浏览器里 父级参照物 默认是body
+   // console.log(outer.offsetParent) // document.body
+
+
+   // offsetParen 父级参照物
+   // 父级参照物 是可以修改的 通过position：absolute/relative/fixed
+   console.log(inner.offsetParent)
+
+   // 获取元素距离body的左偏移和上偏移
+ </script>
+</body>
+</html>

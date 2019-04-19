@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // let const ES6新增关键字 用来声明变量
+    // let 用来声明普通变量
+    // const 用来声明常量的
+
+    // var function let const  (import class)
+
+    // 变量提升 只针对 用var和function声明的变量
+
+    // 一、var let const 有什么区别
+
+    // 1.let const不存在变量提升
+    // 对于let const声明的变量 只能在定义后使用
+     
+    // console.log(a) // a is not defined 因为没有变量提升
+    // let a = 10
+    // console.log(a)
+    // console.log(a) // a is not defined 因为没有变量提升
+    // const a = 10
+
+    // console.log(a) // undefined 因为发生了变量提升
+    // var a = 10
+
+    // 2.let const 不能重复声明
+    // let n = 1
+    // var n = 2
+    // var a = 2 // 'a' has already been declared
+    // let a = 1 // 'a' has already been declared
+
+    // var a = 1
+    // var a = 2
+    // var a = 3
+    // var a = 4
+    // console.log(a)
+
+    // const声明变量的细节
+    // 值一旦被定义就不能被修改
+    // var a = 1
+    // const a = 2
+    // let a
+    // console.log(a)
+
+    // 声明常量的同时 也一定要赋值
+    // const a = 1;
+    // a = 2
+    // 如果声明的常量是一个引用类型 引用地址不能被修改 但里面内容可以修改
+    // const obj = { id: 1 }
+    // obj.id = 2
+    // console.log(obj)
+    // const INFO = 'info'
+
+    // 3.let const 声明的全局变量 不会给window上添加属性
+    // var num = 100
+    // console.log("num" in window)
+    // console.log(window.num)
+
+    // let num = 200
+    // console.log("num" in window) // false
+
+    // 4. let const 在代码块中 {} 出现的时候 形成块级作用域
+    // if () { // 代码块
+    // }
+    // for () { // 代码块
+    // }
+
+
+    // let num = 2 // 属于全局中
+    // if (true) {
+    //   let num = 1 // 块级作用域中
+    // }
+
+    // var 会把for循环中变量 泄漏为全局变量
+    // for (var i = 0; i < 3; i++) {
+
+    // }
+    // console.log(i)
+
+    // for循环形成块级作用域
+    // for (let i = 0; i < 3; i++) {
+    //  console.log(i)
+    // }
+    // console.log(i)
+
+    // { // 形成块级作用域
+    //   let a = 1
+    //   console.log(a)
+    // }
+
+    // var m = 100
+    // {{{{
+    //   {
+    //     let m = 200
+    //     console.log(1, m)
+    //   }
+    //   console.log(2, m)
+    // }}}}
+
+    // console.log(a)
+
+    // var p = 1
+    // if (true) { // 形成块级作用域
+    //   console.log(p)
+    //   let n = 2
+    //   console.log('let', n)
+    // }
+    // console.log(n)
+
+    // if (true) { // 默认不会形成作用域
+    //   var n = 1 // 属于全局变量
+    // }
+    // console.log(n)
+
+
+    // var let const 区别
+    // 1.let const 不存在变量提升
+    // 2.let const 声明的变量 不能重复声明
+    // 3.let const 声明的变量 不会给window上添加属性
+    // 4.let const 在代码块中{} 会形成块级作用域
+
+    // const声明的常量 值不能被修改 但值是引用类型可以修改里面的内容
+
+    // 暂时性死区: 在代码块中，用let const 声明的变量，是不能在 声明之前区域使用
+    // let a = 1
+    // let b = 3
+    // if (true) {
+    //   // 这个变量a 已经被let绑定在这个作用域中 
+    //   console.log(b)
+    //   console.log(a) // 报错
+
+    //   let a = 2
+    //   let b = 3
+    // }
+
+    // let a = 1
+    // if (true) {
+    //   // 暂时性死区
+    //   // 这个变量a 已经被let绑定在这个作用域中 
+    //   console.log(a) // a is not defined
+
+    //   let a = 2 // let const 声明的变量只能在定义后使用
+    // }
+
+    /** 暂时性死区 start **/
+
+    console.log(age) // age is not defined
+
+    /** 暂时性死区 end **/
+    let age = 10
+    console.log(age)
+
+    // let const
+    // ES6模板字符串 `${变量}`
+    // 扩展运算符 ...
+    // ... 剩余参数
+    // 箭头函数
+    // ES6 模块化 import  export default
+    // class ES6类
+    // proxy 代理
+
+  </script>
+</body>
+</html>

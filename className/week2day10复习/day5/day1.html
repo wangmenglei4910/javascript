@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // JS中数据类型
+    // 基本数据类型
+    //   Number String Boolean null undefined
+    // 引用数据类型
+    // 对象数据类型 object {} Array [] RegExp /\d+/ Date Math..
+    // 函数数据类型 Function
+
+    // 基本数据类型 操作的是具体值 
+    // var num = 1
+    // 引用类型 操作的是引用地址
+    // var obj = {} 浏览器会为这个对象 开辟堆内存
+
+    // function sort(ary) {
+    //   console.log(ary === arr)
+    //   ary[0] = 100
+    //   console.log(arr) // [100, 2, 3]
+    // }
+    // var arr = [1, 2, 3]
+    // sort(arr) // 把arr存储的引用地址 给了形参 ary一份
+    // // arr和ary都指向了同一个引用地址[1, 2, 3]
+
+
+    // var arr1 = [1, 2]
+    // var arr2 = arr1 
+    // arr2[0] = 1000
+    // console.log(arr1)
+    
+
+    // 浅拷贝 slice   深拷贝
+    // function select_sort(ary) {
+    //   console.log('before', arr === ary)
+    //   ary = ary.slice(0)
+    //   console.log('after', arr === ary)
+
+    //   console.log(arr[1] === ary[1])
+    //   console.log(arr[2] === ary[2])
+    // }
+
+    // var arr = [9, [1, 2], {id: 1}]
+    // select_sort(arr)
+
+    // 检测数据类型
+    // typeof
+    // constructor
+    // instanceof
+    // Object.prototype.toString.call()
+    typeof null // "object" 一个“无”的对象
+
+    
+  </script>
+</body>
+</html>

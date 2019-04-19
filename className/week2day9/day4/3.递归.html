@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 递归：函数调用自身
+    // 递归一定要有结束条件 否则就是 “栈溢出”
+    // 函数执行就会开辟一个栈内存
+
+    // function fe() {
+    //   console.log('fe')
+    //   fe()
+    // }
+    // fe()
+
+    // 递归
+    // function fn() {
+    //   if (结束条件) {
+    //     return
+    //   }
+       
+    //   // 每次调用执行的核心代码
+      
+    //   fn() // 调用自己
+    // }
+    // fn()
+
+    // 分三步走
+    // 1.自己调用自己
+    // 2.递归结束条件
+    // 3.每次调用自己的核心功能代码
+    
+    // var n = 1 // 让n的值从1加到10就停止
+    // function add() {
+    //   if (n === 10) { // 结束条件
+    //     return n // 一旦遇到return 整个函数就结束执行
+    //   }
+
+    //   n++ // 核心功能代码
+
+    //   add() // 调用自己
+    // }
+    // // 只要add执行一次 就让n++ 一次
+    // add()
+    
+    // var total = 0
+    // for (var i = 0; i < 10; i++) {
+    //   total++
+    // }
+    // console.log(total)
+
+    // 从1累加到10
+    // var total = 0
+    // for (var i = 1; i <= 10; i++) {
+    //   total += i
+    // }
+    // console.log(total) // 55
+
+    // function add(n) {
+    //   if (n === 1) {
+    //     return 1
+    //   }
+
+    //   // n加下一次函数执行的返回值
+    //   return n + add(n - 1) 
+    // }
+    // add(5) // 15 5 + 4 + 3 + 2 + 1
+
+    // n = 5  5 + add(5 - 1) 
+    // n = 4  5 + 4 + add(4 - 1)
+    // n = 3  5 + 4 + 3 + add(3 - 1) 
+    // n = 2  5 + 4 + 3 + 2 + add(2 - 1) 
+    // n = 1  5 + 4 + 3 + 2 + 1 
+    // return 5 + 4 + 3 + 2 + 1 
+
+
+    // function add(n) {
+    //   if (n === 1) {
+    //     return 1
+    //   }
+    //   return n + add(n - 1)
+    // }
+    // add(3)
+
+    // 当 n = 3  3 + add(2) 
+    // 当 n = 2  3 + 2 + add(1) 
+    // 当 n = 1  3 + 2 + 1
+    // 6
+
+    function sum(n) {
+      if (n < 1) {
+        return 0
+      }
+
+      if (n % 2 === 0) {
+        return n + sum(n - 1)
+      }
+
+      return sum(n - 1)
+    }
+    sum(10)
+    // n = 10  10 + sum(9) 
+    // n = 9   10 + sum(8)
+    // n = 8   10 + 8 + sum(7)
+    // n = 7   10 + 8 + sum(6)
+    // n = 6   10 + 8 + 6 + sum(5)
+    // n = 5   10 + 8 + 6 + sum(4)
+    // n = 4   10 + 8 + 6 + 4 + sum(3)
+    // n = 3   10 + 8 + 6 + 4 + sum(2)
+    // n = 2   10 + 8 + 6 + 4 + 2 + sum(1)
+    // n = 1   10 + 8 + 6 + 4 + 2 + sum(0)
+    // n = 0   10 + 8 + 6 + 4 + 2 + 0
+
+    // 求 1 ~ 100 能够被2整除的数 的和  (会写)
+    var total = 0
+    for (var i = 1; i <= 100; i++) {
+       if (i % 2 === 0) {
+         total += i
+       }
+    }
+    console.log(total) // 2550
+  </script>
+</body>
+</html>

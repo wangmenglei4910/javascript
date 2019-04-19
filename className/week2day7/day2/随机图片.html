@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img width="200" height="200" id="img" src="http://img2.imgtn.bdimg.com/it/u=3082972656,2934872922&fm=26&gp=0.jpg" alt="">
+  <button id="btn">随机图片</button>
+
+  <script>
+    var img = document.getElementById('img')
+    var btn = document.getElementById('btn')
+
+    var images = [
+      'http://cdn.duitang.com/uploads/item/201410/16/20141016202155_5ycRZ.thumb.700_0.jpeg',
+      'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=4118792058,1226806534&fm=27&gp=0.jpg',
+      'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2951924714,3607611016&fm=27&gp=0.jpg',
+      'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=680412173,2594788837&fm=27&gp=0.jpg',
+      'http://img5.imgtn.bdimg.com/it/u=4112761370,48638451&fm=26&gp=0.jpg',
+      'http://img1.imgtn.bdimg.com/it/u=562472049,2114685538&fm=26&gp=0.jpg',
+      'http://img1.imgtn.bdimg.com/it/u=4075293488,3583190601&fm=26&gp=0.jpg',
+      'http://img5.imgtn.bdimg.com/it/u=3529037433,1419593808&fm=26&gp=0.jpg'
+    ]
+    
+    btn.onclick = function () {
+      // 索引范围 0 到 images.length - 1
+      var ind = Math.round(Math.random() * (images.length - 1))
+      
+      img.src = images[ind]
+    }
+  </script>
+</body>
+</html>

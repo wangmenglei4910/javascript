@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // x|y 匹配x或者y [xy]
+  // [xyz] 匹配xyz中任意一个字符 相当于 a|b|c
+  // [^xyz] 匹配除了xyz，以外的任意一个字符
+  // [a-z] 匹配 a到z中 任意一个字母 [0-9] 相当于\d
+
+
+  // let reg = /^[w-z]$/ // wxyz
+  // console.log(reg.test('a')) // false
+  // console.log(reg.test('b')) // false
+  // console.log(reg.test('w')) // true
+  // console.log(reg.test('x')) // true
+
+  // let reg = /^[a-z]$/
+  // console.log(reg.test('aa')) // false
+  // console.log(reg.test('b')) // true
+  // console.log(reg.test('l')) // true
+  // console.log(reg.test('1')) // false
+
+  // let reg = /[a-z]/
+  // console.log(reg.test('123a')) // true
+  // console.log(reg.test('123z')) // true
+  // console.log(reg.test('p123')) // true
+  // console.log(reg.test('123')) // false
+
+  // [^xyz] 匹配除了xyz，以外的任意一个字符
+  // 只能匹配一个字符串  只要不是xyz中的任何一个都可以
+  // let reg = /^[^xyz]$/
+  // console.log(reg.test('ax')) // false
+  // console.log(reg.test('a')) // true
+  // console.log(reg.test('1')) // true
+  // console.log(reg.test('x')) // false
+
+  // 只要字符串中 包含的字符 除了它三 其他的都返回true
+ // let reg = /[^xyz]/
+ //  console.log(reg.test('ax')) // true
+ //  console.log(reg.test('xa')) // true
+
+  // console.log(reg.test('x')) // false
+  // console.log(reg.test('y')) // false
+  // console.log(reg.test('z')) // false
+  // console.log(reg.test('a')) // true
+  // console.log(reg.test('b')) // true
+
+  // [xyz] 匹配xyz中任意一个字符 相当于 a|b|c
+  // let reg = /[abc]/
+  // let reg = /a|b|c/
+  // console.log(reg.test('hello')) // false
+  // console.log(reg.test('com')) // true
+  // console.log(reg.test('brolly')) // true
+
+  // x|y x或者y
+  // let reg = /a|b/
+  // console.log(reg.test('cca')) // true
+  // console.log(reg.test('cbc')) // true
+  // console.log(reg.test('lwl')) // false
+
+</script>
+</body>
+</html>

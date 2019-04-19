@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .news {
+      width: 500px;
+      margin: 20px auto;
+      list-style: none;
+      font-size: 20px;
+      border: 1px solid pink;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .news li {
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <ul class="news">
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国1</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国2</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国3</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国4</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国5</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国6</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国7</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国8</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国9</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国10</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国6</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国7</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国8</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国9</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国10</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国6</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国7</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国8</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国9</li>
+    <li>上下同心 团结奋进 记者手记:春声  专题  学习强国10</li>
+  </ul>
+  <script>
+
+    // 获取页面中li元素
+    var list = document.querySelectorAll('.news > li')
+    // [li, li, li]
+    // console.log(list)
+
+    // 集合中有多少个元素 就循环多少次
+    // 每次循环的时候，把变量i当做索引来用
+    // 根据当前变量i的值 把当前元素取出来 list[i]
+
+    for (var i = 0; i < list.length; i++) {
+      // i 当前索引  list[i] 当前元素
+      if (i % 2 === 0) { // 页面奇数行
+        list[i].style.backgroundColor = 'pink'
+      } else { // 页面偶数行
+        list[i].style.backgroundColor = 'red'
+      }
+    }
+
+    // 三元运算
+    // 条件? 成立时执行 ：不成立时执行
+
+    // for (var i = 0; i < list.length; i++) {
+    //   list[i].style.backgroundColor = i % 2 === 0 ? 'pink' : 'red'
+    //   // i % 2 === 0 ? list[i].style.backgroundColor = 'pink' : list[i].style.backgroundColor = 'red'
+    // }
+
+    // 晚上是研究下 代码发群里
+    // 判断一个值多种情况 switch
+    // 隔多行变色 i % 3 0 1 2
+
+
+
+  </script>
+</body>
+</html>

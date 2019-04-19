@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // function Fn() {
+    //   // this指向当前实例对象
+    //   // 给实例添加私有属性（实例属性）
+    //   this.name = '私有的'
+    // }
+    // // 在类的原型上添加公有属性（原型属性）
+    // Fn.prototype.say = 'hello'
+    // Fn.prototype.text = 123
+
+    // const f = new Fn()
+  
+    // for in 默认会将对象中的 私有属性 和 自定义的公有属性都遍历出来
+    // {name: "私有的"}
+    // for (var key in f) {
+    //   // name
+    //   // say
+    //   // text
+    //   console.log(key)
+    // }
+
+    // _say 在Object基类原型上添加 自定义的原型属性
+    Object.prototype._say = function () {
+      console.log('say hi!')
+    }
+
+    var obj = {id: 1, name: 'zhufeng'}
+
+    // 注意：当使用for in遍历属性时 通过hasOwnProperty() 预防将原型上自定义属性也遍历出来
+    for (var k in obj) {
+      // 预防将原型上自定义属性也遍历出来
+      if (obj.hasOwnProperty(k)) {
+        console.log(k) // id name
+      }
+    }
+
+    // Object.prototype.hasOwnProperty
+    // 对象名.hasOwnProperty('属性名')
+
+    // 面向对象
+    // 三要素：继承 封装 多态
+    // 类：JS中对事物和数据 进行划分 比如 数组类 字符串类
+    // 实例：类中的具体事物的一个细分 
+
+    // 类用来创建实例 new 类
+    // 在类的原型上 保存了很多供实例来使用的公有属性和方法
+    
+    // 实例
+    // 在实例自身保存私有属性
+    // 实例 可以通过原型链 查找到原型上的公有属性和方法 来使用
+
+    // 原型对象 
+    // constructor 指向当前类本身 
+    // __proto__指向 Object.prototype
+
+    // 原型链
+  </script>
+</body>
+</html>

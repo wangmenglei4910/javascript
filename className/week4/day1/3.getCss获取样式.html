@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .box {
+      width: 100px;
+      height: 200px;
+      border: 2px solid pink;
+      background: red;
+      color: #ffffff;
+      margin: 30px auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="box" class="box">我是box</div>
+  <script>
+    var box = document.getElementById('box')
+     
+    function getCss(ele, attr) {
+      if ("getComputedStyle" in window) {
+        return window.getComputedStyle(ele, null)[attr]
+      }
+      return ele.currentStyle[attr]
+    }
+    console.log(getCss(box, 'width'))
+    console.log(getCss(box, 'height'))
+
+
+    
+
+    // console.log(window.getComputedStyle(box, null).width)
+    // 标准浏览器 window.getComputedStyle
+    // IE6-8 currentStyle
+
+    // 兼容处理方案一
+    // try {
+    //   console.log('getComputedStyle', window.getComputedStyle(box, null).width)
+    // } catch(e) {
+    //   console.log('currentStyle', box.currentStyle.width)
+    // }
+
+    // IE中由于window上没有getComputedStyle这个属性方法 所以不能用
+   
+    // if ('getComputedStyle' in window) {
+    //   console.log('getComputedStyle', window.getComputedStyle(box, null).width)
+    // } else {
+    //   console.log('currentStyle', box.currentStyle.width)
+    // }
+
+    // 判断是不是undefined
+    // if (window.getComputedStyle) {
+    //   console.log('getComputedStyle', window.getComputedStyle(box, null).width)
+    // } else {
+    //   console.log('currentStyle', box.currentStyle.width)
+    // }
+1
+    // if (typeof window.getComputedStyle === "undefined") {
+    //   console.log('currentStyle', box.currentStyle.width)
+    // } else {
+    //   console.log('getComputedStyle', window.getComputedStyle(box, null).width)
+    // }
+
+    // const getCss = (ele, attr) => {
+    //   return window.getComputedStyle(ele, null)[attr]
+    // }
+    // var getCss = function (ele, attr) {
+    //   var val = ''
+    //   if (window.getComputedStyle) { // 标准浏览器
+    //     val = window.getComputedStyle(ele, null)[attr]
+    //   } else { // IE6 - 8
+    //     val = ele.currentStyle[attr]
+    //   }
+    //   return val
+    // }
+    // console.log(getCss(box, 'height'))
+    // console.log(getCss(box, 'width'))
+  </script>
+</body>
+</html>

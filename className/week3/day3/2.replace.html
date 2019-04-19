@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // String.prototype.replace(匹配内容, '替换后的内容') 将指定字符替换掉
+      // let str = 'aaa2018 bbb2019'
+      // let str2 = str.replace('hello', 'hi')
+      // let str2 = str.replace(/hello/g, 'hi')
+      // console.log(str)
+      // console.log(str2)
+
+      // let reg = /[a-z]+(\d+)/g
+      // 第一个参数 整个正则捕获到的内容
+      // 如果有分组 会从第二项开始往后排
+      // 倒数第二个参数 是此次捕获到起始索引位置
+      // 最后一个参数 是当前操作的原始字符串
+      // str.replace(reg, (...rest) => {
+      //  console.log(rest) // ["aaa2018", "2018", 0, "aaa2018 bbb2019"]
+      // })
+      // console.log(reg.exec(str))
+
+      // let str1 = str.replace(reg, (...rest) => {
+      //   return rest[0]+'beijing' // return 指定此次 替换的内容
+      // })
+      // console.log(str1)
+
+      // let str = 'hello2019 hello2018'
+      // str2 = str.replace(/\d+/g, '2020')
+      // console.log(str2)
+
+      // let str = 'a11 a22 a33 a44 a55'
+      // let str2 = str.replace(/\d/g, a => {
+      //   return a * 2
+      // })
+      // let str2 = str.replace(/\d\b/g, a => a * 2)
+      // console.log(str2)
+
+      // "2019-04-10 10:34:10" => 2019年04月10日 10时34分10秒
+      let reg = /(\d+)-(\d+)-(\d+)\s(\d+):(\d+):(\d+)/;
+      let time = "2019-04-10 10:34:10";
+      let str2 = time.replace(reg, "$1年$2月$3日 $4时$5分$6秒");
+
+      // String.prototype.split() 支持正则
+      // let sss = '1+2+3+4'
+      // console.log(sss.split('+')) // [1, 2, 3, 4]
+
+      // 指定字母作为分隔符
+      // let sss = '1a2b3c4'
+      // console.log(sss.split(/[a-z]/)) // [1, 2, 3, 4]
+
+      // let timeStr = "2019-04-10 10:34:10"
+
+      // let arr = timeStr.match(/\d+/g)
+      // console.log(arr) // ["2019", "04", "10", "10", "34", "10"]
+
+      // 它的分隔符 - ：\s
+      // let timeStr = "2019-04-10 10:34:10"
+      // let arr = timeStr.split(/[-:\s]/) // ["2019", "04", "10", "10", "34", "10"]
+
+      // let text = ['年', '月', '日', '时', '分', '秒']
+
+      // ["2019年", "04月", "10日", "10时", "34分", "10秒"].join('')
+      // let str3 = arr.map((item, idx) => `${item}${text[idx]}`).join('')
+      // console.log(str3)
+
+      // arr.sort().reverse().join('')
+
+      // let str2 = time.replace(
+      //   reg,
+      //   (...rest) =>
+      //     `${rest[1]}年${rest[2]}月${rest[3]}日 ${rest[4]}时${rest[5]}分${
+      //       rest[6]
+      //     }秒`
+      // );
+      // console.log(str2); // 2019年04月10日 10时34分10秒
+
+      // 模板字符串原理
+      //`<div id="app">Hello Vue!</div>`;
+      // let str = `<div id="app">{{message}}</div>`; 
+      // let message = 'Hello Vue!'
+      // let reg3 = /\{\{([a-zA-Z\d+]+)\}\}/g
+      // let s3 = str.replace(reg3, (a, b) => {
+      //   // "message"
+      //   return eval(b)
+      // })
+      // console.log(s3) // <div id="app">Hello Vue!</div>
+
+      let str = '<h3>{{name}}-{{age}}</h3>'
+      let reg4 = /\{\{(\w+)\}\}/g
+      let name = 'zhufeng'
+      let age = 10
+      let ss3 = str.replace(reg4, (a, b) => {
+        return eval(b)
+      })
+      console.log(ss3) // <h3>zhufeng-10</h3>
+
+      let str3 = `${name}-${age}`
+      let reg5 = /\$\{(\w+)\}/g
+      let ss4 = str3.replace(reg5, (a, b) => eval(b))
+      console.log(ss4) // "zhufeng-10"
+
+    </script>
+  </body>
+</html>

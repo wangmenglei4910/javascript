@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>4. new 调用和普通调用的区别</title>
+</head>
+<body>
+
+<script>
+  // 普通函数调用（执行）过程
+  // 1. 开辟栈内存，作为执行的作用域
+  // 2. 形参赋值
+  // 3. 变量提升
+  // 4. 代码从上到下执行
+  // 5. 释放栈内存
+
+  // 通过new的方式调用
+  // 1. 开辟栈内存
+  // 2. 形参赋值
+  // 3. 变量提升
+  // 4. 隐式创建一个实例对象，并且把当前构造函数中this（this称为执行主体）指向这个实例对象
+  // 5. 代码执行
+  // 6. 隐式返回实例对象
+  // 7. 释放栈内存
+
+  function Human(name, age, char) {
+    console.log('start');
+    function g() {
+      console.log('12345');
+    }
+    var num = 12; // 这只不过是一个私有变量，和实例没有任何关系
+    this.name = name; // 只有通过this.xxx = someValue 这种方式才能向实例添加属性
+    this.age = age;
+    this.char = char;
+    this.play = function () {
+      console.log('打篮球');
+    }
+    console.log('end');
+  }
+  var h1 = new Human('Ma', 12, 'fat');
+  console.log(h1 instanceof Human); // true
+  console.log(typeof h1); // object
+  console.log(h1); // {name:．．．}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 函数接收参数（实参）
+    // 1.形参变量
+    // 2.arguments 对象（实参集合）
+
+    // function fe(a, b) {
+    //   console.log(a, b)
+    //   console.log(arguments[0])
+    //   console.log(arguments[1])
+    // }
+    // fe(1, 2) // 实参
+
+    // 任意数求和 一个求和函数 
+    // 我给它传递任意数据类型的实参 我们在函数内只对 
+    // 能转化为有效数字的值进行累加求和
+
+    // function sum() {
+    //   var total = 0
+
+    //   for (var i = 0; i < arguments.length; i++) {
+    //     var cur = Number(arguments[i])
+    //     if (!isNaN(cur)) {
+    //       total += cur
+    //     }
+    //   }
+    //   return total
+    // }
+    // console.log(sum(1, 2, 3, '1'))
+    // // console.log(sum(1, 2, 3, 4, 5))
+
+    // 从1 到 100 能够被2整除的数进行累加求和
+    // var t = 0
+    // for (var i = 1; i <= 100; i++) {
+    //   if (i % 2 === 0) {
+    //     t += i
+    //   }
+    // }
+    // console.log(t)
+
+    // // 递归方式
+    // function add(n) {
+    //   if (n === 100) {
+    //     return 100
+    //   }
+
+    //   if (n % 2 === 0) {
+    //     return n + add(n + 1)
+    //   }
+
+    //   return add(n + 1)
+    // }
+    // console.log(add(1))
+
+    // 既能被2和5整数数求和
+    var t = 0
+    for (var i = 1; i <= 100; i++) {
+      // if (i % 2 === 0 && i % 5 === 0) {
+      if (i % 10 === 0) {
+        t += i
+      }
+    }
+    console.log(t)
+
+    // 随机验证码
+    // 数组方法
+    // 字符串方法
+    // Math方法
+    // DOM 操作方法
+  </script>
+</body>
+</html>

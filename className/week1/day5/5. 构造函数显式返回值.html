@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>构造函数人为返回值</title>
+</head>
+<body>
+
+<script>
+  // return 基本数据类型值
+  function Human(name, age) {
+    this.name = name;
+    this.age = age;
+    return 15
+  }
+  
+  var h1 = new Human('zhufeng', 15);
+  console.log(h1); // 实例对象h1 
+  
+  // return 一个引用数据类型的值
+  function Tree(name, age) {
+    this.name = name;
+    this.age = age;
+    return [1, 2, 3]
+  }
+  var t1 = new Tree('柳树', 10);
+  console.log(t1);
+
+  // 如果我们手动修改构造函数的返回值，
+  // 1. 如果return 一个基本数据类型值，没有任何影响，不会覆盖原有实例
+  // 2. 如果return 一个引用数据类型，原有的实例就会被这个引用类型值覆盖
+  // 慎重修改构造函数的返回值
+
+</script>
+</body>
+</html>

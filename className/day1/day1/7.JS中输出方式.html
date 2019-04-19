@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <h2 id="h2"></h2>
+  <h3 id="h3"></h3> -->
+
+  <div id="text">
+    <h3>我是个P标签</h3>
+    <div>我是文本内容</div>
+  </div>
+
+  <script>
+    // 弹窗会阻塞HTML加载
+    // 以弹窗形式输出
+    // alert('提示框') // 提示框
+    // confirm('确认框') // 确认框
+
+    // 接收弹窗返回的结果 true 确定 或 false 取消
+    // var res = confirm('确认框')
+    // console.log(res)
+    
+    // 输入框 将用户提交的内容返回给我们
+    // var res2 = prompt('你喜欢我吗？')
+    // console.log(res2)
+    
+    // var title = '123'
+    // alert(title) // '123'
+
+    // alert() confirm() prompt()
+
+    // 页面中输出
+    // 1.将内容直接 写入到body中
+    // var h1 = '<h1>我是外星人</h1>'
+    // document.write(h1)
+    // document.write(h1)
+    // document.write(h1)
+    // document.write(h1)
+
+    // 在指定页面元素中 输出内容
+    // innerHTML 能够识别标签内容
+    // innerText 把内容 当做是普通文档 输出到页面
+
+    // 区别就是 innerText 不能够识别标签内容
+    // var h2 = document.getElementById('h2')
+    // h2.innerHTML = '<i>啥是佩奇？</i>'
+
+    // var h3 = document.getElementById('h3')
+    // h3.innerText = '<i>啥是佩奇？</i>'
+
+    // 获取内容
+    // var text = document.getElementById('text')
+    // console.log(text.innerHTML)
+    // console.log(text.innerText)
+
+    // 控制台输出（调试）
+    var text = document.getElementById('text')
+    console.log(text)
+    console.dir(text) // 打印出更详细的信息
+
+    // var o = { innerHTML: '', innerText: ''  }
+
+    // 弹窗形式输出
+    // alert() 提示框
+    // confirm() 确认框
+    // prompt() 输入框
+
+    // 页面中输出
+    // document.write()
+    // innerHTML/innerText
+    
+    // 控制台输出
+    // console.log()
+    // console.dir()
+  </script>
+</body>
+</html>

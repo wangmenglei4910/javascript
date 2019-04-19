@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 量词元字符：限制元字符连续出现次数
+
+  // /元字符?/
+
+  // ? 出现0到1次（可有可无）最多出现一次。相当于 {0,1}
+  // * 出现0到多次（可有可无）可以连续出现多次。 相当于 {0,}
+  // + 出现1到多次（至少要出现1次）可以连续出现多次。相当于 {1,}
+  // {n} 连续出现n次 n代表次数
+  // {n,} 连续出现n到多次 至少要连续出现n次 多了不限
+  // {n,m} 连续出现n到m次 至少要连续出现n次 最多连续出现m次
+
+  // 量词限定的是 前面紧跟的某个字符的连续出现次数
+  // let reg = /^hello{2,3}$/
+  // console.log(reg.test('hello')) // false
+  // console.log(reg.test('helloo')) // true
+  // console.log(reg.test('hellooo')) // true
+  // console.log(reg.test('helloooo')) // false
+
+  // 匹配连续出现5到11次的纯数字字符串
+  // let reg = /^\d{5,11}$/
+  // console.log(reg.test('11111')) // true
+  // console.log(reg.test('77777777')) // true
+
+
+  // 零到一次 ?
+  // let reg = /^a{0,1}$/
+  // console.log(reg.test('a')) // true
+  // console.log(reg.test('')) // true
+  // console.log(reg.test('aa')) // false
+
+  // let reg = /\d{3,}/
+  // console.log(reg.test('a123')) // true
+  // console.log(reg.test('a123456')) // true
+  // console.log(reg.test('a1')) // false
+  // console.log(reg.test('a12')) // false
+
+
+  // 匹配字符串中 包含连续出现3次的字符a
+  // let reg = /a{3}/
+  // console.log(reg.test('1aaa2')) // true
+  // console.log(reg.test('1aa2')) // false
+
+  // 匹配 只能是连续出现11位的纯数字
+  // let reg = /^\d{11}$/
+  // console.log(reg.test('abc15311199201abc')) // false
+  // console.log(reg.test('15311199201')) // true
+  // console.log(reg.test('1531119920')) // false
+  // console.log(reg.test('1531119920111')) // false
+
+  // + 出现1到多次（至少要出现1次）可以连续出现多次
+  // 匹配纯数字字符串 数字可以连续出现一到多次
+  // let reg = /^\d+$/
+  // console.log(reg.test('123123')) // true
+  // console.log(reg.test('1')) // true
+  // console.log(reg.test('')) // false
+  // console.log(reg.test('1a2b3c')) // false
+
+  // 只能匹配字母a，可以匹配连续出现0到多次的字符a
+  // let reg = /^a*$/
+  // console.log(reg.test('aaa')) // true
+  // console.log(reg.test('')) // true
+  // console.log(reg.test('aabaa')) // false
+
+  // 匹配纯数字字符串 可以连续出现0到多次
+  // let reg = /^\d*$/
+  // console.log(reg.test('123123')) // true
+  // console.log(reg.test('')) // true
+  // console.log(reg.test('1a2b3c')) // false
+
+
+  // ? 出现0到1次（可有可无）最多出现一次
+  // let reg = /hello?/
+  // console.log(reg.test('hello')) // true
+  // console.log(reg.test('hell')) // true
+
+</script>
+</body>
+</html>

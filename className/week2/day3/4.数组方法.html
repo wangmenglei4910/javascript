@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // push 向数组末尾添加一项或多项
+    // 修改原数组
+    // 返回值 添加后的数组长度
+    const arr1 = [1, 2, 3]
+    const arr2 = [10, 20, 30]
+
+    // push原理
+    Array.prototype._push = function() {
+      // this指向的是原数组
+      // this[this.length] = a
+      
+      for (let i = 0; i < arguments.length; i++) {
+        this[this.length] = arguments[i]
+      }
+
+      return this.length
+    }
+    // arr1._push(100, 200, 300)
+    // arr2._push(40, 50, 60)
+
+    // arr1._push(100) // this => arr1
+    // arr2._push() // this => arr2
+
+    Array.prototype._pop = function () {
+      var last = this[this.length - 1]
+      this.length--
+      return last
+    }
+  </script>
+</body>
+</html>

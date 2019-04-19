@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // function fn(i) { // i = 10 = 11 = 12
+    //   return function (n) { // n = 20 n = 30
+    //     console.log(n + i++);
+    //   }
+    // }
+    // var f = fn(10); // f
+    // f(20); // 30
+    // f(30) // 41
+
+    // function fn(i) { // i = 20 = 21
+    //   return function (n) { // n = 40
+    //     console.log(n + i++); // 40 + 20
+    //   }
+    // }
+    // fn(20)(40); // 60
+
+    // function fn(i) { // i = 30 = 31
+    //   return function (n) { // n = 50
+    //     console.log(n + i++); // 50 + 30
+    //   }
+    // }
+    // fn(30)(50); // 80
+
+    // () 当做一个表达式  改变运算优先级
+    // (1 + 2) * 3 // 改变运算优先级
+
+    // var n = 0
+    // var c = (n++) // 当做一个普通表达式
+    // // c = 0
+    // console.log(c)
+
+    // var obj = {}
+    // // console.log(obj.toString())
+    // console.log({}.toString())
+
+    // 控制台 {} 当做代码块来解析
+    // {}
+    // 对象才能通过点运算符来查找属性
+    // ({}) 解析为对象表达式
+    // obj.toString
+    // ({}).toString()
+
+    // function fn(i) {
+    //   return function (n) {
+    //     console.log(n + (i++));
+    //   }
+    // }
+    // // f是第一个栈内存里返回的堆内存
+    // var f = fn(10); // stack 0 形成一个不销毁的栈内存
+    // f(20); // heap 0  父级作用域 stack 0
+    // fn(20)(40); // stack 1 开辟一个全新栈内存
+    // fn(30)(50); // stack 2 开辟一个全新栈内存
+    // f(30)
+
+    // var num = 10; // 60 => 65
+    // var obj = {
+    //   num: 20
+    // };
+    // // 先看自执行函数怎么一步一步执行的
+    // // 自执行函数形成一个不销毁的栈内存 num变量就会被缓存下来
+    // // obj.fn = xxx1
+    // obj.fn = (function (num) { // num = 20 = 21 = 22
+    //   this.num = num * 3; // window.num = 20 * 3 = 60
+    //   num++; // 21
+    //   // return xxx1
+    //   return function (n) { // n = 5
+    //     this.num += n; // window.num += 5 => 60 += 5 => 65
+    //     num++;
+    //     console.log(num); // 22
+    //   }
+    // })(obj.num); // 20
+
+    // var fn = obj.fn; // fn = xxx1
+    // fn(5); // xxx1(5) 22
+    // obj.fn(10);
+    // console.log(num, obj.num);
+
+    // var num = 10; // 60 => 65
+    // var obj = {
+    //   num: 20 // 30
+    // };
+    // obj.fn = (function (num) { // num = 20 = 21 = 22 = 23
+    //   this.num = num * 3; // window.num = 20 * 3 = 60
+    //   num++; // 21
+    //   // return xxx1
+    //   return function (n) { // n = 10
+    //     this.num += n; // obj.num += n => 20 += 10 => 30
+    //     num++;
+    //     console.log(num); // 23
+    //   }
+    // })(obj.num);
+
+    // var fn = obj.fn; // fn = xxx1
+    // fn(5) // 22
+    // obj.fn(10); // xxx1(10) // 23
+    // console.log(num, obj.num); // 65 30
+
+    // var name = 'window';
+    // var Tom = {
+    //   name: "Tom",
+    //   show: function () {
+    //     console.log(this.name); // window.name
+    //   },
+    //   wait: function () {
+    //     var fun = this.show; // fun = Tom.show
+    //     fun();
+    //   }
+    // };
+    // Tom.wait(); // 'window'
+
+    var fullName = 'language';
+    var obj = {
+      fullName: 'javascript',
+      prop: {
+        getFullName: function () {
+          // return obj.prop.fullName
+          // return window.fullName
+          return this.fullName; 
+        }
+      }
+    };
+    // Object.prototype.fullName = 'zhufeng'
+    // this => obj.prop
+    console.log(obj.prop.getFullName()); // undefined
+    var test = obj.prop.getFullName;
+    console.log(test()); // 'language'
+  </script>
+</body>
+
+</html>

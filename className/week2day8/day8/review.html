@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>复习</title>
+</head>
+<body>
+
+<script>
+  // 基本数据类型
+  Number,Boolean,String,null,undefined
+  // 0 NaN false '' null, undefined
+  // Number() isNaN  parseInt parseFloat
+
+  // Array
+  // sort() reverse() forEach(function(item,index){}) map()
+
+  // function () {}
+
+  // Math
+  // Math.random()
+  // Math.round(Math.random() * (m - n) + n)
+  // Math.max()
+  // Math.min()
+  // Math.ceil()
+  // Math.floor()
+  // Math.abs()
+  // Math.pow()
+
+  // Date
+  // new Date()
+  // var d = new Date()
+  // d.getFullYear()
+  // d.getMonth()
+  // d.getHours() 0-23
+  // d.getMinutes()
+  // d.getSeconds()
+  // d.milliSeconds()
+  // d.toString()
+  // d.getDate() what is the date today?
+  // d.getDay() what is the day today?
+
+  // 数组去重
+
+  // 双for
+  // j = 3
+  var ary = [1, 2, 3, 4, 5, 4];
+  //         0  1  2  3  4  5
+  // 1. 把数组当中的每一项都取出
+  for (var i = 0; i < ary.length; i++) {
+    var cur = ary[i]; // cur 标识本轮循环的当前项
+
+    // 2. 用当前项和后面的比较
+    for (var j = i + 1; j < ary.length;) {
+      // 3. 判断cur和后面的项是否相等
+      if (cur === ary[j]) {
+        // 4. 如果相同，就删除相同项，j不加
+        ary.splice(j, 1);
+      } else {
+        // 否则j++ 继续和下一个比较
+        j++;
+      }
+    }
+
+  }
+
+  // 2. 返回新数组
+
+  var ary2 = [1, 2, 3, 4, 5, 4];
+
+  var newArr = [];
+  for (var k = 0; k < ary2.length; k++) {
+    newArr.indexOf(ary2[k]) === -1 ? newArr.push(ary2[k]) : void 0;
+  }
+
+  // 3. 对象法去重 利用的是对象key是唯一的
+
+  var ary3 = [1, 2, 3, 4, 5, 4];
+  var obj = {};
+  for (var h = 0;h < ary3.length;h++) {
+    var cur2 = ary3[h];
+    if (!obj[cur2]) {
+      obj[cur2] = cur2
+    }
+  }
+  var newArr2 = [];
+
+  for (var key in obj) {
+    newArr2.push(obj[key])
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

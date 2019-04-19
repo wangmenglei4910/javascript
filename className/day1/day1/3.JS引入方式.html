@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!-- <script>
+    alert(123)
+  </script> -->
+  <script>
+    // 为了保证能够在JS中 获取到加载后的元素 
+    // 一般都是把JS放在body底部
+
+    // 此时 获取div的时候 页面中还没有加载这个HTML元素
+      var a = document.getElementById('box')
+      console.log(a) // null 空的意思
+  </script>
+
+  <!-- 打开浏览器的时候 从上到下 解析html css js -->
+</head>
+<body>
+  <!-- 行内式 -->
+  <div id="box" onclick="alert('js')"></div>
+
+  <!-- JS一般放在body底部 -->
+  <!-- 内嵌式 -->
+  <!-- <script>
+    // js code
+    // 根据id名 获取页面中的元素（HTML标签）
+    var a = document.getElementById('box')
+    // 将a变量存储的内容 输出显示到控制台里面
+    console.log(a)
+  </script> -->
+
+  <!-- 外链式 -->
+  <!-- <script src="./index.js"></script> -->
+
+  <!-- 错误的写法：内嵌式和外链式 不能用一个script标签混用 -->
+  <!-- <script src="./index.js">
+    alert('内嵌进来') // 这段代码不会执行
+  </script> -->
+
+  <script>
+    alert('内嵌式')
+  </script>
+
+  <script src="./index.js"></script>
+  <!-- <script src="./index.js"></script>
+  <script src="./index.js"></script>
+  <script src="./index.js"></script> -->
+
+  <!-- 注意的细节
+    1.JS一般最好是放在body底部（要先让浏览器加载HTML 然后再JS获取元素）
+    2.外链式和内嵌式不能混用在一个script标签当中
+   -->
+
+   <!-- JS引入方式
+     1.内嵌式
+     2.行内式
+     3.外链式
+    -->
+
+</body>
+</html>

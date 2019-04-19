@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>工厂模式</title>
+</head>
+<body>
+
+<script>
+  // 工厂模式
+  
+  function reg(name, age) {
+    var obj = {};
+    obj.name = name;
+    obj.age = age;
+    return obj
+  }
+  var p1 = reg('肖泽辉', 59);
+  var p2 = reg('雷舒雯', 18);
+  var p3 = reg('于腾越', 18);
+  console.log(p1);
+  console.log(p2);
+  console.log(p1 === p2);
+  // 工厂模式：将实现相同功能代码封装成一个函数，当我们需要创建一个对象的时候，我们就执行这个函数即可，并且每个对象都是单独的实例
+  // 优势：高内聚，低耦合 提高了代码的复用度
+
+  // js
+  var obj = new Object();
+  var ary = new Array(5);
+
+  // 工厂模式虽然解决了不能批量生产的问题，但是无法进行实例区分，即没有类型的概念。
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">加1</button>
+  <script>
+    // 元素获取一次就够了 btn的值以后不会发生改变
+    const btn = document.getElementById('btn')
+
+    // 实现累加计数 满足两个条件
+    // 1.累加变量定义在事件函数的上级作用域中
+    // 2.并且这个上级作用域是一个不销毁的栈内存
+
+    // 方式一 利用不销毁的全局作用域
+    // let count = 0
+    // btn.onclick = function() {
+    //   count++
+    //   console.log(count)
+    // }
+
+    // 方式二 自定义一个不销毁的上级作用域
+
+    // 实现累加计数 满足两个条件
+    // 1.累加变量定义在事件函数的上级作用域中
+    // 2.并且这个上级作用域是一个不销毁的栈内存
+
+    ///////////////////////////////////////////////////////
+    // 利用自执行函数 形成一个不销毁栈内存
+    // btn.onclick = (function fe() {
+    //   var a = 100
+    //   return function fu() {
+    //     a++
+    //     console.log(a)
+    //   }
+    // })()
+
+    // 外部变量主动 跑到函数内部 占用
+    // ;(function fe() {
+    //   var a = 100
+    //   btn.onclick = function fu() {
+    //     a++
+    //     console.log(a)
+    //   }
+    // })()
+   ///////////////////////////////////////////////////////
+
+    
+   // 利用普通函数 形成一个上级的不销毁的栈内存
+
+    // function fe() {
+    //   var a = 100
+    //   return function fu() {
+    //     a++
+    //     console.log(a)
+    //   }
+    // }
+    // btn.onclick = fe()
+
+
+    // function fe() {
+    //   var a = 100
+    //   btn.onclick = function fu() {
+    //     a++
+    //     console.log(a)
+    //   }
+    // }
+    // fe() // 需要手动让fe执行一次
+
+    // 方式三 块级作用域
+    
+    // 在代码中{} 出现let 或const 就会形成块级作用域
+    // { 
+    //   let count = 0
+    //   btn.onclick = function() {
+    //     count++
+    //     console.log(count)
+    //   }
+    // }
+    // var count =0;
+    // btn.onclick = function() {
+    //     count++
+    //     console.log(count)
+    //   }
+
+    // JS中作用域 有三种
+    // 全局作用域
+    // 函数作用域
+    // 块级作用域
+
+
+    // function fe() {
+    //   var a = 100
+    //   return function fu() {
+    //     a++
+    //     console.log(a)
+    //   }
+    // }
+    // btn.onclick 占用了fe内部引用类型（函数）造成不销毁的条件
+    // btn.onclick = fe()
+
+    // // 全局作用域就是一个不销毁的栈内存
+
+    // // 每次点击时 要自身加1
+    // let count = 0
+
+    // // 这个函数每次执行都会形成一个新的栈内存 在里面创建一个新的私有变量count
+    // btn.onclick = function() { // 事件函数上级 全局作用域
+    //   count++ // 每次++的这个count变量 是全局中缓存的变量
+    //   console.log(count)
+    // }
+
+    // 实现累加计数 满足两个条件
+    // 1.累加变量定义在事件函数的上级作用域中
+    // 2.并且这个上级作用域是一个不销毁的栈内存
+  </script>
+</body>
+
+</html>

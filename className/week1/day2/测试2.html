@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+      // var a = 12
+      // function fn() {
+      //   console.log(a) // 12
+      //    a = 20
+      //   console.log(a) // 20
+      // }
+      // fn()
+
+      // 全局变量提升
+      // var a = undefined
+
+      // var a = 12
+      // function fn() {
+      //   // var a = undefined
+      //   console.log(a)
+      //   var a = 20
+      //   console.log(a)
+      // }
+      // fn()
+
+      // var a = 100
+      // function text() {
+      //   /**  变量提升start  **/
+      //     var b = undefined
+      //     var a = undefined
+      //     var c = undefined
+      //   /**  变量提升end    **/
+      
+      //   var b = 2 * a // 2 * undefined = NaN
+      //   var a = 200
+      //   var c = a / 2
+      //   console.log(b) // NaN
+      //   console.log(a) // 200
+      //   console.log(c) // 100
+      // }
+      // text()
+
+      // 函数执行 形成一个私有作用域
+      // 1.形参赋值 变量提升
+      // 2.代码从上到下执行
+
+      // function ff(a) { // 形参变量 也想当于 var a = 100
+      //   console.log(a) // function a() {}
+      //   var a
+      //   function a() {}
+      // }
+      // ff(100)
+      // // 变量提升 函数声明优先级是最高的
+      // // function声明 > 形参赋值 > 普通变量★★★★★★★★★★
+
+      // 不管条件是否 成立都要参加变量提升
+      // var num = undefined
+      
+      // 在全局变量提升时 就给window上添加了这个属性 默认值为undefined
+      // console.log(num) // undefined
+      // console.log(window) // window { num: undefined }
+      // if ('num' in window) {
+      //   var num = 2019
+      // }
+      // console.log(num) // 2019
+
+
+      // var a = 1000
+      // function fe() {
+      //   // var a = undefined
+      //   // 不带var直接赋值,相当于直接给window上添加了一个全局属性
+      //   var a = b = 20 // window.b
+      // }
+      // fe()
+      // console.log(window.b) // 20
+      // console.log(a) // 1000
+
+
+      // function fn(n) {
+      //   return function(a) {
+      //     a++;
+      //     n += a
+      //     console.log(n);
+      //   };
+      // }
+      // var f = fn(10);
+      // f(1);
+      // f(2);
+
+      // function fn(n) {
+      //   n = n;
+      //   return function(a) {
+      //     a++;
+      //     console.log((n += a));
+      //   };
+      // }
+      // var f = fn(10);
+      // f(1);
+
+      var num = 20;
+      var obj = {
+        num: 30,
+        fn: (function(num) {
+          num += 5;
+          return function() {
+            console.log(num);
+          };
+        })(num)
+      };
+
+      obj.fn(num);
+    </script>
+  </body>
+</html>

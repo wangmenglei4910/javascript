@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arr = [1, 1, 2, 2, 1, 1];
+      function unique(ary) {
+        var newArr = [];
+        var obj = {};
+
+        for (var i = 0; i < ary.length; i++) {
+          var cur = ary[i];
+          // 如果对象中不存在这个属性cur 我们再进行添加
+          if (!obj[cur]) {
+            newArr.push(cur);
+            obj[cur] = true;
+          }
+        }
+        obj = null
+        return newArr;
+      }
+      unique(arr)
+
+      // function unique(ary) {
+      //   var newArr = [];
+      //   var obj = {};
+
+      //   // [1, 1, 2, 2, 1, 1]
+      //   for (var i = 0; i < ary.length; i++) {
+      //     var cur = ary[i];
+
+      //     // i=0 cur = 1 !obj[1] => !undefined => true 不存在就添加 [1] {1: true}
+      //     // i=1 cur = 1 !obj[1] => !true => false 已经存在 就不添加;
+      //     // i=2 cur = 2 !obj[2] => !undefined => true 不存在就添加 [1, 2] {1: true, 2: true}
+      //     // 当前 newArr = [1, 2]
+      //     // obj = {1: true, 2: true}
+      //     // i=3 cur = 2 !obj[2] => !true => false 已经存在 就不添加
+      //     // i=4 cur = 1 !obj[1] => !true => false 已经存在 就不添加
+
+      //     if (!obj[cur]) {
+      //       newArr.push(cur);
+      //       obj[cur] = true;
+      //     }
+      //   }
+      //   return newArr;
+      }
+      unique(arr);
+
+      // function unique(ary) {
+      //   // ary => [1, 1, 2, 2, 1, 1]
+      //   var newArr = []
+      //   // 记账本
+      //   var obj = {}
+      //   for (var i = 0; i < ary.length; i++) {
+      //     var cur = ary[i]
+
+      //     // 如果对象里不存在cur这个属性 就往里添加
+      //     if (!obj[cur]) {
+      //       newArr.push(cur)
+      //       // 每次添加完 这个值之后 在对象中标记为true
+      //       obj[cur] = true
+      //     }
+      //   }
+
+      //   // 去重之后这个对象就没用了
+      //   // 释放内存
+      //   obj = null
+      //   return newArr
+      // }
+
+      // console.log(unique(arr))
+
+      // var newArr = []
+      // var obj = {}
+
+      // // 第一次 1
+      // if (!obj[1]) { // !undefined => true
+      //   newArr.push(1)
+      //   obj[1] = true
+      // }
+      // // newArr [1]
+      // // obj {1: true}
+
+      // // 第二次 1
+      // if (!obj[1]) { // !true => false
+      //   newArr.push(1)
+      //   obj[1] = true
+      // }
+      //  // newArr [1]
+      // // obj {1: true}
+
+      // // 第三次 2
+      // if (!obj[2]) { // !undefined => true
+      //   newArr.push(2)
+      //   obj[2] = true
+      // }
+      // // newArr [1, 2]
+      // // obj {1: true, 2: true}
+    </script>
+  </body>
+</html>

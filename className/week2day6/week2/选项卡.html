@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .tab-box {
+      width: 300px;
+      margin: 20px auto;
+    }
+
+    .tab-header {
+      list-style: none;
+      overflow: hidden;
+    }
+
+    .tab-header li {
+      box-sizing: border-box;
+      float: left;
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border: 1px solid pink;
+      cursor: pointer;
+    }
+
+    .tab-panel div {
+      display: none;
+      box-sizing: border-box;
+      width: 300px;
+      height: 150px;
+      text-align: center;
+      line-height: 150px;
+      border: 1px solid pink;
+      font-size: 24px;
+    }
+
+    /* 选中样式 */
+    .tab-panel div.select {
+      display: block;
+    }
+
+    .tab-header li.select {
+      background-color: orange;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+<div id="tab-box" class="tab-box">
+  <!-- header部分 [li, li, li]-->
+  <ul class="tab-header">
+    <li class="select">关注</li>
+    <li>推荐</li>
+    <li>小说</li>
+  </ul>
+
+  <!-- panel部分 [div, div, div]-->
+  <div class="tab-panel">
+    <div class="select">我的关注</div>
+    <div>我的推荐</div>
+    <div>我的小说</div>
+  </div>
+</div>
+
+<script>
+  // 1.获取操作元素 三个li和三个div
+  var headerList = document.querySelectorAll('.tab-header>li');
+  var panelList = document.querySelectorAll('.tab-panel>div');
+
+ 
+  // 2.循环绑定点击事件
+  for (var i = 0; i < headerList.length; i++) {
+     
+    // 将当前i的值保存给当前li元素对象 自身的一个属性
+    // 当i = 0  headerList[0].myId = 0
+    // 当i = 1  headerList[1].myId = 1
+    // 当i = 2  headerList[2].myId = 2
+    headerList[i].myId = i
+
+    // 绑定点击事件
+    headerList[i].onclick = function() {
+       // 点击时 先将元素类名清空
+       for (var l = 0; l < headerList.length; l++) {
+        headerList[l].className = ''
+        panelList[l].className = ''
+       }
+
+       // 事件函数中的this 代表当前点击的li元素对象
+       this.className = 'select'
+       // 当前点击li的索引 this.myId
+       // 根据li的索引 找到对应的div 添加显示类名
+       panelList[this.myId].className = 'select'
+    }
+  }
+
+  console.log('end', i)
+
+</script>
+</body>
+</html>

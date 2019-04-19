@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+   <script>
+     // 类都是函数数据类型
+     console.log(typeof Array) // "function"
+     console.log(typeof Date) // "function"
+
+     // 每个函数数据类型（内置类 自定义类 普通函数）自身都有一个prototype(原型对象)
+     // 构造函数模式：new 类()
+
+     // 如何自定义一个属于我们自己的类(自定义函数)
+     // 类名：首字母大写（大驼峰命名法）
+     function Fn() {
+      
+       // 在构造函数中 this.xxx是给当前这个类的实例添加私有属性（实例属性）
+       this.name = 'wenli'
+     }
+    //  Fn() // this => window
+    //  new Fn() // this => Fn的实例对象
+    const f = new Fn
+
+    // instanceof 检测一个实例 是有属于这个类
+    console.log(f instanceof Fn) // true
+    console.log(f instanceof Object) // true
+    console.log(f instanceof Array) // false
+
+    // 当你通过一个基本数据类型的值 查找所属类上的原型方法时, 
+    // 会隐式将这个基本数据类型的值进行一个实例化（包装对象）
+    var str = '123'
+    // typeof str "string"
+
+    // 一般 对象名.属性名
+    // 隐式过程：new String(str).slice(1)
+    str.slice(1) // "23"
+
+    // 检测基本数据类型 返回的是false
+    // instanceof 检测的实例必须是对象数据类型 否则返回false
+    // '1' instanceof String
+    var str1 = '1'
+    console.log('str1', typeof str1) // "string"
+    console.log(str1 instanceof String) // false
+
+    var str2 = new String('1') // 实例化 返回值是一个实例对象
+    console.log('str2', typeof str2) // "object"
+
+    var arr = [1, 2]
+    console.log(arr instanceof Array)
+
+    console.log(str2 instanceof String) // true
+
+    // instanceof的原理 就是看 这个类的原型对象 是否出现 这个实例的原型链当中
+    // f.__proto__ => Fn.prototype => Object.prototype
+
+    // 每个对象（实例对象 普通对象 原型对象）都有一个自带的属性__proto__指向所属类的原型
+    // new Fn 实例化
+    // var arr = [] 字面量
+
+    // 每个原型对象上 都有一个天生自带的属性constructor 它指向当前类本身
+    // 一般constructor指向谁 就说明这个原型对象是属于谁的
+
+     
+     // 对于一个类：
+     // 1.普通函数 执行 Fn()
+     // 2.构造函数模式执行 new Fn()
+
+     // 构造函数模式执行 new Fn()
+     // 1.形成一个私有作用域
+     // 2.形参赋值 变量提升
+     // 3.创建这个类的一个实例对象（this）
+     // 4.this.xx 给当前实例添加私有属性
+     // 5.从上到下执行 执行完 将实例对象return出去
+     //（注意：如果手动return引用类型 会覆盖掉当前这个实例对象）
+
+     // 普通函数执行 Fn()：
+     // 1.形成一个私有作用域
+     // 2.形参赋值 变量提升
+     // 3.从上到下执行 执行完 是否销毁
+
+     // 构造函数中的this 指向的是当前类的实例对象
+     // 普通函数中的this 就看函数执行时 前面是否有点
+   </script>
+</body>
+</html>

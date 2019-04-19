@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<script>
+  // 原型链：当我们操作实例的某个属性时，首先浏览器会在实例的私有属性中查找，如果找到就直接使用私有属性，如果找不到，通过当前实例的__proto__向当前实例的所属类的原型上查找，如果找到就使用原型上的属性；如果还没有找到，就通过原型的__proto__ 继续向上查找，一直找到Object的原型为止，如果Object的原型也没有，就证明没有这个属性，我们把这种查找机制称为【原型链】
+  
+  // 公有属性：存放在原型或者原型链上上属性
+  
+  function Human(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  Human.prototype.eat = function () {
+    console.log('吃');
+  };
+  Human.prototype.sleep = function () {
+    console.log('睡');
+  };
+  
+  var h1 = new Human('陈冠希', 40);
+  var h2 = new Human('Mabin', 30);
+  
+  console.log(h1);
+  console.log(h2);
+
+  // in 操作符：检测属性是否属于一个对象，如果属于返回true，否则返回false；如果这个属性在该对象的原型链上，也返回true
+  console.log('name in h1 ?','name' in h1); // true
+
+  // hasOwnProperty() 检测一个属性是否是当前实例的私有属性；
+  console.log(h1.hasOwnProperty('name'));
+
+  // 扩展思考题：isPrototypeOf 方法作用
+
+</script>
+</body>
+</html>

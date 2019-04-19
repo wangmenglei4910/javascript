@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .cc {
+      width: 100px;
+      height: 100px;
+      margin: 30px auto;
+      border: 1px solid black;
+      background-color: pink;
+    }
+
+    .c1 {
+      border: 10px solid red;
+    }
+
+    .c2 {
+      width: 200px;
+    }
+
+    .c3 {
+      height: 200px;
+    }
+
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn">显示/隐藏</button>
+  <div id="box" class="cc c1">我是个box</div>
+  <script>
+    const btn = document.getElementById('btn')
+    const box = document.getElementById('box')
+    btn.onclick = function() {
+      box.classList.toggle('hide')
+    }
+
+    // 类名添加 
+    // ele.classList.add(class1, class2)
+    // box.classList.add('c1')
+
+    // 类名的移除
+    // ele.classList.remove(class1, class2)
+    // box.classList.remove('cc')
+
+    // 类名的切换 (之前有就移除，之前没有就添加)
+    // ele.classList.toggle(class1)
+    // box.classList.toggle('hide')
+
+    // 类名是否存在
+    // box.classList.contains
+    // box.classList.contains('c1')
+
+    // 检测类名是否存在
+    function hasClass(ele, cn) {
+      let reg = new RegExp(`\\b${cn.trim()}\\b`)
+      return reg.test(ele.className)
+    }
+    // console.log(hasClass(box, 'cc'))
+
+    // "cc c1".split(" ").includes('cc')
+    // var cn = 'cc'
+
+    // 添加类名
+    function add(ele, ...cns) {
+      cns.forEach(cn => {
+        if (!hasClass(ele, cn)) {
+          ele.className += ` ${cn.trim()}`
+        }
+      })
+    }
+    // add(box, 'c2', 'c3')
+    // add(box, 'cc', 'c2')
+
+    function remove(ele, ...cns) {
+      cns.forEach(cn => {
+        let reg = new RegExp(`\\b${cn.trim()}\\b`)
+        ele.className = ele.className.replace(reg, '')
+      })
+    }
+    // remove(box, 'cc', ' c1 ')
+
+    // 先检测有没有这个cn类名 hasClass(ele, cn)
+    // 没有 就添加 false add(ele, cn)
+    // 有 就移除 true remove(ele, cn)
+    function toggle(ele, cn) {
+      hasClass(ele, cn) ? remove(ele, cn) : add(ele, cn)
+    }
+    // toggle(box, 'hide')
+
+    // 多类名切换
+    function toggles(ele, ...cns) {
+      cns.forEach(cn => toggle(ele, cn))
+    }
+    
+
+
+    
+
+    // 正则字面量方式 不支持变量
+    // /cn/ cn只是个普通元字符
+
+    // 实例化方式 支持变量
+    // 实例化方式 \d 特殊元字符 需要多加一个斜杠
+    // let reg = new RegExp('\\d', 'img')
+    // let reg = new RegExp(`\\b${cn}\\b$`, 'img')
+    // console.log(reg) // /\bcc\b/
+    
+  </script>
+</body>
+</html>

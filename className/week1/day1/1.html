@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box" class="text"></div>
+  <script>
+    // '' "" ``
+    
+    function randomCode(len) {
+      len = len || 4
+
+     // 0 ~ str.length - 1
+      var str = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+      var codeStr = ''
+      while(codeStr.length < len) {
+        var ind = Math.round(Math.random() * (str.length - 1))
+        var char = str[ind]
+        if (codeStr.indexOf(char) === -1) {
+          codeStr += char
+        }
+      }
+      return codeStr
+    }
+
+    // // 根据id名获取 div
+    // document.getElementById('box') 
+    // // 根据class名获取 [div][0]
+    // document.getElementsByClassName('text')[0]
+    // // 根据标签名获取 [div]
+    // document.getElementsByTagName('div')[0]
+
+    // document.querySelector('#box')
+    // document.querySelector('.text')
+
+    // // JS中的数据类型
+    // // 1.基本数据类型 操作是具体值 保存栈内存
+    //   // Number String Boolean null undefined
+    // // 2.引用数据类型 操作的是引用地址 保存堆内存
+    //    // 对象数据类型 object Array RegExp Date Math
+    //    // 函数数据类型 Function
+
+    // // 数据类型检测
+    // // typeof
+    // // constructor
+    // // instanceof
+    // // Object.prototype.toString.call()   
+
+
+    // function fe(a, b) { // 形参变量
+    //   console.log(arguments) // 实参集合
+    // }
+
+    // fe(1, 2) // 函数执行时，传递进去的实际参数 实参
+
+    // // 接收实参两种方式
+    // // 1.形参变量
+    // // 2.arguments 实参集合
+
+    // // 定时器
+    // // setTimeout()
+    // // setInterval()
+
+    // // 在JS中创建元素
+    // var p = document.createElement('p')
+    // // 再将这个元素 添加到元素末尾
+    // document.body.appendChild(p)
+
+    // // 获取子元素节点
+    // // children
+    // // childNodes // 获取所有子节点（文本节点 注释节点 元素节点）
+
+    // // 字符串截取
+    // // slice()
+    // // substr()
+    // // substring()
+    
+    // // 将字符串拆分成数组
+    // // split()
+
+    // // 字符串替换
+    // // replace()
+
+    // // 数组方法
+    // // 数组末尾添加
+    // // push(x)
+    // // splice(ary.length, 0, x)
+    // // arr[arr.length] = x
+
+    // // 数组末尾删除
+    // // pop()
+    // // splice(-1)
+    // // arr.length--
+
+    // // 数组循环遍历
+    // // for循环
+    // // forEach map
+
+    // // 数组的排序
+    // arr.sort(function (a, b) {
+    //   return a - b
+    // })
+
+    // arr.sort(function(a, b) {
+    //   return b - a
+    // })
+
+    // //slice(x, y)
+   
+    // // [1, 2, 3, 4]
+    // // 第n项索引 n - 1 第m项索引 m - 1
+    // slice(n - 1, m - 1)
+
+    // // Math.round(Math.random() * (m - n) + n)
+
+    // // Math.max() Math.min()
+    // // Math.ceil() Math.floor()
+
+    // // false == [] => 0 == 0 => true
+
+    // // 1 == [1] => 1 == '1' => 1 == 1 => true
+
+
+    // var n = '10px' + 10 ? "ok" : "no";
+
+    // var n = '10px10'? "ok" : "no";
+    // console.log(n) // "ok"
+
+    // // 0 '' undefined NaN null 这五个转化为Boolean值都是false 其余都是true
+
+    // // 从1到100 能够被3和5整除的数 累加求和
+    
+    // var total = 0
+    // for (var i = 1; i <= 100; i++) {
+    //   if (i % 15 === 0) {
+    //     total += i
+    //   }
+    // }
+    // console.log(total)
+
+    // function sum(n) {
+    //   // 递归结束
+    //   if (n > 100) {
+    //     return 0
+    //   }
+
+    //   // 能够被15整除 把当前数累加起来 再紧接着看下一个数
+    //   if (n % 15 === 0) {
+    //     return n + sum(n + 1)
+    //   }
+      
+    //   // 不能被15整除 直接看下一个数
+    //   return sum(n + 1)
+    // }
+    // sum(1)
+
+    // 任意数求和
+    function add() {
+      var total = 0
+      for (var i = 0; i < arguments.length; i++) {
+        var cur = Number(arguments[i])
+        if (!isNaN(cur)) { // 如果是有效数字 就进行累加操作
+           total += cur // total = total + cur
+        }
+      }
+    }
+    add(1, 2, NaN, '3') // 6
+  </script>
+</body>
+</html>

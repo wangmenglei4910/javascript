@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .li {
+      background: green;
+    }
+  </style>
+</head>
+<body>
+<div id="box">
+  <p id="wait">正在加载请稍后......</p>
+</div>
+
+<script>
+  setTimeout(function () {
+    // 使用定时器模拟客户端和服务端网络通信的延时
+    var ary = [
+      '数据1',
+      '数据2',
+      '数据3'
+    ];
+    var ul = document.createElement('ul');
+    // <li> 数据1</li>
+    // <li> 数据2</li>
+    // <li> 数据3</li>
+    ary.forEach(function (item) {
+      // 新建li
+      var li = document.createElement('li');
+      // 为li填写数据
+      li.className = 'li'
+      li.innerText = item;
+      // 因为li是ul的子元素，所以要插入到ul里面
+      ul.appendChild(li)
+    })
+    // 删除等待文字
+    var box = document.getElementById('box');
+    var wait = document.getElementById('wait');
+    box.removeChild(wait)
+
+    // 将ul插入到box内
+    box.appendChild(ul)
+  }, 2000)
+</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!--<div id="box">box box</div>-->
+  <div id="box1">box1 box1</div>
+  <div id="box2">box2 box2</div>
+  <div id="box3">box3 box3</div>
+  <script>
+    // var box = document.getElementById('box');
+    // 元素其实就是 一个对象
+    // onclick事件行为
+    // 事件函数
+    // 事件中this 指向就是当前绑定事件的元素对象
+    // box.onclick = function () {
+    //   // 当点击这个div时 就会执行这个函数
+    //   // console.log('我是box')
+    //   // this 函数中自带的一个关键字
+    //   // this 指向就是当前绑定事件的元素对象
+    //   // 这里面的this就是 当前元素box
+    //   // console.dir(this)
+    //   // console.log(this === box)
+    //   this.style.backgroundColor = 'red'
+    // }
+
+    var box1 = document.getElementById('box1');
+    var box2 = document.getElementById('box2');
+    var box3 = document.getElementById('box3');
+
+    // 给元素对象添加自定义属性
+    // 给对象增加一个属性
+    // 对象名.属性名 = 属性值
+    box1.myId = '130';
+    
+    box1.onclick = function () {
+      alert(this.myId)
+      console.dir(this)
+    };
+
+    box2.myId = '131';
+
+    box2.onclick = function () {
+      alert(this.myId)
+    };
+
+    box3.myId = '133';
+
+    box3.onclick = function () {
+      alert(this.myId)
+    };
+
+    // 事件函数中的this 就是当前元素对象本身
+    // 给box1绑定点击事件
+    // box1.onclick = function () {
+    //   console.log('box1', this); // box1
+    //   this.style.backgroundColor = 'red'
+    // };
+    //
+    // box2.onclick = function () {
+    //   console.log('box2', this); // box2
+    //   this.style.backgroundColor = 'blue'
+    // };
+    //
+    // box3.onclick = function () {
+    //   console.log('box3', this); // box3
+    //   this.style.backgroundColor = 'pink'
+    // };
+  </script>
+</body>
+</html>

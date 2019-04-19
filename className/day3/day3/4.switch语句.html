@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // switch 判断一个值 多种情况
+      // 语法
+      // switch (值) {
+      //   case 情况1: // case相当于 === 等于
+      //     // 情况1的时候 要执行代码
+      //     break; // 中断
+      //   case 情况2:
+      //     // 情况2的时候 要执行代码
+      //     break;
+      //   case 情况3:
+      //     // 情况3的时候 要执行的代码
+      //     break;
+      //   default: // 相当于else 否则
+      //     // 以上情况 都不成立时 执行这里代码
+      // }
+      // 每一个case 就是一种情况
+      // switch里case 相当于 === 等于
+      // switch 里只有 等于比较
+      // var age = 28;
+      // switch (age) {
+      //   case 10: // 当age 等于 10
+      //     console.log("小学");
+      //     break;
+      //   case 18: // 当age 等于 18
+      //     console.log("高中");
+      //     break;
+      //   default: // 否则
+      //     console.log("社会");
+      // }
+
+      // var age2 = 10
+
+      // if (age2 > 10) {
+      //   console.log('小学')
+      // } else if (age2 === 18) {
+      //   console.log('高中')
+      // } else {
+      //   console.log('社会')
+      // }
+
+      // = 赋值
+      // == === 等于
+
+      // 不加break
+      // 注意：只要不加break 继续往下 直接执行 直到遇到下一个break才停止
+      // var a = 0
+      // switch (a) {
+      //   case 0:
+      //     console.log("000");
+      //   case 1:
+      //     console.log("11111");
+      //     break; // 中断
+      //   case 2:
+      //     console.log("22222");
+      //     break;
+      //   default:
+      //     console.log("default");
+      // }
+
+      var a = 3;
+      switch (a) {
+        case 1:
+        case 2:
+          console.log("当a等于1 或者 2的时候 都可以");
+          break;
+        case 3:
+        case 4:
+          console.log("当a等于3 或者 4的时候 都可以");
+          break;
+      }
+
+    </script>
+  </body>
+</html>

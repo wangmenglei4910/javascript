@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Function 内置类
+    // 所有的函数数据类型（类 普通函数），都是Function的一个实例
+
+    // Array Number String Boolean Object Date Function 等
+    console.log(typeof Array)
+    console.log(typeof Number)
+
+    // 实例和类
+    // 实例都有一个__proto__指向所属类的原型对象
+    // Array.__proto__ === Function.prototype
+
+    // instanceof 检测一个实例是否属于这个类
+    // Function.prototype 是否出现在Array的原型链当中
+    // console.log(Array instanceof Function) // true
+    // console.log(String instanceof Function) // true
+    // console.log(Boolean instanceof Function) // true
+    // Array.__proto__ === Function.prototype
+
+    function fn() {
+
+    }
+    // fn.__proto__ === Function.prototype
+    console.log(fn instanceof Function) // true
+    console.dir(fn)
+
+    // prototype 一般是一个普通对象{constructor, __proto__}
+
+    // Function类的原型对象 是一个匿名函数
+    // console.log(typeof Function.prototype) // "function"
+    // console.log(typeof fn.prototype) // "object"
+    // console.log('Fun', Function.prototype)
+    // console.log('fn', fn.prototype)
+
+    // 因为Object这个类 也是一个函数 Object.__proto__ === Function.prototype
+    // console.log(typeof Object) // "function"
+    // console.log(Object.__proto__ === Function.prototype) // true
+    // console.log(Object instanceof Function) // true
+
+    function Fn() {
+
+    }
+    console.dir(Fn)
+    console.log(Fn.__proto__ === Function.prototype) // true
+    console.log(Fn instanceof Function) // true
+
+    // Object它是一个类 同时也是函数数据类型
+    console.log(typeof Object) // "function"
+
+    // 所有的函数数据类（类、普通函数）都是Function这个类的一个实例
+  //  console.log(Object.__proto__ === Function.prototype)
+    
+   // Fn.__proto__ === Function.prototype
+  //  console.log(Fn instanceof Function) // true
+   // Object.__proto__ === Function.prototype
+  //  console.log(Object instanceof Function) // true
+
+   // Function.prototype.__proto__ === Object.prototype
+
+   // Fn => Function.prototype => Object.prototype
+
+   Object.prototype.age = 20
+  //  Function.prototype.age = 18
+  //  Fn.age = 10
+   console.log(Fn.age)
+
+  //  Fn.__proto__ => Function.prototype
+  //  Function.prototype.__proto__ => Object.prototype
+
+  // Fn.__proto__ === Function.prototype
+  // Fn.__proto__.__proto__ === Object.prototype
+  
+  console.log(Fn instanceof Function) // true
+  console.log(Fn instanceof Object) // true
+
+   // 1.Object的__proto__指向的是Function.prototype (Object也是Function的实例)
+   // 2.所有的函数数据类型（类 普通函数），它们的__proto__指向Function.prototype
+   // Function.prototype.__proto__ 又指向 Object.prototype
+
+   // Function和Object 关系
+
+   // Object.__proto__ 指向的是 Function.prototype
+   console.log(Object.__proto__  === Function.prototype)
+
+   // Function.prototype.__proto__ 指向的是 Object.prototype
+   console.log(Function.prototype.__proto__ === Object.prototype)
+
+   // Function 函数类 (只是所有函数中的基类)
+   console.log(typeof Function)
+
+   // 所有对象数据类型（普通对象 实例对象 函数（类） 原型对象）都是Object基类的一个实例
+   console.log(Function instanceof Object) // true
+   console.log(Array instanceof Object) // true
+   console.log(Fn instanceof Object) // true
+
+   var obj = {id: 1}
+   console.log(obj instanceof Object) // true
+   console.log(obj instanceof Function) // false
+
+   // 所有的函数数据类（类、普通函数）都是Function这个类的一个实例
+   // typeof Object === "function"
+   console.log(Object instanceof Function) // true
+
+   // 所有对象数据类型（普通对象 实例对象 函数（类） 原型对象）都是Object基类的一个实例
+   // 函数也是一个对象
+   console.log(Function instanceof Object) // true
+
+
+   // Object类 是所有对象数据类型（普通对象 实例对象 函数（类） 原型对象）的基类
+   // Function 函数类 (只是所有函数中的基类)
+
+   // Object和Function关系
+   // 互相指向
+   // Object.__proto__ === Function.prototype
+   // Function.prototype.__proto__ === Object.prototype
+
+  </script>
+</body>
+</html>

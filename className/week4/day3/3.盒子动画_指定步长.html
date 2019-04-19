@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100px;
+      height: 100px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="box" class="box"></div>
+  <script src="./utils.js"></script>
+  <script>
+     const { win, css } = window._utils
+     const box = document.getElementById('box')
+     
+     // 最大left值
+     // 目标值
+    //  const target = win('clientWidth') - box.offsetWidth
+     const target = 500
+     console.log(target)
+     // 步长
+     const step = 17
+     const timer1 = setInterval(() => {
+       let curLeft = css(box, 'left')
+       let curTop = css(box, 'top')
+       curLeft += step
+       curTop += step
+
+       // 边界判断
+       if (curLeft >= target) {
+         // 到达边界时将left值 修正为目标值
+         css(box, 'left', target)
+         clearInterval(timer1)
+         return;
+       }
+
+       css(box, 'left', curLeft)
+       css(box, 'top', curTop)
+     }, 30)
+
+    //  const timer2 = setInterval(() => {
+    //    let curTop = css(box, 'top')
+    //    curTop += step
+
+    //    // 边界判断
+    //    if (curTop >= target) {
+    //      // 到达边界时将left值 修正为目标值
+    //      css(box, 'top', target)
+    //      clearInterval(timer2)
+    //      return;
+    //    }
+
+    //    css(box, 'top', curTop)
+    //  }, 30)
+  </script>
+</body>
+</html>

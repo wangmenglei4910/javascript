@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3 id="time">倒计时 五一</h3>
+  <script>
+    // 目标时间 - 当前时间 = 毫秒差
+    // 毫秒差换算成 天数 小时 分钟
+
+    // 将目标时间字符串 格式化成一个时间对象
+    // // 目标时间对象
+    // var target = new Date('2019-05-01 00:00:00')
+
+    // // 当前时间对象
+    // var now = new Date()
+
+    // // 毫秒差 = 目标时间对象 - 当前时间对象
+    // var diff = target - now
+
+    function countTime(tarStr) {
+       // 当前时间
+       var now = new Date() 
+       // 目标时间
+       var target = new Date(tarStr)
+
+       // 时间差 (秒)
+       var diffTime = Math.floor((target - now) / 1000)
+
+       // 如果目标时间小于当前时间 就没必要再进行倒计时
+       if (diffTime < 0) {
+         clearInterval(timeId)
+         return `当前活动已结束~`
+       }
+       
+       // 1天的秒数
+       var d = 60 * 60 * 24
+       
+       // 1小时的秒数
+       var h = 60 * 60
+
+       // 把秒数 换算成 天数
+       var day = Math.floor(diffTime / d)
+       // 换算成天和 剩余的秒数（余数）
+       diffTime %= d  // diffTime = diffTime % d
+       console.log(day)
+
+       // 把剩余秒数换算成小时
+       var hour = Math.floor(diffTime / h)
+       
+       // 换算成小时后 秒数（余数）
+       diffTime %= h
+       console.log(hour)
+
+       // 把剩余秒数换算成分钟
+       var minutes = Math.floor(diffTime / 60 )
+       console.log(minutes)
+       
+       // 剩余秒数
+       var seconds = diffTime % 60
+       console.log(seconds)
+
+      return `${day}天 ${hour}小时 ${minutes}分 ${seconds}秒`
+    }
+
+    var time = document.getElementById('time')
+    
+    // time.innerHTML = countTime('2019-01-01 00:00:00')
+
+    var timeId = setInterval(function() {
+      console.log(123)
+      time.innerHTML = countTime('2019-05-01 00:00:00')
+    }, 1000)
+
+  
+  </script>
+</body>
+</html>

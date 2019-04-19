@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .cc {
+      width: 100px;
+      height: 100px;
+      margin: 30px auto;
+      border: 1px solid black;
+      background-color: pink;
+    }
+
+    .c1 {
+      border: 10px solid red;
+    }
+
+    .c2 {
+      width: 200px;
+    }
+
+    .c3 {
+      height: 200px;
+    }
+
+    .hide {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <button id="btn" class="btn">显示/隐藏</button>
+  <div id="box" class="cc c1">我是个box</div>
+  <script src="./class.js"></script>
+  <script>
+    const box = document.getElementById('box')
+
+    // 1.方法中this都是当前元素
+    // 2.所有html元素都可以使用这几个方法
+    // console.log(box instanceof Element)
+    // box.add('c2')
+    // box.remove('c1')
+
+    // add的返回值就是当前元素
+    // console.log(box.add('c2'))
+    // box.add('c2').remove('c1')
+
+    // 链式调用
+    // 利用方法中this
+
+    // 实现数字方法
+    let n = 1
+    // n.add(10) // 11
+    // n.reduce(1) // 10
+    n.add(10).reduce(1) // 10
+    n.reduce(10).add(1) // -8
+
+    
+  </script>
+</body>
+</html>

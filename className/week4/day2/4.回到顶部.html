@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      height: 20000px;
+    }
+    .back-top {
+      position: fixed;
+      bottom: 50px;
+      right: 50px;
+      width: 60px;
+      height: 60px;
+      background-color: red;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h3>我是顶部</h3>
+  <div class="box"></div>
+  <div class="back-top" id="backTop"></div>
+  <script src="./utils.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    const { win } = window._utils
+    const backTop = document.getElementById('backTop')
+
+  
+    let timer = null
+    // 只要点击一次 就会创建一个新的 定时器
+    // 为了预防连续点击 生成多个定时器
+    // 每次创建新定时器之前 先将已有定时器清除
+    backTop.onclick = function() {
+     
+     // 每次先将之前的定时器清除
+     console.log('clear timer', timer)
+     timer && clearInterval(timer)
+   
+     timer = setInterval(() => {
+       console.log(123)
+        let sTop = win('scrollTop')
+        if (sTop <= 0) { // 边界判断
+          clearInterval(timer)
+          return
+        }
+
+        sTop -= 50
+        win('scrollTop', sTop)
+      }, 15) // 定时器有小延迟时间 14 ~ 17
+    }
+
+    // 固定时间
+    // 2000 总时间 毫秒
+    // sTop 总路程 px
+
+    // 每毫秒速度
+    // speed = 总路程/总时间
+
+    // 每15毫秒速度
+    // speed * 15
+
+    // sTop -= (speed * 15)
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="news">
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+    <li>item4</li>
+    <li>item5</li>
+    <li>item6</li>
+    <li>item7</li>
+    <li>item8</li>
+    <li>item9</li>
+    <li>item10</li>
+  </ul>
+  <script>
+    // Boolean: true false
+    // Boolean值转换
+    // 转换规则：0 '' null undefined NaN 都是false 其余都是true
+    // Boolean()/!!
+    // !取反（先转换为Boolean值 再取反）
+    // key: value 键值对
+    // var obj = {
+    //   id: 1,
+    //   name: 'zhufeng'
+    // }
+    
+    // 把数字属性名 称为 索引
+    var news = document.getElementById('news')
+    var list = news.getElementsByTagName('li')
+    console.log(list)
+
+    var eles = document.querySelectorAll('#news>li')
+    console.log(eles) // 返回的是一个元素集合 [li, li, li]
+
+    var oUl = document.querySelector('#news')
+    console.log(oUl) // 直接返回的是一个元素对象
+
+    // 根据选择器 获取一个元素 IE低版本下 不兼容
+    // document.querySelector()
+    // 根据选择器 获取多个元素 返回 元素集合/节点集合
+    // document.querySelectorAll()
+
+
+    // 都什么是number类型
+    // 正数 负数 小数 0 NaN (非数字) Not a Number
+
+    // Number() 严格转换
+    // 只要字符串中 包含非数字字符 就直接返回NaN
+    Number('10px') // NaN
+    Number('2019') // 2019
+
+    // 对象数据类型 都有一个自带的属性方法 toString()
+    Number([1]) // Number([1].toString()) => 1
+    // [1].toString() // "1"
+
+    // 隐式转换 数据自己发生了转换
+    // [1, 2, 3].toString() => "1,2,3"
+    // Number([1, 2, 3].toString()) => Number("1,2,3") => NaN
+    Number([1, 2, 3]) // NaN
+    
+    // // 显式转换
+    // [1, 2, 3].toString()
+
+    // Number()
+    Number('') // 0
+    Number([]) // 0
+    Number(null) // 0
+    Number(false) // 0
+    Number(true) // 1
+     
+    // !! Boolean() 将其他类型转换为Boolean值
+    // +值 跟Number()方法一个作用
+    +''; // 0
+    +'1a'; // NaN
+
+    // 提取数字
+    // parseInt() 不能识别小数点 通常用来取整
+    // parseFloat() 可以识别小数
+    parseInt('10.5px') // 10
+    parseInt(12.5) // 12
+
+    parseFloat('10.5px') // 10.5
+    parseFloat(12.5) // 12.5
+
+    // isNaN()
+    // 检测一个值是不是NaN 
+    // 如果是有效数字 就返回false
+    // 如果不是有效数字 就返回true
+    isNaN(1 + undefined) // true
+
+    isNaN('1') // false
+
+    // isNaN() 在检测过程中 先用Number方法转换成数字类型，再进行检测是不是NaN
+    isNaN('100') // isNaN(Number('100')) => isNaN(100) => false
+
+    // 数字类型的转换
+    // Number() +
+    // parseInt()
+    // parseFloat()
+
+    // isNaN()
+    // typeof NaN // "number"
+  </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   
+   // 变量提升 
+   // 把带var提前声明 赋值为默认值undefined
+   // 带function 提前声明 赋值为函数定义本身
+   // var num = undefined
+
+  //  console.log(num) // undefined
+  //  var num = 100 
+   // 代码执行时 直接略过
+   //  var num
+   //  var num
+   //  var num
+  //  var num = 200 // 赋值操作 只有代码执行到这一行 才会进行
+  //  console.log(num) // 200
+
+   // 1.对于同一个变量 不会重复声明
+   // 2.function函数声明优先级高于带var
+   // 3.对于等号右边的值 不会进行变量提升
+
+  //  console.log(fe) // fe函数体
+
+  //  var fe = 123 // 代码执行到这一行时，将fe存储的值 修改为123
+    
+  //  console.log(fe) // 123
+
+  //  // 代码执行到函数定义部分 直接跳过 因为变量提升时，已经对函数进行了定义
+  //  function fe() {
+  //    console.log('fe')
+  //  }
+
+  //  console.log(fe) // 123
+
+  // fe() // 因为发生了变量提升
+  function fe() {
+    console.log('fe')
+  }
+  
+  // console.log(fn) // undefined
+  // var 变量 = 值 （不会对值进行变量提升）
+  // 3.对于等号右边的值 不会进行变量提升
+  var fn = function() {}
+
+  // console.log(fn) // function() {}
+   
+   
+  // 1.对于同一个变量 不会重复声明
+  // 2.function函数声明优先级高于带var
+  // 3.对于等号右边的值 不会进行变量提升
+  // 4.语句中的变量不管条件成不成立 都会参加当前作用域中变量提升
+
+  // var n = undefined
+  console.log(n) // undefined
+
+  // 赋值操作 只发生在代码执行的时候
+  if (false) { // 不会形成作用域
+    var n = 1 // 参加的是全局中的变量提升
+  }
+  console.log(n) // undefined 由于条件不成立 没有进行赋值操作
+
+
+  </script>
+</body>
+</html>

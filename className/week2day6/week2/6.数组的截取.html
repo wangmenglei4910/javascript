@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // slice 
+    // 截取数组中内容组成新数组 不会修改原数组
+
+    // slice(/0) 
+    // 不传参数或传0 将原数组完全克隆一份 作为新数组返回
+    // 不会影响到原数组
+    // var a = [1, 2, 3]
+
+    // var res = a.slice(0)
+    // console.log('原数组', a) 
+    // console.log('返回值', res) // 克隆出来的新数组
+    // console.log(a === res) // false
+
+    // slice(x) 
+    // 从索引x处开始 截取到数组末尾，将截取到的内容组成新数组返回
+    // var a = [1, 2, 3, 4]
+
+    // var res = a.slice(1)
+    // console.log('return', res) // [2, 3, 4]
+
+    // slice(x, y)
+    // 从索引x处开始，截取到索引y处（注意：不包含索引y这一项），
+    // 将截取到的内容 组成新数组返回
+    // var a = [10, 20, 30, 40, 50]
+    
+    // 包前不包后[x, y)
+    // 从索引1截取到索引3这个位置，不包含索引3这一项
+    // var res = a.slice(1, 3)
+    // console.log(res) // [20, 30]
+
+    // slice支持负数作为索引
+    // slice(-x) => slice(a.length - x)
+    var a = [10, 20, 30, 40, 50]
+
+    // a.length + (-2) => 3
+    // 相当于倒着截取两个
+    // var res = a.slice(-2) // a.slice(3)
+    // console.log(res) // [40, 50]
+
+    // slice(-x, -y) => slice(length-x, length-y)
+    var res = a.slice(-3, -1) // a.slice(5-3, 5-1) => slice(2, 4)
+    console.log(res) // [30, 40]
+
+    // slice(0)或不传参数slice() 相当于将原数组完全克隆一份
+    // slice(x) 从索引x处开始，截取到数组末尾，将截取到的内容组成新数组返回
+    // slice(x, y) 从索引x处开始，截取到索引y处，不包含索引y那一项，将截取到的内容组成新数组返回
+    // slice(-x) 支持负数作为索引 slice(a.length + (-x))
+
+    // splice也支持负数作为索引
+    var a1 = [1, 2, 3, 4, 5]
+    a1.splice(-1) // 删除数组最后一项 splice(a1.length - 1)
+    console.log(a1) // [1, 2, 3]
+  </script>
+</body>
+</html>

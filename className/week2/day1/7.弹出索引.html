@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul id="list">
+    <li>item1</li>
+    <li>item2</li>
+    <li>item3</li>
+    <li>item4</li>
+    <li>item5</li>
+    <li>item6</li>
+    <li>item7</li>
+    <li>item8</li>
+    <li>item9</li>
+    <li>item10</li>
+  </ul>
+  <script>
+    const list = document.querySelectorAll('#list>li')
+
+    // [li, li, li]
+    // console.log(list)
+
+    // 如何形成不销毁的栈内存
+    // 在一个函数内部的引用类型 被外部变量或属性占用
+
+    // let 形成块级作用域
+    var _loop = function _loop(i) {
+      list[i].onclick = function () {
+        console.log(i);
+      };
+    };
+
+    for (var i = 0; i < list.length; i++) {
+      _loop(i);
+    }
+
+    // for (let i = 0; i < list.length; i++) {
+
+    //   list[i].onclick = function() {
+    //     console.log(i)
+    //   }
+
+    // }
+
+
+
+    // 函数作用域 闭包
+
+    // for (var i = 0; i < list.length; i++) {
+
+    //   list[i].onclick = (function (n) {
+    //     console.log('iife', n)
+    //     return function () {
+    //       console.log(n)
+    //     }
+    //   })(i)
+
+    // }
+
+    // // 第一次循环 i = 0
+    // list[0].onclick = (function (n) { // n = 0 形成一个私有作用域
+    //   return function () {
+    //     console.log(n) // 0
+    //   }
+    // })(0)
+
+    // // 第二次循环 i = 1
+    // list[1].onclick = (function (n) { // n = 1 形成一个私有作用域
+    //   return function () {
+    //     console.log(n) // 1
+    //   }
+    // })(1)
+
+    // // 第三次循环 i = 2
+    // list[1].onclick = (function (n) { // n = 2 形成一个私有作用域
+    //   return function () {
+    //     console.log(n) // 2
+    //   }
+    // })(2)
+
+
+    // 自定义属性
+    // 创建了一个全局变量i
+    // var i = 0
+    // for (; i < list.length; i++) {
+    //   list[i].ind = i
+    //   list[i].onclick = function() {
+    //     console.log(this.ind)
+    //   }
+    // }
+    // console.log('end', i)
+  </script>
+</body>
+
+</html>

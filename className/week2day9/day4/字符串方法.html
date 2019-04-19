@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 字符串方法
+
+    // charAt() 根据索引获取某个字符
+    // var str = 'hello world!'
+    // console.log(str.charAt(1))
+    // console.log(str[1])
+
+    // charCodeAt() 返回Unicode编码
+    console.log('n'.charCodeAt(0)) // 110
+
+    // fromCharCode 返回Unicode编码对应的字符
+    console.log(String.fromCharCode(110)) // 'n'
+
+    // indexOf() 查找某个字符在字符串中首次出现的索引位置
+    // var str = 'hello world!'
+    // str.indexOf('e') // 1
+    // str.indexOf('p') // -1
+
+    // lastIndexOf() 查找某个字符在字符串中最后一次出现的索引位置
+    // str.indexOf('o') // 4
+    // str.lastIndexOf('o') // 7
+
+
+    // match() 查找字符
+    // var str = 'hello world 123'
+    // var res = str.match('world')
+    // console.log(res) // 返回一个数组
+    // // 数组第一项 查找到的内容
+    // // index 查找到的索引位置
+    // // input 原始字符串
+    // // ["world", index: 6, input: "hello world 123", groups: undefined]
+  
+    // match支持正则 
+    // var str = 'abc2019 abc2020 abc2021'
+    // str.match('abc') 
+    // 将字符串中 所有abc 捕获出来
+    // str.match(/abc/g) // global 全局捕获
+    //  ["abc", "abc", "abc"]
+    // match返回值 捕获到的内容 组成的新数组
+
+    // replace() 替换指定字符串内容
+    var str = 'hello 布罗利'
+
+    // 将替换后的内容 以返回值的形式返回 （新的字符串）
+    // var res = str.replace('布罗利', 'Brolly')
+    // console.log(str) // 'hello 布罗利'
+    // console.log(res) // "hello Brolly"
+
+    // 支持正则
+    // var str = 'hello 布罗利 hello 布罗利 hello 布罗利'
+    // var res = str.replace('布罗利', 'Brolly')
+    // var res = str.replace(/布罗利/g, 'Brolly')
+    // console.log(res) // "hello Brolly hello Brolly hello Brolly"
+
+
+    // 字符串截取
+    // slice(x, y) 从索引x处开始，截取到索引y处（不包含索引y这一项）支持负数索引
+    // substr(x, n) 从索引x处开始，截取n个字符
+    // substring 从索引x处开始，截取到索引y处（不包含索引y这一项） 不支持负数索引
+    // var str = 'hello 布罗利'
+    // console.log(str.slice(1)) // "ello 布罗利"
+    // console.log(str.substr(1, 3)) // "ell"
+    // console.log(str.substring(1, 2)) // "e"e
+    
+    // 从起始索引 一直截取到末尾
+    // console.log(str.slice(1)) // "ello 布罗利"
+    // console.log(str.substr(1)) // "ello 布罗利"
+    // console.log(str.substring(1)) // "ello 布罗利"
+
+    // split() 根据指定分隔符拆分成数组
+    // 指定的分隔符是字符串中存在
+    // 把分隔符两边内容 作为数组中的每一项
+    var str = 'hello 布罗利 hello 布罗利'
+    str.split() // ["hello 布罗利 hello 布罗利"]
+    str.split('+') // ["hello 布罗利 hello 布罗利"]
+    str.split(' ') // ["hello", "布罗利", "hello", "布罗利"]
+    // 支持正则
+    var arr1 = str.split(' ')  // ["hello", "布罗利", "hello", "布罗利"]
+    arr1.join(' ') //  // 'hello 布罗利 hello 布罗利'
+
+    // str.split(' ').join(' ')
+    // 字符串和数组 可以互相转换
+
+    // 'hello 布罗利' 将字符串反转 '利罗布 olleh'
+    // 利用数组方法
+
+    // 将字符串中 小写字母转化为 大写
+    var str1 = 'hello 布罗利 hello 布罗利'
+    str1.toUpperCase() // "HELLO 布罗利 HELLO 布罗利"
+
+    // 将字符串中 大写字符转化为 小写
+    var str2 = "HELLO 布罗利 HELLO 布罗利"
+    str2.toLowerCase() // "hello 布罗利 hello 布罗利"
+
+    // 什么是字符串(length 索引)
+    // 字符串拼接
+    // 字符串截取 slice  substr substring
+    // 支持正则 match replace()
+    // 将字符串转化为数组 split()
+  </script>
+</body>
+</html>

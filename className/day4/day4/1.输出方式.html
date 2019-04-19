@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3 id="title"></h3>
+  <script>
+    // 页面中输出
+    // document.write('直接输出到body当中')
+
+    // 在页面元素中输出内容
+    var title = document.getElementById('title')
+    // console.log(typeof title) 
+    // 在元素对象中 内置了很多的属性方法供我们来使用
+    console.dir(title)
+    console.log(title)
+
+    // 将指定的内容 输出到页面元素当中
+    // innerHTML 识别标签内容
+    // innerText 不能识别标签内容 只能当做普通文本输出
+    // 语法
+    // 元素对象.innerHTML = '你好'
+    title.innerHTML = 123
+
+
+    // typeof 返回值
+    // "number" "string" "boolean" "object" "undefined" "function"
+    
+    // 数据类型检测
+    // typeof
+    // instanceof
+    // constructor
+    // Object.prototype.toString.call() 
+
+    if ([]) {
+
+    }
+    if (![]) {
+
+    }
+  </script>
+</body>
+</html>

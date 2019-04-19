@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+    <i>我是一个div</i>
+    <i>我是一个div</i>
+  </div>
+  <script>
+    // 对象 {}
+    // 用花括号包起来 
+    // { 
+    //   属性名1: 属性值,
+    //   属性名2：属性值
+    //   ...
+    // }
+
+    // 姓名：xxx
+    // 年级：三年二班
+    // 属性名（key）：属性值（value）
+    // var wan2 = {
+    //   name: '王二',
+    //   cla: '三年二班',
+    //   id: 1231111
+    // }
+
+    // console.log('对象', wan2)
+
+    // 对象里不能有重复属性 即使有 后面的属性会把前面的覆盖掉
+    var wan3 = {
+      name: '王三',
+      name: '王四',
+      name: '王四2',
+      name: '王四3'
+    }
+    console.log(wan3) // {name: "王四3"}
+
+    // var title = '习大大'
+    // var author = '头条'
+    // var content = '中国两会'
+
+    var text = {
+      title: '习大大',
+      author: '头条',
+      content: '中国两会'
+    }
+
+    // 对象数据的增删改查
+    
+    // 查询
+    // 在对象中查询某一个属性
+    // 1.对象名.属性名
+    // console.log(text.title) // '习大大'
+    // 2.对象名['属性名'] 注意加上引号 ''
+    // console.log(text['title']) // '习大大'
+
+    // 两种获取方式的区别
+    var obj = {
+      1: 'wo shi shu zi'
+    }
+    
+    // 第一种获取方式 不支持数字属性名
+    // 错误写法：console.log(obj.1)
+
+    // 数字属性名 加不加引号 无所谓
+    // console.log(obj[1]) // 'wo shi shu zi'
+    // console.log(obj['1']) // 'wo shi shu zi'
+    
+    // 查找一个不存在的属性 返回的是 undefined（未定义）
+    // console.log(obj.name)
+
+    // 修改
+    // 修改对象中某一个属性
+    // var info = {
+    //   id: 1,
+    //   name: 'wan3',
+    //   age: 18
+    // }
+    
+    // console.log('修改前', info)
+    // // info.age = 28
+    // info['age'] = 58
+    // console.log('修改后', info)
+
+    // 增加
+    // var info = {
+    //   id: 1
+    // }
+    
+    // 给info这对象增加一个属性 属性名name 属性值 '曾佳'
+    // info.name = '曾佳'
+    // info['uid'] = 110
+    // console.log(info) // {id: 1, name: "曾佳", uid: 110}
+
+    // 删除
+    // 删除对象中的某个属性
+    var per = {
+      name: 'tt',
+      id: 18
+    }
+
+    // 真删除 delete (删除操作符)
+    // delete per.name
+    // console.log(per)
+
+    // 假删除 属性依然存在 只是属性值置为 null（空值）
+    per.name = null
+    // console.log(per)
+
+    // 元素对象或者DOM对象
+    var b = document.getElementById('box')
+
+    // 我们获取到的元素 它是以对象的形式存在于JS中
+    // 在这个元素对象里 内置了很多属性方法供我们来操作
+    console.log(b)
+    console.dir(b)
+
+    console.log(typeof b) // "object"
+
+    // 元素对象.innerHTML
+    // 属于 根据对象获取一个属性
+    // console.log(b.innerHTML)
+    
+    
+    // 元素对象.innerHTML = 内容
+    // 修改一个对象的属性
+    b.innerHTML = '修改属性值'
+
+    
+  </script>
+</body>
+</html>

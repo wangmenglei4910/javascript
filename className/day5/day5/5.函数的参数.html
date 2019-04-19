@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 求和的函数
+  // function add() {
+  //   console.log(1 + 1)
+  // }
+  // 目前add这个函数 只能进行 1 + 1求和
+  // add(); // 2
+  // add(); // 2
+  // add(); // 2
+  // add(); // 2
+
+
+  // 函数在执行的时候 可用传递参数（往函数体里传递值）
+  // a 和 b 相当于在函数里声明了 两个变量
+  // a 和 b 用来接收 add函数执行时传递进来的参数
+  // function add(a, b) { // var a = 2  var b = 4
+  //   console.log(a, b)
+  // }
+  //
+  // // add(2, 4) // 函数执行的时候 传递了两个值 2, 4
+  // add(2, 4); // a = 2 b = 4  2, 4
+  // add(1, 2); // a = 1 b = 2  1, 2
+
+  // 形式上的参数：形参
+  // 形参的作用 用来接收 函数执行时 传递进来的 实参
+  // function say(a) { // a就是一个变量 它的值是啥 就取决于当前传递实参是啥
+  //   console.log(a)
+  // }
+  // // 传递进来的实际参数：实参
+  // say(1); // 1 形参a接收到实参是1 相当于var a = 1
+  // say(2); // 2 形参a接收到实参是2 相当于var a = 2
+  // say(3); // 3 形参a接收到实参是3 相当于var a = 3
+
+  // alert('传递的实参内容')
+
+  // 形参就是用来接收 传递进来实参 然后在函数里使用
+  // 形参和实参 一一对应的
+  // function add(a, b) { // var a  var b
+  //   console.log(a, b) // 也是个变量
+  // }
+  // add(1, 2); // 实参  a = 1 b = 2
+  // add(3, 4); // 实参  a = 3 b = 4
+
+  // 两个数 求和的函数
+
+  // function sum(a, b) { // 形参接收实参的
+  //   console.log(a + b)
+  // }
+  // sum(10, 20)
+
+  // 设置了形参 没有传递实参时候 这个形参变量是默认值undefined
+  // 相当于你声明了变量 没有赋值
+  // function sum(a, b) { // 形参接收实参的
+  //   console.log(a, b)
+  // }
+  // sum() // undefined undefined
+
+  // 形参和实参一一对应的
+  function sum(a, b) {
+    console.log(a, b)
+  }
+  sum(1) // a = 1  b = undefined
+
+  // 形参变量作用：
+  // 用来接收函数执行的时候 传递进来的实参(实际的值)
+
+  // 有多少个实参 就要设置多少个形参
+  function fe(a, b, c, d, e, f) {
+    console.log(a, b, c, d, e, f)
+  }
+  fe(1, 2, 3, 4, 5, 6)
+</script>
+</body>
+</html>

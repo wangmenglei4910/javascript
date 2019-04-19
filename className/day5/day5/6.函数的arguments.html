@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // arguments 实参集合(类数组) 函数执行的时候 你传递了多少个实参，这个集合中就有多个实参在里面
+  // 用来接收实参的
+
+  // function fe() {
+  //   // [10, 20, 30, 40, 50, 60, length: 6]
+  //   console.log(arguments); // 当前所有实参的集合
+  //   console.log(arguments.length); // 当前实参的个数
+  //
+  //   console.log(arguments[0]); // 第一个实参 10
+  //   console.log(arguments[1]); // 第二个实参 20
+  // }
+  // fe(10, 20, 30, 40, 50, 60)
+
+  // 接收函数的实参
+  // 1.形参
+  // 2.arguments对象（实参集合）
+
+  // 当需要接收的实参 多的时候 使用arguments更方便些
+  // function add(a, b) {
+  //   console.log(a, b); // 10 20
+  //   console.log(arguments) // [10, 20]
+  // }
+  // add(10, 20)
+
+  // arguments和形参 映射关系
+  // 一个变了另一个也跟着变了
+  function add(a, b) { // a = 10 b = 20
+    // 将arguments里 第一个实参 修改为100
+    arguments[0] = 100;
+    // 第一个形参的值 也会跟着变
+    console.log(a); // 100
+    console.log(arguments); // [100, 20]
+  }
+  add(10, 20) // 当函数执行的时候 会将形参和arguments 绑定到一起
+
+  function sum(a, b) {
+    console.log(a * b)
+  }
+  sum(10, 20)
+
+</script>
+</body>
+</html>

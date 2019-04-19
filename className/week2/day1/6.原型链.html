@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 原型链：对象.属性名(obj.xxx) 先看自身私有属性是否有，
+    // 如果私有属性中没有,根据自身__proto__找到当前所属类的原型（prototype），
+    // 如果原型上也也有，就根据原型对象的__proto__，继续向上查找
+    // 一直找到Object.prototype 如果也没有返回undefined
+
+    function Fn() {
+      this.name = 'hi'
+    }
+    // 给原型上添加属性
+    // Fn.prototype.say = 'nihao'
+    // Fn.prototype.title = 'JavaScript'
+
+    const f1 = new Fn() // f1.__proto__ = Fn.prototype（修改前）
+
+    // 批量添加 将原型对象重写 注意：手动把constructor添加上
+    
+    Fn.prototype = { // 自定义的一个对象
+      constructor: Fn, // 只有默认自带的原型对象 才有constructor属性
+      say: 'nihao',
+      title: 'JavaScript'
+    }
+
+    const f2 = new Fn() // f2.__proto__ = Fn.prototype（修改后）
+
+    console.log(f1.__proto__)
+    console.log(f2.__proto__)
+
+    // console.log(f.name) // 'hi'
+    // console.log(f.title) // 'JavaScript'
+    // console.log(f.toto) // undefined
+
+
+    //  typeof 不能检测对象数据类型
+    // instanceof 原型链 可以被修改的
+    // constructor 可以被修改
+    // Object.prototype.toSting.call()
+
+    // var arr = [1]
+    // Array.prototype.constructor = 123
+    // console.log(arr.constructor === Array) // 数组
+
+
+
+    // 面向过程
+    function eat() {
+      console.log('eat')
+    }
+
+    function drink() {
+      console.log('drink')
+    }
+
+    function sleep() {
+      console.log('sleep')
+    }
+
+    eat() // 吃就行了
+    drink() // 喝就行了
+    sleep() // 睡就行了
+
+    // 面向对象 OOP(面向对象编程)
+    function People(name) {
+      this.name = name
+    }
+    People.prototype.eat = function() {
+      console.log(this.name + ' 吃吃吃')
+    }
+    People.prototype.drink = function() {
+      console.log(this.name + 'hehehe')
+    }
+    People.prototype.sleep = function() {
+      console.log(this.name + '睡睡睡')
+    }
+
+    // 当前实例 就是当前主体
+    const wanghui = new People('王晖')
+    wanghui.eat() // 谁.吃
+
+    const chenlele = new People('陈乐乐')
+    chenlele.drink() // 谁.喝
+  </script>
+</body>
+</html>

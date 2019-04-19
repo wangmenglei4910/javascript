@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 检测一个值 属于什么类型
+    // JS中检测数据类型 四种方式
+    // typeof
+    // constructor
+    // instanceof
+    // Object.prototype.toString.call()
+
+    console.log(typeof 1) // "number"
+    console.log(typeof "abc") // "string"
+    console.log(typeof true) // "boolean"
+
+    // 代表的是一个 “无”的对象 空值 空对象指针 （特殊值）
+    console.log(typeof null) // "object"
+
+    console.log(typeof undefined) // "undefined"
+
+    typeof {id: 1} // "object"
+    typeof [1, 2, 3] // "object"
+    typeof /\d+/; // "object"
+    
+    // 定义一个函数
+    function fe() {}
+
+    typeof fe // "function"
+
+    // typeof 返回值
+    // "number" "string" "boolean" "undefined" "object" "function"
+
+    // typeof 缺点
+    // typeof 不能够具体细分 对象数据类型中 数组 正则 普通对象
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="./rest.css">
+  <style>
+    .flow {
+      display: flex;
+      /* align-items: stretch 默认占满整个容器高度 */
+      align-items: flex-start; 
+      width: 800px;
+      margin: 50px auto;
+    }
+
+    .flow > li {
+      width: 24%;
+      margin: 6px;
+    }
+
+    .flow > li a {
+      display: block;
+      color: #333333;
+      text-decoration: none;
+      border-radius: 6px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+      margin-bottom: 15px; 
+    }
+
+    .flow > li a img {
+      width: 100%;
+    }
+
+    .flow > li a .title {
+      padding: 8px;
+      color: #999999;
+    }
+
+  </style>
+</head>
+<body>
+  <ul id="flow" class="flow">
+    <li class="first">
+      <!-- <a href="https://www.baidu.com">
+        <img src="./images/loading.jpg" alt="">
+        <p>我是标题</p>
+      </a> -->
+    </li>
+    <li class="second">
+      <!-- <a href="https://www.baidu.com">
+        <img src="./images/loading.jpg" alt="">
+        <p>我是标题</p>
+      </a>
+      <a href="https://www.baidu.com">
+        <img src="./images/loading.jpg" alt="">
+        <p>我是标题</p>
+      </a> -->
+    </li>
+    <li class="third">
+      <!-- <a href="https://www.baidu.com">
+        <img src="./images/loading.jpg" alt="">
+        <p>我是标题</p>
+      </a>
+      <a href="https://www.baidu.com">
+        <img src="./images/loading.jpg" alt="">
+        <p>我是标题</p>
+      </a>
+      <a href="https://www.baidu.com">
+        <img src="./images/loading.jpg" alt="">
+        <p>我是标题</p>
+      </a> -->
+    </li>
+    <li class="fourth"></li>
+  </ul>
+  <script src="./utils.js"></script>
+  <!-- <script src="./index.js"></script> -->
+  <!-- <script src="./htmlstr.js"></script> -->
+  <script src="./htmldom.js"></script>
+</body>
+</html>

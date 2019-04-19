@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 千分符
+      // '2121345465.12' => 2,121,345,465.12
+      (2121345465.12).toLocaleString(); // "2,121,345,465.12"
+
+      // 2,121,345,465
+      // 5465 =>5,465 5后面跟着的是一个三位数
+      // 1345465 =>1,345465  1后面跟着的是两个三位数
+      // 2,121,345,465
+      //  var str = '2121345465';
+      //  var reg = /(\d)(?=(\d{3})+$)/g;
+
+      // 匹配的这个数字 它后面必须跟着的是 三位数
+      // 1345465
+      // (\d{3})三位数
+      // (\d{3})+ 可以连续出现多次的三位数
+      // (\d{3})+$ 是以这样的三位数为结尾
+
+      // var str = '26231237233';
+      // let reg = /\d(?=(?:\d{3})+$)/g
+      // let str2 = str.replace(reg, '$&,')
+      // console.log(str2)
+
+      // var str = '26231237233.12';
+      // let reg = /\d(?=(?:\d{3})+(\.\d+)?$)/g
+      // let str2 = str.replace(reg, '$&,')
+      // console.log(str2)
+
+      let str = "7123122123";
+      let reg = /\d(?=(\d{3})+(\.\d+)?$)/;
+      // $& 每一次正则捕获的内容
+      // $& => 7
+      // $& => 3
+      // $& => 2
+      let str2 = str.replace(reg, "$&,");
+      console.log(str2);
+
+      // let str2 = str.replace(reg, (a) => {
+      //   console.log(a)
+      //   return a + ','
+      // })
+
+      // 处理时间正则
+      // let reg1 = /(\d+)-(\d+)-(\d+) (\d+):(\d+):(\d+)/
+      // '2019-01-01 00:00:00'.replace(reg1, "$1年$2月$3日 $4时$5分$6秒")
+
+      // 处理url参数
+      // let reg2 = /([^?=&]+)=([^?&=]+)/g
+      // let params = {}
+      // let url = 'https://www.sogou.com/s?wd=123&age=20'
+      // url.replace(reg2, (a, b, c) => params[b] = c)
+
+      // 模板字符串
+      // let reg2 = /\{\{(.+?)\}\}/g
+      // let data = {name: 'zhufeng', age: 10}
+      // let str3 = '{{name}} -- {{age}}'.replace(reg2, (a, b) => data[b])
+      // console.log(str3)
+
+      // 千分符
+      // let reg3 = /\d(?=(\d{3})+(\.\d+)?$)/g
+      // console.log('12312313525.12'.replace(reg3, '$&,')) // "12,312,313,525.12"
+
+      // 每个单词首字母大写
+      // let str = "my name is brolly, hello world!";
+      // let str2 = str.replace(/\b([a-zA-Z])/g, a => a.toUpperCase());
+
+      // console.log(str2); // My Name Is Brolly, Hello World!
+
+      // 统计字符串中字母重复出现次数
+      // let s = 'aasdlfkj;;kajsd66sadff1233132'
+      // let obj = {}
+      // for(let i = 0; i < s.length; i++) {
+      //   let f = s[i]
+
+      //   if (!obj[f]) {
+      //     obj[f] = 1 // obj['a'] = 1
+      //     continue;
+      //   }
+      //   obj[f]++ // obj[f] = obj[f] + 1
+      // }
+      // console.log(obj)
+
+      // 将字符串转换为数字排序
+      let s = 'asdlfkj;;kajsd66sadff1233132'
+      // "112233366;;aaadddfffjjkklsss"
+      let ss = Array.from(s).sort().join('')
+      let obj = {}
+      let r = /([a-zA-Z])\1*/g
+      ss.replace(r, a => obj[a[0]] = a.length)
+      console.log(obj) // {a: 3, d: 3, f: 3, j: 2, k: 2, …}
+
+      // ss.replace(r, (a) => {
+      //   // "aaa"
+      //   console.log(a, a.length)
+      //   obj[a[0]] = a.length
+      // })
+
+    </script>
+  </body>
+</html>

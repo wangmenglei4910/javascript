@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box"></div>
+  <script>
+    // var a
+    // console.log(a) // undefined 是变量a的默认值
+     
+    // 变量未定义
+    // Uncaught ReferenceError: b is not defined
+    // at 9.简单了解字符串.html:14
+    console.log('b')
+
+    // 在JS中 字母 单词 汉字 默认情况都会当做变量来解析
+    // 如果这个变量 没有var 没有声明过 就会报错
+
+    // 汉字也可以当做变量
+    // var 我 = 520
+    // console.log(我)
+    // var 你 = '在JS中 字母 单词 汉字 默认情况都会当做变量来解析'
+    // console.log(你)
+
+    // '我' 字符串类型的值
+
+    // '' "" ``（ES6新增）
+    // ESC下面那个键 反引号
+    // 'abc'
+    // "abc"
+    // `abc`
+    console.log(typeof 'abc') // "string"
+    console.log(typeof "abc") // "string"
+    console.log(typeof `abc`) // "string"
+
+    // "my name is , I like "
+    var myName = 'zhufeng'
+    var fe = '前端'
+
+    // 字符串当中 默认情况 里面每一个都叫做字符
+    var str1 = "my name is myName, I like fe"
+    console.log(str1)
+    
+    // 字符串中拼接变量
+    // `${变量名/表达式}`
+    var str2 = `
+      my name is ${myName}, 
+      I like ${fe} 
+      1+2 = ${1 + 2}
+    `
+    console.log(str2)
+    var box1 = document.getElementById('box')
+    
+    // 将数据 拼接成html字符串
+    var str3 = `
+      <i>my name is ${myName},</i> 
+      <i>I like ${fe} </i>
+      <i>1+2 = ${1 + 2}</i>
+    `
+    // 将拼接好的html字符串 输出到页面中
+    box1.innerHTML = str3
+
+    // 字符串中如何拼接变量
+    // `${变量名}`
+  </script>
+</body>
+</html>

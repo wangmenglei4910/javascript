@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="box">
+  </div>
+  <div id="box2">
+  </div>
+  <h3>wo</h3>
+  <script>
+    // 面向对象（封装 继承 多态（重写、重载））
+    // 类：（内置类 自定义类）
+    // 实例：每个类中具体一个对象
+
+    // 人类：男人 女人 老人
+    // 内置类：Array String Number Function 等
+    // Array: [] [1, 2]
+    // String: '1' 'liwenli'
+
+
+    // 对于类都有一个自带的属性prototype(原型对象)
+    // 供自己实例 所使用公有的属性和方法（原型属性和方法）
+
+    // 数组类原型：存储都是数组实例使用公有方法 
+    console.log(Array.prototype)
+    // 字符串类原型：存储的都是供字符串使用的方法
+    console.log(String.prototype)
+    // 数字类原型：存储的都是供数字使用的方法
+    console.log(Number.prototype)
+
+    // 都属于数组类的实例
+    const arr1 = [1, 2]
+    const arr2 = [2, 3]
+
+    // 实例 如何 找到原型上的属性和方法
+    // push方法 存储在 数组类的原型对象上
+    // 数组实例 是怎么找到（原型链）
+    console.log(arr1.push === Array.prototype.push)
+
+    // 每个对象（实例对象 普通对象 函数对象），自身都有一个__proto__ 指向所属类的原型
+    // 原型链(描述如何查找一个属性)
+    // 当你 对象.属性名，先看自身是否有这个属性（私有属性），如果自身没有，
+    // 就根据__proto__ 找到所属类的原型，如果原型上也没有根据原型对象的__proto__，
+    // 一直找到Object(基类)的原型对象。
+    
+    // console.log(arr1.push === Array.prototype.push)
+
+    // console.log(arr1.__proto__ === Array.prototype)
+
+    // console.log(arr1.__proto__.__proto__ === Object.prototype)
+    // console.log(Array.prototype.__proto__ === Object.prototype)
+
+
+    const ary = [1]
+    // 给这个实例自身添加一个push属性（私有属性 实例属性）
+    ary.push = function() {
+      console.log('今天愚人节！')
+    }
+    // Array.prototype.push === ary.__proto__.push
+    // ary.push() // 先看自身 自身没有 才会根据原型链向上查找
+
+    Object.prototype.age = 18
+
+    var str = '1'
+    // console.log(str.age)
+
+    // str
+    // => str.__proto__(String.prototype)
+    // => str.__proto__.__proto__(String.prototype.__proto__ === Object.prototype)
+
+    // 原型对象：存储所属实例的公有属性和方法 push 类.prototype
+    // 实例对象：存储私有属性和方法
+    // 原型链：就是描述类和实例一种关联关系（属性查找机制）(实例.__proto__)
+
+    // 面向对象：万物皆对象
+    // 页面中HTML标签 就是以对象形式存在的
+    const box = document.getElementById('box')
+    const box2 = document.getElementById('box2')
+
+    // box => HTMLDivElement.prototype => HTMLElement.prototype => Element.prototype
+    console.log(box.getElementsByTagName === Element.prototype.getElementsByTagName)
+
+    // box2 => HTMLDivElement.prototype => HTMLElement.prototype => Element.prototype
+    console.log(box2.getElementsByTagName)
+
+
+
+    // 重写：子类改写父类上的属性和方法
+    // 重载：同一个接口（interface） 不同的实现
+
+    // // 重载：同一个函数 根据传递参数的不同 做不同的处理
+    // function add(n) {
+    //   if (typeof n === "string") {
+    //     return 'hello ' + n
+    //   } else if(typeof n === "number") {
+    //     return 10 + n
+    //   } else {
+    //     return n
+    //   }
+    // }
+
+  </script>
+</body>
+</html>

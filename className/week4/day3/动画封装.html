@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      position: absolute;
+      top: 20px;
+      left: 100px;
+      width: 100px;
+      height: 100px;
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="box" class="box"></div>
+<script src="./utils.js"></script>
+<script src="animate最终版.js"></script>
+<script>
+  const box = document.getElementById('box')
+
+  $animate({
+    ele: box,
+    target: {
+      left: 600
+    },
+    duration: 2000,
+    // effect: 'easeIn',
+    run() {
+      console.log('执行中')
+    },
+    before() {
+      console.log('执行前')
+      this.style.background = 'black'
+    },
+    after() {
+      console.log('执行后')
+      this.style.background = 'green'
+    }
+  })
+
+ // setTimeout(() => {
+ //   $animate({
+ //     ele: box,
+ //     target: {
+ //       left: 600
+ //     },
+ //     duration: 2000,
+ //     run() {
+ //       console.log('执行中')
+ //     },
+ //     before() {
+ //       console.log('执行前')
+ //       this.style.background = 'black'
+ //     },
+ //     after() {
+ //       console.log('执行后')
+ //       this.style.background = 'green'
+ //     }
+ //   })
+ // }, 2000)
+
+  // animate({
+  //   ele: box,
+  //   target: {
+  //     left: 100
+  //   }
+  // })
+
+
+  // animate({
+  //   ele: box,
+  //   target: {
+  //     // left: 600,
+  //     // top: 600,
+  //     opacity: 1,
+  //     width: 600,
+  //     height: 600
+  //   },
+  //   duration: 1000
+  // })
+</script>
+</body>
+</html>

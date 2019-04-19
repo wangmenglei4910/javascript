@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // push unshift
+
+    // push
+    // 作用：向数组末尾添加一项或者多项
+    // 返回值：添加后的数组长度
+    // 原数组 发生了改变 （修改原数组）
+    // var arr = [10, 20, 30]
+    
+    // console.log('添加前', arr) // [10, 20, 30]
+    // var res = arr.push(60)
+    // console.log('添加后', arr) // [10, 20, 30, 40, 50, 60]
+    // console.log('返回值', res) // 4
+
+    // unshift
+    // 作用：向数组开头添加一项或者多项
+    // 返回值：添加后的数组长度
+    // 修改了原数组
+    var arr = [10, 20, 30]
+   
+    console.log('添加前', arr) // [10, 20, 30]
+    var res = arr.unshift(1, 2)
+    console.log('添加后', arr) // [1, 2, 10, 20, 30]
+    console.log('返回值', res)
+
+
+  </script>
+</body>
+</html>

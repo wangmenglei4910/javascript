@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // https://www.baidu.com/s?wd=wenli&id=24
+
+      // https://box.maoyan.com/promovie/api/box/second.json
+      // 协议://域名/路径?查询字符串
+
+      // 查询字符串: ?参数名=参数值&参数名=参数值&参数名=参数值
+
+      // ?wd=wenli&id=24  => {wd: "wenli", id: 24}
+
+      // let url = 'https://www.baidu.com/s?wd=wenli&id=24'
+      let url =
+        "https://www.baidu.com/s?wd=%E7%99%BE%E5%BA%A6&rsv_spt=1&rsv_iqid=0xb67cb0840000f3bc&issp=1&f=8&rsv_bp=1&rsv_idx=2&ie=utf-8&rqlang=cn&tn=baiduhome_pg&rsv_enter=0&oq=vue&rsv_t=6babjh9kMd3aQtUraNwWM0bfzC5lnPlVkwqWVpOc2Ma898jqbZz9%2Byn76adAkylJ47pg&rsv_pq=ca645c620000ffb4";
+
+      // ?wd=wenli&id=24
+      let params = {};
+      let reg = /([^?=&]+)=([^?=&]+)/g;
+      url.replace(reg, (a, b, c) => (params[b] = c));
+      console.log(params);
+
+      String.getUrlParams = function (url) {
+        let params = {};
+        let reg = /([^?=&]+)=([^?=&]+)/g;
+        url.replace(reg, (a, b, c) => (params[b] = c));
+        return params
+      }
+
+      // www.baidu.com/s?wd=%E7%99%BE%E5%BA%A6
+
+      //wd=wenli
+      // ()=()
+      // let reg = /(\w+)=(\w+)/g
+      // let obj = {}
+      // url.replace(reg, (a, b, c) => {
+      //   obj[b] = c
+      // })
+      // console.log(obj) // {wd: "wenli", id: 24}
+    </script>
+  </body>
+</html>

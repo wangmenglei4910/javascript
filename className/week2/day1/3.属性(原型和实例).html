@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function Fn(name, sex) {
+      // this.xxx 就给当前实例添加属性
+      this.name = name
+      this.sex = sex
+      // return this
+    }
+
+    Fn.prototype.city = '承德'
+    Fn.prototype.say = function() {
+      console.log(`hello ${this.name}, I am ${this.sex}`)
+    }
+
+    const f1 = new Fn('Brolly', 'boy')
+    console.log(f1) // {name: 'Brolly', sex: 'boy'}
+    // console.log(f1 instanceof Fn) // true
+    console.log(f1.name) // 'Brolly'
+
+    const f2 = new Fn('Jenny', 'girl')
+    // 每一个实例 都是一个单独的个体（单独堆内存）
+    console.log(f1 === f2) // false
+
+    console.log(f2.name) // 'Jenny'
+
+    console.log(f1.say)
+    console.log(f2.say)
+    console.log(f1.say === f2.say)
+
+    // 判断属性是私有还公有的
+    // in 检测这属性是否存在于这个对象中（公私不分）
+    // 只要通过当前这个对象能找到这个属性 就返回true
+    // f1 {name: "Brolly", sex: "boy"}
+    // console.log('name' in f1)
+    // console.log('sex' in f1)
+    // console.log('city' in f1)
+    // console.log('say' in f1)
+
+    // 对象.hasOwnProperty('属性名')
+    // 检测这个属性是否是这个对象私有的
+    console.log(f1.hasOwnProperty('sex')) // true
+    console.log(f1.hasOwnProperty('city')) // false
+
+    // hasOwnProperty属性方法 是Object基类上提供的原型属性方法（公有属性方法）
+    console.log(f1.hasOwnProperty === Object.prototype.hasOwnProperty)
+    console.log(f2.hasOwnProperty === Object.prototype.hasOwnProperty)
+    
+    // 所有的对象数据类型（实例对象 普通对象 原型对象 函数对象（类 普通函数））都是Object这个基类的实例
+    // var arr = [1, 2, 3]
+    // console.log(arr.hasOwnProperty('0'))
+    // console.log(f1.hasOwnProperty('sex'))
+    // console.log(arr instanceof Object)
+    // console.log(f1 instanceof Object)
+  </script>
+</body>
+</html>

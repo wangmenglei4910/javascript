@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<ul id="news">
+  <li>item1</li>
+  <li>item2</li>
+  <li>item3</li>
+  <li>item4</li>
+  <li>item5</li>
+</ul>
+<script>
+  var list = document.querySelectorAll('#news>li');
+
+  // 当i = 0  list[0] => list[0].onclick = function () {console.log(this)}
+  // 当i = 1  list[1] => list[1].onclick = function () {console.log(this)}
+  // 当i = 2  list[2] => list[2].onclick = function () {console.log(this)}
+  for (var i = 0; i < list.length; i++) {
+    list[i].onclick = function () {
+      console.log('this', this)
+    }
+  }
+</script>
+</body>
+</html>

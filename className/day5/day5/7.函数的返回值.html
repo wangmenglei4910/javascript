@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  // 想在函数外面 拿到求和后的结果
+  // 返回值
+  // function add(a, b) {
+  //   return a + b
+  // }
+  // // 输入
+  // add(10, 20) // 往函数里传递参数
+
+  // function fe() {
+  //   return 2019
+  // }
+  // // 函数名加括号这个整体 也代表这个函数执行后返回值
+  // // console.log('fe', fe())
+  // // 将函数执行的结果 赋值给 外面变量res
+  // var res = fe()
+  // console.log(res)
+
+  // // return 后面跟着的是谁 就把谁返回到外面
+  // function add(a, b) { // a=10 b=20
+  //   return a + b // return 10 + 20
+  // }
+  // // 输入
+  // var res1 = add(10, 20);  // 往函数里传递参数
+  // console.log(res1); // 30
+  //
+  // var res2 = add(20, 30);
+  // console.log(res2) // 50
+
+  // return
+  // 指定返回值
+  // 终止函数执行
+  // function f() {
+  //   console.log(66)
+  //   return 1;
+  //   // return下面的代码不会执行
+  //   console.log(123)
+  //   console.log(123)
+  //   console.log(123)
+  // }
+  // f()
+
+  // 默认情况下 不指定返回值 返回值是undefined
+  function s() {
+    return 123;
+  }
+  // 函数名() 让函数执行 并且代表函数执行后的返回值
+  console.log(s())
+
+  // 如何定义函数
+  // 函数的调用 函数名()
+  // 函数传递参数 设置形参变量
+  // 函数的arguments对象 实参集合
+  // 函数的返回值  return 指定返回值 结束整个函数执行
+
+</script>
+</body>
+</html>

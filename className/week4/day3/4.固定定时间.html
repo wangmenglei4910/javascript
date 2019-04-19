@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      position: absolute;
+      top: 0;
+      left: 100px;
+      width: 100px;
+      height: 100px;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="box" class="box"></div>
+  <script src="./utils.js"></script>
+  <script>
+     const { win, css } = window._utils
+     const box = document.getElementById('box')
+     
+     // 过渡时间（总时间）
+     const duration = 2000
+
+     // 目标值
+     const target = 800
+
+     // 起始值
+     const begin = css(box, 'left')
+
+     // 总移动距离 = 目标值 - 起始值
+     // 有当前位置开始 需要移动的距离
+     const change = target - begin
+    
+     let time = 0 // 记录时间
+     const interval = 15
+     const timerId = setInterval(() => {
+       time += interval
+       if (time >= duration) {
+         console.log(time, '下机')
+         css(box, 'left', target)
+         clearInterval(timerId)
+         return
+       }
+
+       // 根据当前时间 推导出 当前的left值
+      let curLeft = easeIn(time, begin, change, duration)
+      css(box, 'left', curLeft)  
+     }, interval)
+
+     function easeIn (t, b, c, d, s) {
+        if (s == undefined) s = 1.70158
+        return c * (t /= d) * t * ((s + 1) * t - s) + b
+      }
+
+     function easeInOut(t, b, c, d) {
+        if ((t /= d / 2) < 1) {
+          return (c / 2) * t * t + b
+        }
+        return (-c / 2) * (--t * (t - 2) - 1) + b
+      }
+
+     function easeOut(t, b, c, d) {
+        if ((t /= d) < 1 / 2.75) {
+          return c * (7.5625 * t * t) + b
+        } else if (t < 2 / 2.75) {
+          return c * (7.5625 * (t -= 1.5 / 2.75) * t + 0.75) + b
+        } else if (t < 2.5 / 2.75) {
+          return c * (7.5625 * (t -= 2.25 / 2.75) * t + 0.9375) + b
+        } else {
+          return c * (7.5625 * (t -= 2.625 / 2.75) * t + 0.984375) + b
+        }
+      }
+
+     /** 匀速运动公式
+      * @param t 当前时间
+      * @param b 起始位置
+      * @param c 总移动距离
+      * @param d 总时间
+      * @return 当前所在的位置
+     */
+    //  function linear(t, b, c, d) {
+    //    return t * (c / d) + b
+    //  }
+     //  当前路程 = 当前时间 * (总路程/总时间) + 起始位置
+
+     // 总路程dis 总时间duration 当前时间time 当前路程（未知）
+     // 总时间/总路程 = 当前时间/当前路程
+     // 当前路程 = 当前时间 / (总时间/总路程) + 起始位置
+     // 当前路程 = 当前时间 * (总路程/总时间) + 起始位置
+     // a = b/x
+     // x = b/a
+     
+
+     // 
+     // 总时间duration（过渡时间）
+     // 总移动距离chaneg = 目标位置 - 起始位置
+     // 起始位置 begin
+     // 当前时间 time
+     linear(time, begin, change, duration)
+     function linear(t, b, c, d) {
+       return t * (c / d) + b
+     }
+  </script>
+</body>
+</html>

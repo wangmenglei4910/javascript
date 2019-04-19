@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>面向对象</title>
+</head>
+<body>
+<btutton id="btn">按钮</btutton>
+<script>
+  // 面向对象：
+  // 1. 创建对象的方式
+  // 1.1 单例模式：把描述一个事物的属性封装到一个对象中，解决了一个全局变量命名冲突的问题。这个对象的变量名叫做命名空间，原理：不同的堆内存空间相互隔离的；【高级单例模式：】
+  var obj = {
+    name: '珠峰',
+    age: '11'
+  };
+  var obj2 = (function () { // 高级单例模式
+    var name = '珠峰';
+    var age = '11';
+    var oneOfTeachers = 'mabin';
+    return {
+      name,
+      age
+    }
+  })();
+  // 1.2 单例模式不能批量生产对象，所以产生了工厂模式；将创建一个对象需要的属性都封装成了一个函数，当需要创建的对象时执行这个函数即可。
+  function person(name, age, beautify) {
+    return {
+      name: name,
+      age: age,
+      beautify: beautify
+    }
+  }
+  var p1 = person('MaHuateng', '40', 'handsome');
+  var p2 = person('Mabin', '18', 'handsome'); // p1和p2是不是两个不同的对象
+  
+  // 1.3 工厂模式虽然解决了不能批量生产对象的问题，但是存在不能实例 区分，即没有类型的概念；所以，我们引入了自定义类型的构造函数模式。
+  function Wealth(name, age) {
+    var a = 13;
+    this.name = name;
+    this.age = age;
+  }
+  var w1 = new Wealth('MaHuateng', '40');
+  console.log(w1); // Wealth {....}
+  // 1.4 构造函数模式虽然解决了实例区分，有了类型的概念，但是它不能实现共有属性和方法共有。所以我们引入了原型模式（基于函数的原型对象prototype）
+  function Foo() {
+    this.name = 'foo';
+    this.age = '18';
+  }
+  Foo.prototype.getName = function () {
+    // 每一个实例都应该调取getName方法，将getName方法定义到原型上就可以实现。
+    console.log(this.name);
+  };
+  var f = new Foo();// {name: 'foo', age:...}
+  f.getName();
+  var f1 = new Foo(); // {name: 'foo', ...}
+  f1.getName();
+
+  // 2. 类、实例、对象三者之间的关系
+  // 每一个函数（普通函数、构造函数）都有天生自带的属性prototype（原型对象）；
+  // 每一个实例都是一个对象，每一个对象（普通对象、实例、原型对象）都有一个天生自带的属性__proto__，指向当前实例所属类的原型（prototype）。
+  // 每一个原型对象都是对象数据类型，天生自带两个属性：constructor/__proto__；constructor指向所属类本身，__proto__指向当前原型对象所属类的原型。
+
+  // 3. this 指向
+  // 3.1 事件函数中的this指向绑定当前事件的元素
+  // 3.2 自执行函数中的this是window
+  // 3.3 定时器中this也是window
+  // 3.4 方法调用时（函数名()）this指向，看方法调用时前面有没有 . 如果有，点前面是谁，this就指向谁，如果没有就指向window。要注意 [] 问题(通过对象[属性名]取得一个方法和对象.属性名取得方法是等价的)。
+  // 3.5 构造函数中的this指向当前构造函数的实例
+  // 3.6 箭头函数中的this指向箭头函数声明时所在作用域中的this
+  // 3.7 全局作用域中的this就是window
+  // 3.8 call/apply/bind 指定this后，this就指向了他们三个指定的this
+  var btn = document.getElementById('btn');
+  btn.onclick = function () {
+    console.log(this); // btn 元素对象
+  };
+  setTimeout(function () {
+    console.log(this); // this 指向window
+  }, 1000);
+
+  var obj = {
+    num: 12,
+    fn: function () {
+      console.log(this.num);
+    },
+    1: function () {
+      console.log(1);
+    }
+  };
+  obj.fn(); // 12
+  obj['fn'](); // 12
+
+  var a = 13;
+  let arrow = () => {
+    var a = 12;
+    return () => {
+      console.log(this.a);
+    }
+  };
+
+  // 4. 原型链：对象的属性查找机制。当我们访问一个对象的某个属性时，浏览器首先会在这个对象的私有属性中查找，如果找到就使用这个私有属性，如果私有属性没有，通过对象的__proto__向当前实例所属的类的prototype上查找，如果找到就使用prototype上的属性，如果还没有找到，就使用prototype的__proto__继续向上查找，一直找到Object.prototype为止，如果还找不到就返回undefined。
+
+  // 5. call/apply/bind 修改函数中this指向的
+  // call/apply 修改完this之后会执行方法，而bind只修改this不执行方法。
+  // call传参是一个一个的传递，而apply是传递一个数组
+
+  // 6. 求数组最大值、最小值
+  let max = Math.max.apply(null, [1, 5, 2, 4]);
+  let min = Math.min.apply(null, [1, 5, 2, 4]);
+
+  // 7. 类数组转数组
+  // 7.1 for 循环
+  // 7.2 Array.from(类数组)
+  // 7.3 [].slice.call(类数组)
+  // 7.4 [...类数组]
+
+  // 8. 箭头函数和普通函数，使用时务必考虑清楚this指向
+  // 8.1 没有arguments、this
+  // 8.2 没有原型
+  // 8.3 箭头函数可以使用剩余参数
+  // 8.4 声明箭头函数时只有一个参数，小括号可以省略 a => {return a}
+  // 8.5 如果函数体只有一行代码，花括号和return关键字也可以省略 a => a
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
